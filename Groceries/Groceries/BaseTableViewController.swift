@@ -8,16 +8,14 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
-//	var rowCount: Int!
-//	var sectionCount: Int!
-//	
-//	init(rowCount: Int?, sectionCount: Int?, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-//		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//		guard let rowCount = rowCount else {
-//			return
-//		}
-//	}
+class BaseTableViewController: UITableViewController {
+	var sectionTitles: [String]?
+	var rowContent: [Row]!
+	
+	override init(style: UITableViewStyle) {
+		super.init(style: style)
+		tableView.register(UINib(nibName: "BaseTableViewCell", bundle: nil), forCellReuseIdentifier: "BaseTableViewCell")
+	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -39,26 +37,27 @@ class TableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+		guard let sectionTitles = self.sectionTitles else {
+			return 0
+		}
+		
+		return sectionTitles.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+		guard let rowContent = self.rowContent else {
+			return 0
+		}
+		
+		return rowContent.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTableViewCell", for: indexPath) as! BaseTableViewCell
+		cell.configureCell(row: rowContent[indexPath.row])
+		return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

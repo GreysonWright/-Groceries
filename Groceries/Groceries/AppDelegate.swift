@@ -14,7 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		let homeTVC = HomeTableViewController(style: .plain)
+		let homeNC = UINavigationController(rootViewController: homeTVC)
+		
+		let listTVC = ListTableViewController(style: .plain)
+		let	listNC = UINavigationController(rootViewController: listTVC)
+		
+		let profileTVC = ProfileTableViewController(style: .plain)
+		let profileNC = UINavigationController(rootViewController: profileTVC)
+		
 		let tabBarController = UITabBarController()
+		tabBarController.viewControllers = [homeNC, listNC, profileNC]
+		
+		UINavigationBar.appearance().barTintColor = UIColor(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
+		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+		UITabBar.appearance().tintColor = UIColor(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
+		
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.rootViewController = tabBarController
 		window?.makeKeyAndVisible()
