@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let homeTVC = HomeTableViewController(style: .plain)
 		let homeNC = UINavigationController(rootViewController: homeTVC)
 		
+		let browseTVC = BrowseTableViewController(style: .plain)
+		let browseNC = UINavigationController(rootViewController: browseTVC)
+		
 		let listTVC = ListTableViewController(style: .plain)
 		let	listNC = UINavigationController(rootViewController: listTVC)
 		
@@ -24,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let profileNC = UINavigationController(rootViewController: profileTVC)
 		
 		let tabBarController = UITabBarController()
-		tabBarController.viewControllers = [homeNC, listNC, profileNC]
+		tabBarController.viewControllers = [homeNC, browseNC, listNC, profileNC]
 		
 		UINavigationBar.appearance().barTintColor = UIColor(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
 		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]

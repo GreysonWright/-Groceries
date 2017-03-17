@@ -14,7 +14,7 @@ class ProfileTableViewController: BaseTableViewController {
 		
 		title = "Profile"
 		sectionTitles = ["Test"]
-		rowContent = [Row(image: nil, title: "test", description: "test desc", accessoryType: .disclosureIndicator)]
+		rowContent = [Row(image: nil, title: "test", description: nil, accessoryType: .disclosureIndicator)]
 		tabBarItem.image = UIImage(named: "Profile")
 	}
 	

@@ -9,7 +9,6 @@
 import UIKit
 
 class BaseTableViewCell: UITableViewCell {
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,11 +16,13 @@ class BaseTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 	
 	func configureCell(row: Row) {
-		
+		imageView?.image = row.image
+		textLabel?.text = row.title
+		detailTextLabel?.text = row.description
+		accessoryType = row.accessoryType
 	}
 }

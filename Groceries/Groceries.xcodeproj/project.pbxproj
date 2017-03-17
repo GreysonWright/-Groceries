@@ -19,6 +19,7 @@
 		2E0BE51A1E6B71B300E08DC1 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE5191E6B71B300E08DC1 /* ListTableViewController.swift */; };
 		2E0BE51C1E6B71CE00E08DC1 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE51B1E6B71CE00E08DC1 /* ProfileTableViewController.swift */; };
 		2E0BE51E1E6B736100E08DC1 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE51D1E6B736100E08DC1 /* Row.swift */; };
+		2E604F251E7C7A2E00C65634 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F241E7C7A2E00C65634 /* BrowseTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2E0BE5191E6B71B300E08DC1 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		2E0BE51B1E6B71CE00E08DC1 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		2E0BE51D1E6B736100E08DC1 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		2E604F241E7C7A2E00C65634 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				2E0BE50C1E6B532400E08DC1 /* BaseTableViewController.swift */,
 				2E0BE5111E6B680100E08DC1 /* HomeTableViewController.swift */,
+				2E604F241E7C7A2E00C65634 /* BrowseTableViewController.swift */,
 				2E0BE5191E6B71B300E08DC1 /* ListTableViewController.swift */,
 				2E0BE51B1E6B71CE00E08DC1 /* ProfileTableViewController.swift */,
 			);
@@ -304,6 +307,7 @@
 				2E0BE51C1E6B71CE00E08DC1 /* ProfileTableViewController.swift in Sources */,
 				2E0BE5151E6B6C6400E08DC1 /* BaseTableViewCell.swift in Sources */,
 				2E0BE5121E6B680100E08DC1 /* HomeTableViewController.swift in Sources */,
+				2E604F251E7C7A2E00C65634 /* BrowseTableViewController.swift in Sources */,
 				2E0BE4DF1E6B4D3D00E08DC1 /* AppDelegate.swift in Sources */,
 				2E0BE51A1E6B71B300E08DC1 /* ListTableViewController.swift in Sources */,
 				2E0BE51E1E6B736100E08DC1 /* Row.swift in Sources */,
@@ -552,6 +556,7 @@
 				2E0BE5051E6B4D3D00E08DC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E0BE5061E6B4D3D00E08DC1 /* Build configuration list for PBXNativeTarget "GroceriesTests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +565,7 @@
 				2E0BE5081E6B4D3D00E08DC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E0BE5091E6B4D3D00E08DC1 /* Build configuration list for PBXNativeTarget "GroceriesUITests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +574,7 @@
 				2E0BE50B1E6B4D3D00E08DC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

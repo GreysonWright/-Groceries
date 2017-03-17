@@ -1,21 +1,21 @@
 //
-//  HomeTableViewController.swift
+//  BrowseTableViewController.swift
 //  Groceries
 //
-//  Created by Greyson Wright on 3/4/17.
+//  Created by Greyson Wright on 3/17/17.
 //  Copyright © 2017 Greyson Wright. All rights reserved.
 //
 
 import UIKit
 
-class HomeTableViewController: BaseTableViewController {
+class BrowseTableViewController: BaseTableViewController {
 	override init(style: UITableViewStyle) {
 		super.init(style: style)
 		
-		title = "Home"
+		title = "Browse"
 		sectionTitles = ["Test"]
 		rowContent = [Row(image: nil, title: "test", description: nil, accessoryType: .disclosureIndicator)]
-		tabBarItem.image = UIImage(named: "Home")
+		tabBarItem.image = UIImage(named: "Search")
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
