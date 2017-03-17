@@ -13,8 +13,8 @@ class HomeTableViewController: BaseTableViewController {
 		super.init(style: style)
 		
 		title = "Home"
-		sectionTitles = ["Test"]
-		rowContent = [Row(image: nil, title: "test", description: nil, accessoryType: .disclosureIndicator)]
+		sectionTitles = [nil]
+		rowContent = [0 : [Row(height: nil, image: nil, title: "test", description: nil, accessoryType: .disclosureIndicator)]]
 		tabBarItem.image = UIImage(named: "Home")
 	}
 	

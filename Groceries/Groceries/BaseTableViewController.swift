@@ -9,8 +9,8 @@
 import UIKit
 
 class BaseTableViewController: UITableViewController {
-	var sectionTitles: [String]?
-	var rowContent: [Row]!
+	var sectionTitles: [String?]?
+	var rowContent: [Int : [Row]]?
 	
 	override init(style: UITableViewStyle) {
 		super.init(style: style)
@@ -45,17 +45,36 @@ class BaseTableViewController: UITableViewController {
 		return sectionTitles.count
     }
 
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return sectionTitles![section]
+	}
+	
+//	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//		let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
+//		let titleLabel = UILabel(frame: view.frame)
+//		titleLabel.text = sectionTitles![section]
+//		return view
+//	}
+	
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		guard let rowContent = self.rowContent else {
 			return 0
 		}
 		
-		return rowContent.count
+		return rowContent[section]!.count
     }
 
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		guard let height = rowContent![indexPath.section]![indexPath.row].height else {
+			return 44.0
+		}
+		
+		return height
+	}
+	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTableViewCell", for: indexPath) as! BaseTableViewCell
-		cell.configureCell(row: rowContent[indexPath.row])
+		cell.configureCell(row: rowContent![indexPath.section]![indexPath.row])
 		return cell
     }
 

@@ -10,12 +10,14 @@ import Foundation
 import UIKit
 
 class Row {
+	var height: CGFloat?
 	var image: UIImage?
 	var title: String?
 	var description: String?
 	var accessoryType: UITableViewCellAccessoryType
 	
-	init(image: UIImage?, title: String?, description: String?, accessoryType: UITableViewCellAccessoryType) {
+	init(height: CGFloat?, image: UIImage?, title: String?, description: String?, accessoryType: UITableViewCellAccessoryType) {
+		self.height = height
 		self.image = image
 		self.title = title
 		self.description = description

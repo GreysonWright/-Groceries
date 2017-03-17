@@ -9,12 +9,16 @@
 import UIKit
 
 class ProfileTableViewController: BaseTableViewController {
+	func setupCells() {
+		
+	}
+	
 	override init(style: UITableViewStyle) {
 		super.init(style: style)
 		
 		title = "Profile"
 		sectionTitles = ["Test"]
-		rowContent = [Row(image: nil, title: "test", description: nil, accessoryType: .disclosureIndicator)]
+		rowContent = [0 : [Row(height: nil, image: nil, title: "test", description: nil, accessoryType: .disclosureIndicator)]]
 		tabBarItem.image = UIImage(named: "Profile")
 	}
 	

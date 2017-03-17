@@ -14,7 +14,7 @@ class ListTableViewController: BaseTableViewController {
 		
 		title = "My Lists"
 		sectionTitles = ["Test"]
-		rowContent = [Row(image: nil, title: "test", description: nil, accessoryType: .disclosureIndicator)]
+		rowContent = [0 : [Row(height: nil, image: nil, title: "test", description: nil, accessoryType: .disclosureIndicator)]]
 		tabBarItem.image = UIImage(named: "List")
 	}
 	
