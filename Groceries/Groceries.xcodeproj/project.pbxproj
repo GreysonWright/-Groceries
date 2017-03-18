@@ -20,6 +20,10 @@
 		2E0BE51C1E6B71CE00E08DC1 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE51B1E6B71CE00E08DC1 /* ProfileTableViewController.swift */; };
 		2E0BE51E1E6B736100E08DC1 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE51D1E6B736100E08DC1 /* Row.swift */; };
 		2E604F251E7C7A2E00C65634 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F241E7C7A2E00C65634 /* BrowseTableViewController.swift */; };
+		2E604F591E7CBF5800C65634 /* Depot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F551E7CBF5800C65634 /* Depot.swift */; };
+		2E604F5A1E7CBF5800C65634 /* LocalDBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F561E7CBF5800C65634 /* LocalDBData.swift */; };
+		2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F571E7CBF5800C65634 /* TestData.swift */; };
+		2E604F5C1E7CBF5800C65634 /* WebserviceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F581E7CBF5800C65634 /* WebserviceData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		2E0BE51B1E6B71CE00E08DC1 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		2E0BE51D1E6B736100E08DC1 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		2E604F241E7C7A2E00C65634 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
+		2E604F551E7CBF5800C65634 /* Depot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Depot.swift; sourceTree = "<group>"; };
+		2E604F561E7CBF5800C65634 /* LocalDBData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDBData.swift; sourceTree = "<group>"; };
+		2E604F571E7CBF5800C65634 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		2E604F581E7CBF5800C65634 /* WebserviceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,7 @@
 			children = (
 				2E0BE4DE1E6B4D3D00E08DC1 /* AppDelegate.swift */,
 				2E0BE51D1E6B736100E08DC1 /* Row.swift */,
+				2E604F2A1E7CBF1B00C65634 /* Libs */,
 				2E0BE5171E6B6C6800E08DC1 /* Views */,
 				2E0BE50E1E6B532A00E08DC1 /* Controllers */,
 				2E0BE4E51E6B4D3D00E08DC1 /* Assets.xcassets */,
@@ -165,6 +174,25 @@
 				2E0BE5141E6B6C6400E08DC1 /* BaseTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		2E604F2A1E7CBF1B00C65634 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				2E604F541E7CBF5800C65634 /* Depot */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		2E604F541E7CBF5800C65634 /* Depot */ = {
+			isa = PBXGroup;
+			children = (
+				2E604F551E7CBF5800C65634 /* Depot.swift */,
+				2E604F561E7CBF5800C65634 /* LocalDBData.swift */,
+				2E604F571E7CBF5800C65634 /* TestData.swift */,
+				2E604F581E7CBF5800C65634 /* WebserviceData.swift */,
+			);
+			path = Depot;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,7 +332,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E604F5C1E7CBF5800C65634 /* WebserviceData.swift in Sources */,
 				2E0BE51C1E6B71CE00E08DC1 /* ProfileTableViewController.swift in Sources */,
+				2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */,
 				2E0BE5151E6B6C6400E08DC1 /* BaseTableViewCell.swift in Sources */,
 				2E0BE5121E6B680100E08DC1 /* HomeTableViewController.swift in Sources */,
 				2E604F251E7C7A2E00C65634 /* BrowseTableViewController.swift in Sources */,
@@ -312,6 +342,8 @@
 				2E0BE51A1E6B71B300E08DC1 /* ListTableViewController.swift in Sources */,
 				2E0BE51E1E6B736100E08DC1 /* Row.swift in Sources */,
 				2E0BE50D1E6B532400E08DC1 /* BaseTableViewController.swift in Sources */,
+				2E604F591E7CBF5800C65634 /* Depot.swift in Sources */,
+				2E604F5A1E7CBF5800C65634 /* LocalDBData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
