@@ -41,10 +41,6 @@ class WebserviceData: NSObject, DepotInterface {
         super.init()
     }
     
-    func getString() -> String {
-        return "A test string from the test webservice class"
-    }
-    
     func getAsyncString(name: String, response: @escaping ((String) -> Void)) {
         DispatchQueue.main.async {
             sleep(2)

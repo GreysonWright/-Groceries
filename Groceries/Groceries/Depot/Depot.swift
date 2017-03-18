@@ -38,8 +38,7 @@ enum DataSources {
 
 
 //MARK: Protocol
-@objc protocol DepotInterface{
-    func getString() -> String
+protocol DepotInterface{
     func getAsyncString(name: String, response: @escaping ((String) -> Void))
 }
 
@@ -58,7 +57,7 @@ public class DepotSingleton {
     
     // Init and Init Helpers
 	fileprivate init() {
-        self.dataSource = dataSourceForType(source: self.dataSourceType)
+        dataSource = dataSourceForType(source: dataSourceType)
     }
 	
 	// Datasource
@@ -76,16 +75,12 @@ public class DepotSingleton {
     }
     
     func setNewDataSource(source: DataSources) {
-        self.dataSourceType = source
-        self.dataSource = dataSourceForType(source: source)
+        dataSourceType = source
+        dataSource = dataSourceForType(source: source)
     }
     
-    //MARK: Callbacks
-    func getString() -> String? {
-        return self.dataSource?.getString()
-    }
-    
+    //MARK: Callbacks    
     func getAsyncString(name: String, response: @escaping ((String) -> Void)) {
-        return self.dataSource!.getAsyncString(name: name, response: response)
+        return dataSource!.getAsyncString(name: name, response: response)
     }
 }
