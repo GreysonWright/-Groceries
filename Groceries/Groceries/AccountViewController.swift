@@ -10,6 +10,8 @@ import UIKit
 
 class AccountViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
+	let cellNibName = "BaseTableViewCell"
+	let reuseIdentifier = "BaseCell"
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -25,20 +27,24 @@ class AccountViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// Do any additional setup after loading the view.
+		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
+}
+
+// MARK: - UITableView
+extension AccountViewController {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 0
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "AccountCell")
-		return cell!
+		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+		return cell
 	}
 }
+

@@ -10,6 +10,8 @@ import UIKit
 
 class InventoryViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
+	let cellNibName = "BaseTableViewCell"
+	let reuseIdentifier = "BaseCell"
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -25,12 +27,19 @@ class InventoryViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// Do any additional setup after loading the view.
+		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
+	}
+}
+
+// MARK: - UITableView
+extension InventoryViewController {
+	func setupTableView() {
+		
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,7 +47,7 @@ class InventoryViewController: UIViewController {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell")
-		return cell!
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BaseCell", for: indexPath)
+		return cell
 	}
 }

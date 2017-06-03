@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3sS-0f-Tgw">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3sS-0f-Tgw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="3ZT-Gi-0sP"/>
@@ -32,7 +32,7 @@
             <constraints>
                 <constraint firstItem="3sS-0f-Tgw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NsZ-40-qKV"/>
                 <constraint firstAttribute="bottom" secondItem="3sS-0f-Tgw" secondAttribute="bottom" id="UUO-xF-2oS"/>
-                <constraint firstItem="3sS-0f-Tgw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="eeT-Xy-ptF"/>
+                <constraint firstItem="3sS-0f-Tgw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eeT-Xy-ptF"/>
                 <constraint firstAttribute="trailing" secondItem="3sS-0f-Tgw" secondAttribute="trailing" id="jJw-Wl-p0G"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="54.5"/>

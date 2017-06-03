@@ -19,6 +19,14 @@
 		2E5404BB1EE356D300CCDF3A /* InventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404B91EE356D300CCDF3A /* InventoryViewController.xib */; };
 		2E5404BE1EE356EE00CCDF3A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404BC1EE356EE00CCDF3A /* AccountViewController.swift */; };
 		2E5404BF1EE356EE00CCDF3A /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404BD1EE356EE00CCDF3A /* AccountViewController.xib */; };
+		2E5404C21EE35F9300CCDF3A /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404C01EE35F9300CCDF3A /* BaseTableViewCell.swift */; };
+		2E5404C31EE35F9300CCDF3A /* BaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404C11EE35F9300CCDF3A /* BaseTableViewCell.xib */; };
+		2E5404C61EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404C41EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift */; };
+		2E5404C71EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404C51EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib */; };
+		2E5404CB1EE3618F00CCDF3A /* UITableView+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */; };
+		2E5404CD1EE3689000CCDF3A /* UICollectionView+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */; };
+		2E5404D11EE3697900CCDF3A /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404CF1EE3697900CCDF3A /* BaseCollectionViewCell.swift */; };
+		2E5404D21EE3697900CCDF3A /* BaseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404D01EE3697900CCDF3A /* BaseCollectionViewCell.xib */; };
 		2E604F591E7CBF5800C65634 /* Depot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F551E7CBF5800C65634 /* Depot.swift */; };
 		2E604F5A1E7CBF5800C65634 /* LocalDBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F561E7CBF5800C65634 /* LocalDBData.swift */; };
 		2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F571E7CBF5800C65634 /* TestData.swift */; };
@@ -64,6 +72,14 @@
 		2E5404B91EE356D300CCDF3A /* InventoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryViewController.xib; sourceTree = "<group>"; };
 		2E5404BC1EE356EE00CCDF3A /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		2E5404BD1EE356EE00CCDF3A /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		2E5404C01EE35F9300CCDF3A /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		2E5404C11EE35F9300CCDF3A /* BaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseTableViewCell.xib; sourceTree = "<group>"; };
+		2E5404C41EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		2E5404C51EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NestedCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Setup.swift"; sourceTree = "<group>"; };
+		2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Setup.swift"; sourceTree = "<group>"; };
+		2E5404CF1EE3697900CCDF3A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		2E5404D01EE3697900CCDF3A /* BaseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseCollectionViewCell.xib; sourceTree = "<group>"; };
 		2E604F551E7CBF5800C65634 /* Depot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Depot.swift; sourceTree = "<group>"; };
 		2E604F561E7CBF5800C65634 /* LocalDBData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDBData.swift; sourceTree = "<group>"; };
 		2E604F571E7CBF5800C65634 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
@@ -195,6 +211,8 @@
 		2E0BE5181E6B6C7000E08DC1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2E5404CE1EE3695C00CCDF3A /* TableView */,
+				2E5404D31EE3698500CCDF3A /* CollectionView */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -207,9 +225,31 @@
 			name = Webservice;
 			sourceTree = "<group>";
 		};
+		2E5404CE1EE3695C00CCDF3A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				2E5404C01EE35F9300CCDF3A /* BaseTableViewCell.swift */,
+				2E5404C11EE35F9300CCDF3A /* BaseTableViewCell.xib */,
+				2E5404C41EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift */,
+				2E5404C51EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		2E5404D31EE3698500CCDF3A /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				2E5404CF1EE3697900CCDF3A /* BaseCollectionViewCell.swift */,
+				2E5404D01EE3697900CCDF3A /* BaseCollectionViewCell.xib */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
 		2E604F2A1E7CBF1B00C65634 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */,
+				2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */,
 				2E4871CA1EAA635F00601BDB /* Webservice */,
 				2E604F541E7CBF5800C65634 /* Depot */,
 			);
@@ -359,9 +399,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E5404C31EE35F9300CCDF3A /* BaseTableViewCell.xib in Resources */,
+				2E5404C71EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib in Resources */,
 				2E0BE4E91E6B4D3D00E08DC1 /* LaunchScreen.storyboard in Resources */,
 				2E5404BB1EE356D300CCDF3A /* InventoryViewController.xib in Resources */,
 				2E0BE4E61E6B4D3D00E08DC1 /* Assets.xcassets in Resources */,
+				2E5404D21EE3697900CCDF3A /* BaseCollectionViewCell.xib in Resources */,
 				2E5404B71EE356B100CCDF3A /* HomeViewController.xib in Resources */,
 				2E5404BF1EE356EE00CCDF3A /* AccountViewController.xib in Resources */,
 			);
@@ -527,13 +570,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E604F5C1E7CBF5800C65634 /* WebserviceData.swift in Sources */,
+				2E5404D11EE3697900CCDF3A /* BaseCollectionViewCell.swift in Sources */,
 				2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */,
+				2E5404C61EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift in Sources */,
 				2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */,
 				2E0BE4DF1E6B4D3D00E08DC1 /* AppDelegate.swift in Sources */,
 				2E604F591E7CBF5800C65634 /* Depot.swift in Sources */,
 				2E5404BA1EE356D300CCDF3A /* InventoryViewController.swift in Sources */,
+				2E5404CB1EE3618F00CCDF3A /* UITableView+Setup.swift in Sources */,
 				2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */,
 				2E604F5A1E7CBF5800C65634 /* LocalDBData.swift in Sources */,
+				2E5404CD1EE3689000CCDF3A /* UICollectionView+Setup.swift in Sources */,
+				2E5404C21EE35F9300CCDF3A /* BaseTableViewCell.swift in Sources */,
 				2E5404BE1EE356EE00CCDF3A /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

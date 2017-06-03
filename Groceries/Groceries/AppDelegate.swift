@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		tabBarController.viewControllers = [homeNavController, inventoryNavController, accountNavController]
 		
 //		UINavigationBar.appearance().isOpaque = true
-		UINavigationBar.appearance().barTintColor = UIColor(red: 29 / 255, green: 185 / 255, blue: 84 / 255, alpha: 1)//(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
-		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
-		UITabBar.appearance().tintColor = UIColor(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
-		
+//		UINavigationBar.appearance().barTintColor = UIColor(red: 29 / 255, green: 185 / 255, blue: 84 / 255, alpha: 1)//(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
+//		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+//		UITabBar.appearance().tintColor = UIColor(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
+//		
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.rootViewController = tabBarController
 		window?.makeKeyAndVisible()
