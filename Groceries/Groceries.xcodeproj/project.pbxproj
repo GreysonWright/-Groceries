@@ -12,15 +12,13 @@
 		2E0BE4E91E6B4D3D00E08DC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0BE4E71E6B4D3D00E08DC1 /* LaunchScreen.storyboard */; };
 		2E0BE4F41E6B4D3D00E08DC1 /* GroceriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE4F31E6B4D3D00E08DC1 /* GroceriesTests.swift */; };
 		2E0BE4FF1E6B4D3D00E08DC1 /* GroceriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE4FE1E6B4D3D00E08DC1 /* GroceriesUITests.swift */; };
-		2E0BE50D1E6B532400E08DC1 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE50C1E6B532400E08DC1 /* BaseTableViewController.swift */; };
-		2E0BE5121E6B680100E08DC1 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE5111E6B680100E08DC1 /* HomeTableViewController.swift */; };
-		2E0BE5151E6B6C6400E08DC1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE5131E6B6C6400E08DC1 /* BaseTableViewCell.swift */; };
-		2E0BE5161E6B6C6500E08DC1 /* BaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E0BE5141E6B6C6400E08DC1 /* BaseTableViewCell.xib */; };
-		2E0BE51A1E6B71B300E08DC1 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE5191E6B71B300E08DC1 /* ListTableViewController.swift */; };
-		2E0BE51C1E6B71CE00E08DC1 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE51B1E6B71CE00E08DC1 /* ProfileTableViewController.swift */; };
-		2E0BE51E1E6B736100E08DC1 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE51D1E6B736100E08DC1 /* Row.swift */; };
 		2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4871CB1EAA637400601BDB /* URLSession+Request.swift */; };
-		2E604F251E7C7A2E00C65634 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F241E7C7A2E00C65634 /* BrowseTableViewController.swift */; };
+		2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404B41EE356B100CCDF3A /* HomeViewController.swift */; };
+		2E5404B71EE356B100CCDF3A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404B51EE356B100CCDF3A /* HomeViewController.xib */; };
+		2E5404BA1EE356D300CCDF3A /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404B81EE356D300CCDF3A /* InventoryViewController.swift */; };
+		2E5404BB1EE356D300CCDF3A /* InventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404B91EE356D300CCDF3A /* InventoryViewController.xib */; };
+		2E5404BE1EE356EE00CCDF3A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404BC1EE356EE00CCDF3A /* AccountViewController.swift */; };
+		2E5404BF1EE356EE00CCDF3A /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404BD1EE356EE00CCDF3A /* AccountViewController.xib */; };
 		2E604F591E7CBF5800C65634 /* Depot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F551E7CBF5800C65634 /* Depot.swift */; };
 		2E604F5A1E7CBF5800C65634 /* LocalDBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F561E7CBF5800C65634 /* LocalDBData.swift */; };
 		2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F571E7CBF5800C65634 /* TestData.swift */; };
@@ -59,15 +57,13 @@
 		2E0BE4FA1E6B4D3D00E08DC1 /* GroceriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E0BE4FE1E6B4D3D00E08DC1 /* GroceriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesUITests.swift; sourceTree = "<group>"; };
 		2E0BE5001E6B4D3D00E08DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E0BE50C1E6B532400E08DC1 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
-		2E0BE5111E6B680100E08DC1 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
-		2E0BE5131E6B6C6400E08DC1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		2E0BE5141E6B6C6400E08DC1 /* BaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseTableViewCell.xib; sourceTree = "<group>"; };
-		2E0BE5191E6B71B300E08DC1 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
-		2E0BE51B1E6B71CE00E08DC1 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
-		2E0BE51D1E6B736100E08DC1 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		2E4871CB1EAA637400601BDB /* URLSession+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Request.swift"; sourceTree = "<group>"; };
-		2E604F241E7C7A2E00C65634 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
+		2E5404B41EE356B100CCDF3A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2E5404B51EE356B100CCDF3A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		2E5404B81EE356D300CCDF3A /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		2E5404B91EE356D300CCDF3A /* InventoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryViewController.xib; sourceTree = "<group>"; };
+		2E5404BC1EE356EE00CCDF3A /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		2E5404BD1EE356EE00CCDF3A /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		2E604F551E7CBF5800C65634 /* Depot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Depot.swift; sourceTree = "<group>"; };
 		2E604F561E7CBF5800C65634 /* LocalDBData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDBData.swift; sourceTree = "<group>"; };
 		2E604F571E7CBF5800C65634 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
@@ -147,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				2E0BE4DE1E6B4D3D00E08DC1 /* AppDelegate.swift */,
-				2E0BE51D1E6B736100E08DC1 /* Row.swift */,
 				2E604F2A1E7CBF1B00C65634 /* Libs */,
 				2E0BE5171E6B6C6800E08DC1 /* Views */,
 				2E0BE50E1E6B532A00E08DC1 /* Controllers */,
@@ -179,11 +174,12 @@
 		2E0BE50E1E6B532A00E08DC1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2E0BE50C1E6B532400E08DC1 /* BaseTableViewController.swift */,
-				2E0BE5111E6B680100E08DC1 /* HomeTableViewController.swift */,
-				2E604F241E7C7A2E00C65634 /* BrowseTableViewController.swift */,
-				2E0BE5191E6B71B300E08DC1 /* ListTableViewController.swift */,
-				2E0BE51B1E6B71CE00E08DC1 /* ProfileTableViewController.swift */,
+				2E5404B41EE356B100CCDF3A /* HomeViewController.swift */,
+				2E5404B51EE356B100CCDF3A /* HomeViewController.xib */,
+				2E5404B81EE356D300CCDF3A /* InventoryViewController.swift */,
+				2E5404B91EE356D300CCDF3A /* InventoryViewController.xib */,
+				2E5404BC1EE356EE00CCDF3A /* AccountViewController.swift */,
+				2E5404BD1EE356EE00CCDF3A /* AccountViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -199,8 +195,6 @@
 		2E0BE5181E6B6C7000E08DC1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2E0BE5131E6B6C6400E08DC1 /* BaseTableViewCell.swift */,
-				2E0BE5141E6B6C6400E08DC1 /* BaseTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -365,9 +359,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E0BE5161E6B6C6500E08DC1 /* BaseTableViewCell.xib in Resources */,
 				2E0BE4E91E6B4D3D00E08DC1 /* LaunchScreen.storyboard in Resources */,
+				2E5404BB1EE356D300CCDF3A /* InventoryViewController.xib in Resources */,
 				2E0BE4E61E6B4D3D00E08DC1 /* Assets.xcassets in Resources */,
+				2E5404B71EE356B100CCDF3A /* HomeViewController.xib in Resources */,
+				2E5404BF1EE356EE00CCDF3A /* AccountViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,18 +527,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E604F5C1E7CBF5800C65634 /* WebserviceData.swift in Sources */,
-				2E0BE51C1E6B71CE00E08DC1 /* ProfileTableViewController.swift in Sources */,
 				2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */,
-				2E0BE5151E6B6C6400E08DC1 /* BaseTableViewCell.swift in Sources */,
-				2E0BE5121E6B680100E08DC1 /* HomeTableViewController.swift in Sources */,
 				2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */,
-				2E604F251E7C7A2E00C65634 /* BrowseTableViewController.swift in Sources */,
 				2E0BE4DF1E6B4D3D00E08DC1 /* AppDelegate.swift in Sources */,
-				2E0BE51A1E6B71B300E08DC1 /* ListTableViewController.swift in Sources */,
-				2E0BE51E1E6B736100E08DC1 /* Row.swift in Sources */,
-				2E0BE50D1E6B532400E08DC1 /* BaseTableViewController.swift in Sources */,
 				2E604F591E7CBF5800C65634 /* Depot.swift in Sources */,
+				2E5404BA1EE356D300CCDF3A /* InventoryViewController.swift in Sources */,
+				2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */,
 				2E604F5A1E7CBF5800C65634 /* LocalDBData.swift in Sources */,
+				2E5404BE1EE356EE00CCDF3A /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,7 +681,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2SP6H22NCZ;
 				INFOPLIST_FILE = Groceries/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.greysonwright.Groceries;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -704,7 +696,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2SP6H22NCZ;
 				INFOPLIST_FILE = Groceries/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.greysonwright.Groceries;
 				PRODUCT_NAME = "$(TARGET_NAME)";

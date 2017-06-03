@@ -1,12 +1,15 @@
 PODS:
   - ObjectMapper (2.2.3)
+  - SkyFloatingLabelTextField (2.0.1)
 
 DEPENDENCIES:
   - ObjectMapper
+  - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   ObjectMapper: d3b3de11267f5d971f390eb8d63dd509116a4329
+  SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
 
-PODFILE CHECKSUM: 31c949082487680505516ca002deba1afcc18923
+PODFILE CHECKSUM: d7c03629d1159b1e3ae427f77d8503c627184414
 
 COCOAPODS: 1.2.0

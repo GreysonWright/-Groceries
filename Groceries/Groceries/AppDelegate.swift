@@ -14,20 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		let homeTVC = HomeTableViewController(style: .plain)
-		let homeNC = UINavigationController(rootViewController: homeTVC)
+		let homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
+		let homeNavController = UINavigationController(rootViewController: homeViewController)
 		
-		let browseTVC = BrowseTableViewController(style: .plain)
-		let browseNC = UINavigationController(rootViewController: browseTVC)
+		let inventoryViewController = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
+		let inventoryNavController = UINavigationController(rootViewController: inventoryViewController)
 		
-		let listTVC = ListTableViewController(style: .plain)
-		let	listNC = UINavigationController(rootViewController: listTVC)
-		
-		let profileTVC = ProfileTableViewController(style: .plain)
-		let profileNC = UINavigationController(rootViewController: profileTVC)
+		let accountViewController = AccountViewController(nibName: "AccountViewController", bundle: nil)
+		let accountNavController = UINavigationController(rootViewController: accountViewController)
 		
 		let tabBarController = UITabBarController()
-		tabBarController.viewControllers = [homeNC, browseNC, listNC, profileNC]
+		tabBarController.viewControllers = [homeNavController, inventoryNavController, accountNavController]
 		
 //		UINavigationBar.appearance().isOpaque = true
 		UINavigationBar.appearance().barTintColor = UIColor(red: 29 / 255, green: 185 / 255, blue: 84 / 255, alpha: 1)//(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
