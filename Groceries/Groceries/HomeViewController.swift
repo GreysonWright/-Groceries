@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 	@IBOutlet weak var tableView: UITableView!
 	let cellNibName = "NestedCollectionTableViewCell"
 	let reuseIdentifier = "NestedCollectionCell"
@@ -28,8 +28,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 		
 		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
+//		let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+//		label.text = "test"
+//		navigationItem.titleView = nil
     }
 
+	
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -39,7 +44,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 // MARK: - UITableView
 extension HomeViewController {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 200
+		return 207
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 1
@@ -47,7 +52,7 @@ extension HomeViewController {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NestedCollectionTableViewCell
-		cell.titleLabel.text = "My Favorites"
+		cell.titleLabel.text = "Favorites"
 		return cell
 	}
 }

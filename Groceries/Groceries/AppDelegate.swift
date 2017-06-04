@@ -15,13 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		let homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
-		let homeNavController = UINavigationController(rootViewController: homeViewController)
+		let homeNavController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil) //FatNavigationController(rootViewController: homeViewController)
+		homeNavController.viewControllers.append(homeViewController)
 		
 		let inventoryViewController = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
-		let inventoryNavController = UINavigationController(rootViewController: inventoryViewController)
+		let inventoryNavController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil) //FatNavigationController(rootViewController: inventoryViewController)
+		inventoryNavController.viewControllers.append(inventoryViewController)
 		
 		let accountViewController = AccountViewController(nibName: "AccountViewController", bundle: nil)
-		let accountNavController = UINavigationController(rootViewController: accountViewController)
+		let accountNavController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil) //FatNavigationController(rootViewController: accountViewController)
+		accountNavController.viewControllers.append(accountViewController)
 		
 		let tabBarController = UITabBarController()
 		tabBarController.viewControllers = [homeNavController, inventoryNavController, accountNavController]

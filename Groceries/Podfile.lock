@@ -1,15 +1,18 @@
 PODS:
+  - EasyPeasy (1.4.1)
   - ObjectMapper (2.2.3)
   - SkyFloatingLabelTextField (2.0.1)
 
 DEPENDENCIES:
+  - EasyPeasy
   - ObjectMapper
   - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
+  EasyPeasy: b8a2feebd47395aaf46bde178abcddd36c922d37
   ObjectMapper: d3b3de11267f5d971f390eb8d63dd509116a4329
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
 
-PODFILE CHECKSUM: d7c03629d1159b1e3ae427f77d8503c627184414
+PODFILE CHECKSUM: 7ac90f75e1be6c430f9521eb932965276852bffe
 
 COCOAPODS: 1.2.0

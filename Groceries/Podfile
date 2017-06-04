@@ -8,6 +8,7 @@ target 'Groceries' do
   # Pods for Groceries
   pod 'ObjectMapper'
   pod 'SkyFloatingLabelTextField'
+  pod 'EasyPeasy'
 
   target 'GroceriesTests' do
     inherit! :search_paths

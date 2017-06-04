@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InventoryViewController: UIViewController {
+class InventoryViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 	@IBOutlet weak var tableView: UITableView!
 	let cellNibName = "BaseTableViewCell"
 	let reuseIdentifier = "BaseCell"

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 	@IBOutlet weak var tableView: UITableView!
 	let cellNibName = "BaseTableViewCell"
 	let reuseIdentifier = "BaseCell"
