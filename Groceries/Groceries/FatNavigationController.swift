@@ -11,6 +11,9 @@ import EasyPeasy
 
 protocol FatNavigationBarDelegate {
 	func navigationControllerDidLoad(title: String?)
+	func navigationControllerPush(_ viewController: UIViewController, animated: Bool)
+	func navigationControllerPop(animated: Bool)
+	func navigationControllerPopToRoot(animated: Bool)
 }
 
 class FatNavigationController: UINavigationController {
@@ -23,12 +26,19 @@ class FatNavigationController: UINavigationController {
 		updaterDelegate?.navigationControllerDidLoad(title: viewControllers[0].title)
     }
 	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+	override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+		super.pushViewController(viewController, animated: animated)
+		
+		updaterDelegate?.navigationControllerPush(viewController, animated: animated)
 	}
 	
 	override func popViewController(animated: Bool) -> UIViewController? {
+		updaterDelegate?.navigationControllerPop(animated: animated)
 		return super.popViewController(animated: animated)
+	}
+	
+	override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+		updaterDelegate?.navigationControllerPopToRoot(animated: animated)
+		return super.popToRootViewController(animated: true)
 	}
 }

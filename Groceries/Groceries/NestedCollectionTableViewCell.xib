@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqi-qe-fRP">
-                        <rect key="frame" x="15" y="11" width="290" height="30"/>
+                        <rect key="frame" x="15" y="11" width="61" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -38,14 +38,23 @@
                             <outlet property="delegate" destination="-1" id="L2r-af-c7D"/>
                         </connections>
                     </collectionView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_keyboard_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="BXc-el-pCH">
+                        <rect key="frame" x="84" y="13" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="LJz-zL-WGh"/>
+                            <constraint firstAttribute="height" constant="30" id="pMc-KH-uX5"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7cn-qX-o0Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8uR-Qz-eiL"/>
-                    <constraint firstItem="pqi-qe-fRP" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Cpa-d5-FN1"/>
                     <constraint firstItem="pqi-qe-fRP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Dgk-eq-hUO"/>
+                    <constraint firstItem="BXc-el-pCH" firstAttribute="leading" secondItem="pqi-qe-fRP" secondAttribute="trailing" constant="8" id="FU3-NZ-ecm"/>
                     <constraint firstItem="7cn-qX-o0Q" firstAttribute="top" secondItem="pqi-qe-fRP" secondAttribute="bottom" constant="11" id="Hi2-m9-yCG"/>
                     <constraint firstItem="pqi-qe-fRP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="VZf-pz-Zo0"/>
+                    <constraint firstItem="BXc-el-pCH" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="YZC-BE-8Gb"/>
                     <constraint firstAttribute="bottom" secondItem="7cn-qX-o0Q" secondAttribute="bottom" id="atR-vW-SZe"/>
+                    <constraint firstItem="BXc-el-pCH" firstAttribute="centerY" secondItem="pqi-qe-fRP" secondAttribute="centerY" constant="2" id="fKw-M1-3K8"/>
                     <constraint firstAttribute="trailing" secondItem="7cn-qX-o0Q" secondAttribute="trailing" id="o1s-cl-kkS"/>
                 </constraints>
             </tableViewCellContentView>
@@ -53,7 +62,10 @@
                 <outlet property="collectionView" destination="7cn-qX-o0Q" id="Fxi-L6-w3Z"/>
                 <outlet property="titleLabel" destination="pqi-qe-fRP" id="W2T-BR-fbc"/>
             </connections>
-            <point key="canvasLocation" x="34" y="30"/>
+            <point key="canvasLocation" x="34" y="29.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_keyboard_arrow_right" width="24" height="24"/>
+    </resources>
 </document>

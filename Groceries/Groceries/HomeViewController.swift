@@ -16,7 +16,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
-		title = "Me"
+		title = "long title"
 		tabBarItem.image = #imageLiteral(resourceName: "ic_star")
 	}
 	
