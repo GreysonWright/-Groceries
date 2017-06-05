@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import EasyPeasy
 
-class FatNavigationBar: UINavigationBar {
+class FatNavigationBar: UINavigationBar, FatNavigationBarDelegate {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		
+		configureFlatStyle()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -18,6 +21,30 @@ class FatNavigationBar: UINavigationBar {
 	}
 	
 	override func sizeThatFits(_ size: CGSize) -> CGSize {
-		return CGSize(width: UIScreen.main.bounds.size.width, height: 86)
+		return CGSize(width: UIScreen.main.bounds.width, height: 86)
+	}
+	
+	func navigationControllerDidLoad(title: String?) {
+		guard let title = title else {
+			return
+		}
+		
+		configureLabel(title: title)
+	}
+	
+	func configureFlatStyle() {
+		isTranslucent = false
+		setBackgroundImage(UIImage(), for: .default)
+		shadowImage = UIImage()
+	}
+	
+	func configureLabel(title: String) {
+		let label = UILabel()
+		label.frame.origin = CGPoint(x: 0, y: 0)
+		label.font = UIFont.boldSystemFont(ofSize: 40)
+		label.text = title
+		label.sizeToFit()
+		addSubview(label)
+		label <- [Leading(15), Top(0)]
 	}
 }

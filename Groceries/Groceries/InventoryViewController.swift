@@ -37,11 +37,7 @@ class InventoryViewController: BaseViewController, UITableViewDelegate, UITableV
 }
 
 // MARK: - UITableView
-extension InventoryViewController {
-	func setupTableView() {
-		
-	}
-	
+extension InventoryViewController {	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 0
 	}

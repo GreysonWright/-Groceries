@@ -29,11 +29,6 @@ class AccountViewController: BaseViewController, UITableViewDelegate, UITableVie
 		
 		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
 	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
 }
 
 // MARK: - UITableView

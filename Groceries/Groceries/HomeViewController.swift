@@ -28,16 +28,6 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
 		
 		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
-//		let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-//		label.text = "test"
-//		navigationItem.titleView = nil
-    }
-
-	
-	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
@@ -54,5 +44,10 @@ extension HomeViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NestedCollectionTableViewCell
 		cell.titleLabel.text = "Favorites"
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let test = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
+		navigationController?.pushViewController(test, animated: true)
 	}
 }
