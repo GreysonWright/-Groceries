@@ -58,7 +58,7 @@ extension FatNavigationBar {
 		detailLabel!.text = viewController.title
 		detailLabel!.font = UIFont(name: detailLabel!.font.fontName, size: 20) //UIFont.italicSystemFont(ofSize: 20)
 		detailLabel!.sizeToFit()
-		detailLabel!.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 2, y: frame.height - detailLabel!.frame.height)
+		detailLabel!.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 2, y: frame.height - detailLabel!.frame.height - 15)
 		addSubview(detailLabel!)
 		
 		UIView.animate(withDuration: 0.36, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
