@@ -65,7 +65,8 @@ extension FatNavigationBar {
 			self.titleLabel?.frame.origin = CGPoint(x: UIScreen.main.bounds.width - self.titleLabel!.frame.width - 15, y: 0)
 		}, completion: nil)
 		
-		UIView.animate(withDuration: 0.17, delay: 0 , options: .layoutSubviews, animations: {
+		//.17
+		UIView.animate(withDuration: 0.185, delay: 0 , options: .layoutSubviews, animations: {
 			self.detailLabel?.frame.origin = CGPoint(x: UIScreen.main.bounds.width - self.detailLabel!.frame.width - 15, y: self.detailLabel!.frame.origin.y)
 		}) { (completed: Bool) in
 			self.detailLabel?.font = UIFont.italicSystemFont(ofSize: 20)

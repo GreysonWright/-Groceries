@@ -16,7 +16,7 @@ class InventoryViewController: BaseViewController, UITableViewDelegate, UITableV
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
-		title = "Inventory"
+		title = "Baby Title :)"
 		tabBarItem.image = #imageLiteral(resourceName: "ic_shopping_cart")
 	}
 	
