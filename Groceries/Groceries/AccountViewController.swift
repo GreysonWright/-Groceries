@@ -8,8 +8,7 @@
 
 import UIKit
 
-class AccountViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-	@IBOutlet weak var tableView: UITableView!
+class AccountViewController: BaseViewController {
 	let cellNibName = "BaseTableViewCell"
 	let reuseIdentifier = "BaseCell"
 	
@@ -33,11 +32,11 @@ class AccountViewController: BaseViewController, UITableViewDelegate, UITableVie
 
 // MARK: - UITableView
 extension AccountViewController {
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 0
 	}
 	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 		return cell
 	}

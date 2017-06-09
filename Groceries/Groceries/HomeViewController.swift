@@ -8,15 +8,14 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-	@IBOutlet weak var tableView: UITableView!
+class HomeViewController: BaseViewController {
 	let cellNibName = "NestedCollectionTableViewCell"
 	let reuseIdentifier = "NestedCollectionCell"
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
-		title = "long title"
+		title = "Me"
 		tabBarItem.image = #imageLiteral(resourceName: "ic_star")
 	}
 	
@@ -32,15 +31,16 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
 }
 
 // MARK: - UITableView
-extension HomeViewController {
+extension HomeViewController {	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 207
 	}
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 1
 	}
 	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NestedCollectionTableViewCell
 		cell.titleLabel.text = "Favorites"
 		return cell

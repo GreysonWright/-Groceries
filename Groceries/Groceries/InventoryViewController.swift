@@ -8,16 +8,20 @@
 
 import UIKit
 
-class InventoryViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-	@IBOutlet weak var tableView: UITableView!
+class InventoryViewController: BaseViewController {
 	let cellNibName = "BaseTableViewCell"
 	let reuseIdentifier = "BaseCell"
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
-		title = "Baby Title :)"
+		title = "Inventory"
 		tabBarItem.image = #imageLiteral(resourceName: "ic_shopping_cart")
+		
+		let row = TableViewRow(title: "idk")
+		let section1 = TableViewSection(title: "test")
+		section1.rows.append(row)
+		sections.append(section1)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -35,15 +39,8 @@ class InventoryViewController: BaseViewController, UITableViewDelegate, UITableV
 		// Dispose of any resources that can be recreated.
 	}
 }
-
-// MARK: - UITableView
-extension InventoryViewController {	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "BaseCell", for: indexPath)
-		return cell
-	}
-}
+//
+//// MARK: - UITableView
+//extension InventoryViewController {
+//	
+//}

@@ -73,7 +73,7 @@ extension FatNavigationBar {
 		}
 	}
 	
-	// ****** major bug here still pops on cancel
+	// ****** major bug here still animates on cancel
 	func navigationControllerPop(animated: Bool) {
 		UIView.animate(withDuration: 0.36, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
 			self.titleLabel?.frame.origin = CGPoint(x: 15, y: 0)
