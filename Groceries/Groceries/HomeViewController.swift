@@ -31,7 +31,15 @@ class HomeViewController: BaseViewController {
 }
 
 // MARK: - UITableView
-extension HomeViewController {	
+extension HomeViewController {
+	override func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 0
+	}
+	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 207
 	}
