@@ -8,10 +8,7 @@
 
 import UIKit
 
-class AccountViewController: BaseViewController {
-	let cellNibName = "BaseTableViewCell"
-	let reuseIdentifier = "BaseCell"
-	
+class AccountViewController: BaseViewController {	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		

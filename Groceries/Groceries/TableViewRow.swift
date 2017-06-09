@@ -9,17 +9,11 @@
 import UIKit
 
 class TableViewRow {
-	var image: UIImage?
-	var title: String?
 	var selected: Bool
+	var data: [Any]
 	
-	init(image: UIImage?, title: String?) {
-		self.image = image
-		self.title = title
+	init(data: [Any]) {
 		selected = false
-	}
-	
-	convenience init (title: String?) {
-		self.init(image: nil, title: title)
+		self.data = data
 	}
 }

@@ -11,17 +11,20 @@ import EasyPeasy
 
 class BaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	@IBOutlet weak var tableView: UITableView!
+	var cellNibName = "BaseTableViewCell"
+	var reuseIdentifier = "BaseCell"
 	var sections: [TableViewSection] = []
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		navigationItem.title = nil
+		
+		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
     }
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
+	func setCellContent(_ tableview: UITableView, indexPath: IndexPath, cell: inout UITableViewCell) {
+//		let row = sections[indexPath.section].rows[indexPath.row]
 	}
 }
 
@@ -45,6 +48,7 @@ extension BaseViewController {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UIView()
+		headerView.backgroundColor = UIColor.white
 		headerView.tag = section
 		
 		let headerTitleLabel = UILabel()
@@ -60,21 +64,26 @@ extension BaseViewController {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "BaseCell", for: indexPath)
-		let row = sections[indexPath.section].rows[indexPath.row]
-		cell.textLabel?.text = row.title
+		var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+		setCellContent(tableView, indexPath: indexPath, cell: &cell)
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let row = sections[indexPath.section].rows[indexPath.row]
+		row.selected = !row.selected
+		tableView.reloadData()
 	}
 }
 
 // MARK - UIPanGestureRecognizer
 extension BaseViewController {
 	func headerViewTap(recognizer: UITapGestureRecognizer) {
-		let section = recognizer.view!.tag
-		sections[section].collapsed = !sections[section].collapsed
+		let sectionIndex = recognizer.view!.tag
+		sections[sectionIndex].collapsed = !sections[sectionIndex].collapsed
 		
 		tableView.beginUpdates()
-		tableView.reloadSections(IndexSet(integer: section), with: .fade)
+		tableView.reloadSections(IndexSet(integer: sectionIndex), with: .fade)
 		tableView.endUpdates()
 	}
 }

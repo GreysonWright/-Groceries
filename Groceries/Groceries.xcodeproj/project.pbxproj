@@ -12,6 +12,8 @@
 		2E0BE4E91E6B4D3D00E08DC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0BE4E71E6B4D3D00E08DC1 /* LaunchScreen.storyboard */; };
 		2E0BE4F41E6B4D3D00E08DC1 /* GroceriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE4F31E6B4D3D00E08DC1 /* GroceriesTests.swift */; };
 		2E0BE4FF1E6B4D3D00E08DC1 /* GroceriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE4FE1E6B4D3D00E08DC1 /* GroceriesUITests.swift */; };
+		2E1996291EEB4BB0003ED39E /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */; };
+		2E19962A1EEB4BB0003ED39E /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */; };
 		2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4871CB1EAA637400601BDB /* URLSession+Request.swift */; };
 		2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404B41EE356B100CCDF3A /* HomeViewController.swift */; };
 		2E5404B71EE356B100CCDF3A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404B51EE356B100CCDF3A /* HomeViewController.xib */; };
@@ -71,6 +73,8 @@
 		2E0BE4FA1E6B4D3D00E08DC1 /* GroceriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E0BE4FE1E6B4D3D00E08DC1 /* GroceriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesUITests.swift; sourceTree = "<group>"; };
 		2E0BE5001E6B4D3D00E08DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTableViewCell.swift; sourceTree = "<group>"; };
+		2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
 		2E4871CB1EAA637400601BDB /* URLSession+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Request.swift"; sourceTree = "<group>"; };
 		2E5404B41EE356B100CCDF3A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2E5404B51EE356B100CCDF3A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				2E5404C11EE35F9300CCDF3A /* BaseTableViewCell.xib */,
 				2E5404C41EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift */,
 				2E5404C51EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib */,
+				2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */,
+				2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 				2E5404BB1EE356D300CCDF3A /* InventoryViewController.xib in Resources */,
 				2E0BE4E61E6B4D3D00E08DC1 /* Assets.xcassets in Resources */,
 				2E5404D21EE3697900CCDF3A /* BaseCollectionViewCell.xib in Resources */,
+				2E19962A1EEB4BB0003ED39E /* SelectableTableViewCell.xib in Resources */,
 				2E5404B71EE356B100CCDF3A /* HomeViewController.xib in Resources */,
 				2E5404BF1EE356EE00CCDF3A /* AccountViewController.xib in Resources */,
 			);
@@ -618,6 +625,7 @@
 				2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */,
 				2E5404C61EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift in Sources */,
 				2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */,
+				2E1996291EEB4BB0003ED39E /* SelectableTableViewCell.swift in Sources */,
 				2E5C864F1EE4A70600CB3B38 /* FatNavigationBar.swift in Sources */,
 				2E0BE4DF1E6B4D3D00E08DC1 /* AppDelegate.swift in Sources */,
 				2E604F591E7CBF5800C65634 /* Depot.swift in Sources */,

@@ -9,25 +9,19 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-	let cellNibName = "NestedCollectionTableViewCell"
-	let reuseIdentifier = "NestedCollectionCell"
-	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
 		title = "Me"
 		tabBarItem.image = #imageLiteral(resourceName: "ic_star")
+		
+		cellNibName = "NestedCollectionTableViewCell"
+		reuseIdentifier = "NestedCollectionCell"
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		
-		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
-    }
 }
 
 // MARK: - UITableView
@@ -54,7 +48,7 @@ extension HomeViewController {
 		return cell
 	}
 	
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let test = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
 		navigationController?.pushViewController(test, animated: true)
 	}
