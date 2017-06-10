@@ -24,7 +24,7 @@ class SelectableTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 	
-	func setContent(with row: TableViewRow) {
+	func setCellContent(with row: TableViewRow) {
 		
 	}
 }

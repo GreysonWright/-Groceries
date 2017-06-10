@@ -14,6 +14,10 @@
 		2E0BE4FF1E6B4D3D00E08DC1 /* GroceriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE4FE1E6B4D3D00E08DC1 /* GroceriesUITests.swift */; };
 		2E1996291EEB4BB0003ED39E /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */; };
 		2E19962A1EEB4BB0003ED39E /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */; };
+		2E2415A91EEC6F500014CD40 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415A81EEC6F500014CD40 /* InventoryItem.swift */; };
+		2E2415AC1EEC78140014CD40 /* SelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */; };
+		2E2415AD1EEC78140014CD40 /* SelectItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */; };
+		2E2415AF1EEC7A920014CD40 /* StoreCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */; };
 		2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4871CB1EAA637400601BDB /* URLSession+Request.swift */; };
 		2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404B41EE356B100CCDF3A /* HomeViewController.swift */; };
 		2E5404B71EE356B100CCDF3A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404B51EE356B100CCDF3A /* HomeViewController.xib */; };
@@ -75,6 +79,10 @@
 		2E0BE5001E6B4D3D00E08DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTableViewCell.swift; sourceTree = "<group>"; };
 		2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
+		2E2415A81EEC6F500014CD40 /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
+		2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemViewController.swift; sourceTree = "<group>"; };
+		2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectItemViewController.xib; sourceTree = "<group>"; };
+		2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCategory.swift; sourceTree = "<group>"; };
 		2E4871CB1EAA637400601BDB /* URLSession+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Request.swift"; sourceTree = "<group>"; };
 		2E5404B41EE356B100CCDF3A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2E5404B51EE356B100CCDF3A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -177,7 +185,6 @@
 				2E0BE4DE1E6B4D3D00E08DC1 /* AppDelegate.swift */,
 				2EBAF26F1EEA63480088B878 /* TableViewSection.swift */,
 				2EBAF2711EEA64190088B878 /* TableViewRow.swift */,
-				2E5C86501EE4EF3800CB3B38 /* Resources */,
 				2E604F2A1E7CBF1B00C65634 /* Libs */,
 				2E0BE5171E6B6C6800E08DC1 /* Views */,
 				2E0BE50E1E6B532A00E08DC1 /* Controllers */,
@@ -232,12 +239,13 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		2E4871CA1EAA635F00601BDB /* Webservice */ = {
+		2E2415A71EEC6F3A0014CD40 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				2E4871CB1EAA637400601BDB /* URLSession+Request.swift */,
+				2E2415A81EEC6F500014CD40 /* InventoryItem.swift */,
+				2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */,
 			);
-			name = Webservice;
+			name = DTOs;
 			sourceTree = "<group>";
 		};
 		2E5404CE1EE3695C00CCDF3A /* TableView */ = {
@@ -272,6 +280,8 @@
 				2E5404B91EE356D300CCDF3A /* InventoryViewController.xib */,
 				2E5404BC1EE356EE00CCDF3A /* AccountViewController.swift */,
 				2E5404BD1EE356EE00CCDF3A /* AccountViewController.xib */,
+				2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */,
+				2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -285,20 +295,13 @@
 			name = Navigation;
 			sourceTree = "<group>";
 		};
-		2E5C86501EE4EF3800CB3B38 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				2E5C86511EE4EF5900CB3B38 /* UIColor+Colors.swift */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		2E604F2A1E7CBF1B00C65634 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2E5C86511EE4EF5900CB3B38 /* UIColor+Colors.swift */,
+				2E4871CB1EAA637400601BDB /* URLSession+Request.swift */,
 				2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */,
 				2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */,
-				2E4871CA1EAA635F00601BDB /* Webservice */,
 				2E604F541E7CBF5800C65634 /* Depot */,
 			);
 			name = Libs;
@@ -307,6 +310,7 @@
 		2E604F541E7CBF5800C65634 /* Depot */ = {
 			isa = PBXGroup;
 			children = (
+				2E2415A71EEC6F3A0014CD40 /* DTOs */,
 				2E604F551E7CBF5800C65634 /* Depot.swift */,
 				2E604F561E7CBF5800C65634 /* LocalDBData.swift */,
 				2E604F571E7CBF5800C65634 /* TestData.swift */,
@@ -450,6 +454,7 @@
 				2E5404C31EE35F9300CCDF3A /* BaseTableViewCell.xib in Resources */,
 				2E5404C71EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib in Resources */,
 				2E0BE4E91E6B4D3D00E08DC1 /* LaunchScreen.storyboard in Resources */,
+				2E2415AD1EEC78140014CD40 /* SelectItemViewController.xib in Resources */,
 				2E5404BB1EE356D300CCDF3A /* InventoryViewController.xib in Resources */,
 				2E0BE4E61E6B4D3D00E08DC1 /* Assets.xcassets in Resources */,
 				2E5404D21EE3697900CCDF3A /* BaseCollectionViewCell.xib in Resources */,
@@ -625,13 +630,16 @@
 				2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */,
 				2E5404C61EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift in Sources */,
 				2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */,
+				2E2415A91EEC6F500014CD40 /* InventoryItem.swift in Sources */,
 				2E1996291EEB4BB0003ED39E /* SelectableTableViewCell.swift in Sources */,
+				2E2415AF1EEC7A920014CD40 /* StoreCategory.swift in Sources */,
 				2E5C864F1EE4A70600CB3B38 /* FatNavigationBar.swift in Sources */,
 				2E0BE4DF1E6B4D3D00E08DC1 /* AppDelegate.swift in Sources */,
 				2E604F591E7CBF5800C65634 /* Depot.swift in Sources */,
 				2E5C864D1EE4A45E00CB3B38 /* FatNavigationController.swift in Sources */,
 				2E5404BA1EE356D300CCDF3A /* InventoryViewController.swift in Sources */,
 				2E5404CB1EE3618F00CCDF3A /* UITableView+Setup.swift in Sources */,
+				2E2415AC1EEC78140014CD40 /* SelectItemViewController.swift in Sources */,
 				2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */,
 				2E604F5A1E7CBF5800C65634 /* LocalDBData.swift in Sources */,
 				2E5404CD1EE3689000CCDF3A /* UICollectionView+Setup.swift in Sources */,

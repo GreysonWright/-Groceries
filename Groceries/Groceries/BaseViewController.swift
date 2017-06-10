@@ -22,10 +22,6 @@ class BaseViewController: UIViewController, UITableViewDelegate, UITableViewData
 		
 		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
     }
-	
-	func setCellContent(_ tableview: UITableView, indexPath: IndexPath, cell: inout UITableViewCell) {
-//		let row = sections[indexPath.section].rows[indexPath.row]
-	}
 }
 
 // MARK: - UITableView
@@ -53,6 +49,7 @@ extension BaseViewController {
 		
 		let headerTitleLabel = UILabel()
 		headerTitleLabel.text = sections[section].title
+		headerTitleLabel.font = UIFont.boldSystemFont(ofSize: 25)
 		headerTitleLabel.sizeToFit()
 		headerView.addSubview(headerTitleLabel)
 		headerTitleLabel <- [Leading(15), Trailing(0), Top(0), Bottom(0)]
@@ -64,15 +61,8 @@ extension BaseViewController {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-		setCellContent(tableView, indexPath: indexPath, cell: &cell)
+		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 		return cell
-	}
-	
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let row = sections[indexPath.section].rows[indexPath.row]
-		row.selected = !row.selected
-		tableView.reloadData()
 	}
 }
 

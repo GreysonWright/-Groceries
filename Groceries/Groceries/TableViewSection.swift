@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewSection {
 	var title: String?
-	var rows: [TableViewRow]
+	fileprivate(set) public var rows: [TableViewRow]
 	var collapsed: Bool
 	var rowCount: Int {
 		return rows.count
@@ -22,7 +22,23 @@ class TableViewSection {
 		collapsed = true
 	}
 	
+	convenience init(with title: String?, rowData: [Any]) {
+		self.init(with: title, rows: [])
+		addRows(with: rowData)
+	}
+	
 	convenience init(title: String?) {
 		self.init(with: title, rows: [])
+	}
+	
+	func addRow(with data: Any) {
+		let newRow = TableViewRow(data: data)
+		rows.append(newRow)
+	}
+	
+	func addRows(with data: [Any]) {
+		data.forEach { (dataItem: Any) in
+			addRow(with: dataItem)
+		}
 	}
 }

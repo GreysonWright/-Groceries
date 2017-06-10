@@ -15,17 +15,17 @@ class InventoryViewController: BaseViewController {
 		title = "Inventory"
 		tabBarItem.image = #imageLiteral(resourceName: "ic_shopping_cart")
 		
-		cellNibName = "SelectableTableViewCell"
-		reuseIdentifier = "SelectableCell"
-		
-		let row = TableViewRow(data: [])
-		let row2 = TableViewRow(data: [])
-		let row3 = TableViewRow(data: [])
-		let row4 = TableViewRow(data: [])
-		let row5 = TableViewRow(data: [])
-		let row6 = TableViewRow(data: [])
-		let section1 = TableViewSection(with: title, rows: [row, row2, row3, row4, row5, row6])
+		var storeCategories: [StoreCategory] = []
+		for i in 0...8 {
+			let category = StoreCategory()
+			category.image = #imageLiteral(resourceName: "ic_shopping_cart")
+			category.title = "category\(i)"
+			storeCategories.append(category)
+		}
+		let section1 = TableViewSection(with: "Walmart", rowData: storeCategories)
+		section1.collapsed = false
 		sections.append(section1)
+
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -42,17 +42,32 @@ class InventoryViewController: BaseViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
-	override func setCellContent(_ tableview: UITableView, indexPath: IndexPath, cell: inout UITableViewCell) {
-		let row = sections[indexPath.section].rows[indexPath.row]
-		(cell as? SelectableTableViewCell)?.setContent(with: row)
-	}
 }
 
 // MARK: - UITableView
 extension InventoryViewController {
-	// Delegate Methods
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 70
+		return 48
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let row = sections[indexPath.section].rows[indexPath.row]
+		let rowData = row.data as! StoreCategory
+		
+		let cell = super.tableView(tableView, cellForRowAt: indexPath)
+		cell.imageView?.image = rowData.image
+		cell.textLabel?.text = rowData.title
+		return cell
+	}
+	
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let row = sections[indexPath.section].rows[indexPath.row]
+		let rowData = row.data as! StoreCategory
+		
+		let selectItemViewController = SelectItemViewController(nibName: "SelectItemViewController", bundle: nil)
+		selectItemViewController.title = rowData.title
+		navigationController?.pushViewController(selectItemViewController, animated: true)
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }

@@ -48,7 +48,7 @@ extension HomeViewController {
 		return cell
 	}
 	
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let test = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
 		navigationController?.pushViewController(test, animated: true)
 	}

@@ -10,10 +10,10 @@ import UIKit
 
 class TableViewRow {
 	var selected: Bool
-	var data: [Any]
+	var data: Any
 	
-	init(data: [Any]) {
-		selected = false
+	init (data: Any) {
 		self.data = data
+		selected = false
 	}
 }
