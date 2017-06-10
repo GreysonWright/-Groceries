@@ -13,7 +13,7 @@ class AccountViewController: BaseViewController {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
 		title = "Account"
-		tabBarItem.image = #imageLiteral(resourceName: "ic_settings")
+		tabBarItem.image = UIImage.account
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

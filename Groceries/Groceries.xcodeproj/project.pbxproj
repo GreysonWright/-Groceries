@@ -18,6 +18,7 @@
 		2E2415AC1EEC78140014CD40 /* SelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */; };
 		2E2415AD1EEC78140014CD40 /* SelectItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */; };
 		2E2415AF1EEC7A920014CD40 /* StoreCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */; };
+		2E2415B41EEC81330014CD40 /* UIImage+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415B31EEC81330014CD40 /* UIImage+Images.swift */; };
 		2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4871CB1EAA637400601BDB /* URLSession+Request.swift */; };
 		2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404B41EE356B100CCDF3A /* HomeViewController.swift */; };
 		2E5404B71EE356B100CCDF3A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404B51EE356B100CCDF3A /* HomeViewController.xib */; };
@@ -83,6 +84,7 @@
 		2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemViewController.swift; sourceTree = "<group>"; };
 		2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectItemViewController.xib; sourceTree = "<group>"; };
 		2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCategory.swift; sourceTree = "<group>"; };
+		2E2415B31EEC81330014CD40 /* UIImage+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Images.swift"; sourceTree = "<group>"; };
 		2E4871CB1EAA637400601BDB /* URLSession+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Request.swift"; sourceTree = "<group>"; };
 		2E5404B41EE356B100CCDF3A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2E5404B51EE356B100CCDF3A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -248,6 +250,35 @@
 			name = DTOs;
 			sourceTree = "<group>";
 		};
+		2E2415B01EEC7EE20014CD40 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2E5404B41EE356B100CCDF3A /* HomeViewController.swift */,
+				2E5404B51EE356B100CCDF3A /* HomeViewController.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		2E2415B11EEC7EEA0014CD40 /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				2E5404B81EE356D300CCDF3A /* InventoryViewController.swift */,
+				2E5404B91EE356D300CCDF3A /* InventoryViewController.xib */,
+				2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */,
+				2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */,
+			);
+			name = Inventory;
+			sourceTree = "<group>";
+		};
+		2E2415B21EEC7EFC0014CD40 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				2E5404BC1EE356EE00CCDF3A /* AccountViewController.swift */,
+				2E5404BD1EE356EE00CCDF3A /* AccountViewController.xib */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
 		2E5404CE1EE3695C00CCDF3A /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,14 +305,9 @@
 			isa = PBXGroup;
 			children = (
 				2E5C86491EE48D7700CB3B38 /* BaseViewController.swift */,
-				2E5404B41EE356B100CCDF3A /* HomeViewController.swift */,
-				2E5404B51EE356B100CCDF3A /* HomeViewController.xib */,
-				2E5404B81EE356D300CCDF3A /* InventoryViewController.swift */,
-				2E5404B91EE356D300CCDF3A /* InventoryViewController.xib */,
-				2E5404BC1EE356EE00CCDF3A /* AccountViewController.swift */,
-				2E5404BD1EE356EE00CCDF3A /* AccountViewController.xib */,
-				2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */,
-				2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */,
+				2E2415B01EEC7EE20014CD40 /* Home */,
+				2E2415B11EEC7EEA0014CD40 /* Inventory */,
+				2E2415B21EEC7EFC0014CD40 /* Account */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -298,6 +324,7 @@
 		2E604F2A1E7CBF1B00C65634 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2E2415B31EEC81330014CD40 /* UIImage+Images.swift */,
 				2E5C86511EE4EF5900CB3B38 /* UIColor+Colors.swift */,
 				2E4871CB1EAA637400601BDB /* URLSession+Request.swift */,
 				2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */,
@@ -624,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EBAF2721EEA64190088B878 /* TableViewRow.swift in Sources */,
+				2E2415B41EEC81330014CD40 /* UIImage+Images.swift in Sources */,
 				2E604F5C1E7CBF5800C65634 /* WebserviceData.swift in Sources */,
 				2E5C86521EE4EF5900CB3B38 /* UIColor+Colors.swift in Sources */,
 				2E5404D11EE3697900CCDF3A /* BaseCollectionViewCell.swift in Sources */,

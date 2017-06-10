@@ -13,7 +13,7 @@ class HomeViewController: BaseViewController {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
 		title = "Me"
-		tabBarItem.image = #imageLiteral(resourceName: "ic_star")
+		tabBarItem.image = UIImage.home
 		
 		cellNibName = "NestedCollectionTableViewCell"
 		reuseIdentifier = "NestedCollectionCell"

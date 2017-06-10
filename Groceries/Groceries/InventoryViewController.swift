@@ -13,7 +13,7 @@ class InventoryViewController: BaseViewController {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
 		title = "Inventory"
-		tabBarItem.image = #imageLiteral(resourceName: "ic_shopping_cart")
+		tabBarItem.image = UIImage.inventory
 		
 		var storeCategories: [StoreCategory] = []
 		for i in 0...8 {

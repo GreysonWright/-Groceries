@@ -55,9 +55,9 @@ extension SelectItemViewController {
 		cell.titleTextLabel.text = rowData.title
 		cell.priceTextLabel.text = rowData.price
 		if !row.selected {
-			cell.selectedIconImageView.image = #imageLiteral(resourceName: "ic_label_outline")
+			cell.selectedIconImageView.image = UIImage.selected
 		} else {
-			cell.selectedIconImageView.image = #imageLiteral(resourceName: "ic_label")
+			cell.selectedIconImageView.image = UIImage.unSelected
 		}
 		return cell
 	}
