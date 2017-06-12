@@ -9,7 +9,7 @@
 import UIKit
 import EasyPeasy
 
-class FatNavigationBar: UINavigationBar, FatNavigationBarDelegate {
+class FatNavigationBar: UINavigationBar, FatNavigationControllerDelegate {
 	var titleLabel: UILabel?
 	var detailLabel: UILabel?
 	
@@ -65,7 +65,6 @@ extension FatNavigationBar {
 			self.titleLabel?.frame.origin = CGPoint(x: UIScreen.main.bounds.width - self.titleLabel!.frame.width - 15, y: 0)
 		}, completion: nil)
 		
-		//.17
 		UIView.animate(withDuration: 0.185, delay: 0 , options: .layoutSubviews, animations: {
 			self.detailLabel?.frame.origin = CGPoint(x: UIScreen.main.bounds.width - self.detailLabel!.frame.width - 15, y: self.detailLabel!.frame.origin.y)
 		}) { (completed: Bool) in
@@ -84,6 +83,10 @@ extension FatNavigationBar {
 		}) { (completed: Bool) in
 			self.detailLabel?.removeFromSuperview()
 		}
+	}
+	
+	func popCancelled() {
+		titleLabel?.frame.origin = CGPoint(x: UIScreen.main.bounds.width - self.titleLabel!.frame.width - 15, y: 0)
 	}
 	
 	func navigationControllerPopToRoot(animated: Bool) {

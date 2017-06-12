@@ -39,17 +39,26 @@ extension HomeViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+		return 2
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NestedCollectionTableViewCell
-		cell.titleLabel.text = "Favorites"
+		if indexPath.row == 0 {
+			cell.titleLabel.text = "Favorites"
+		} else {
+			cell.titleLabel.text = "Lists"
+		}
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let test = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
-		navigationController?.pushViewController(test, animated: true)
+		var controller: UIViewController!
+//		if indexPath.row == 0 {
+			controller = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
+//		} else {
+		
+//		}
+		navigationController?.pushViewController(controller, animated: true)
 	}
 }
