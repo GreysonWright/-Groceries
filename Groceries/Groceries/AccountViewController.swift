@@ -22,8 +22,6 @@ class AccountViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
 	}
 }
 

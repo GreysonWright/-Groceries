@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="KGk-i7-Jjw" customClass="ListTableViewCell" customModule="Groceries" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5O6-tg-fGd">
+                        <rect key="frame" x="8" y="11" width="198.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGd-Jr-xDN">
+                        <rect key="frame" x="206.5" y="11" width="72.5" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="72.5" id="Zu8-Vs-PMc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5O6-tg-fGd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="9sT-iC-YZ1"/>
+                    <constraint firstItem="5O6-tg-fGd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MYp-98-8iU"/>
+                    <constraint firstItem="TGd-Jr-xDN" firstAttribute="leading" secondItem="5O6-tg-fGd" secondAttribute="trailing" id="OLi-f3-9oi"/>
+                    <constraint firstItem="TGd-Jr-xDN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="n3O-pT-4Iw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TGd-Jr-xDN" secondAttribute="trailing" id="sOB-0m-6UX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="priceLabel" destination="TGd-Jr-xDN" id="7CI-4I-3Qv"/>
+                <outlet property="titleLabel" destination="5O6-tg-fGd" id="Msa-6S-FLj"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

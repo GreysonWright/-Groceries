@@ -19,6 +19,11 @@
 		2E2415AD1EEC78140014CD40 /* SelectItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */; };
 		2E2415AF1EEC7A920014CD40 /* StoreCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */; };
 		2E2415B41EEC81330014CD40 /* UIImage+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415B31EEC81330014CD40 /* UIImage+Images.swift */; };
+		2E2780761EEF47E000CD574C /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2780741EEF47E000CD574C /* ListsViewController.swift */; };
+		2E2780771EEF47E000CD574C /* ListsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2780751EEF47E000CD574C /* ListsViewController.xib */; };
+		2E27807A1EEF48F500CD574C /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2780791EEF48F500CD574C /* List.swift */; };
+		2E27807D1EEF4CF200CD574C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E27807B1EEF4CF200CD574C /* ListTableViewCell.swift */; };
+		2E27807E1EEF4CF200CD574C /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E27807C1EEF4CF200CD574C /* ListTableViewCell.xib */; };
 		2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4871CB1EAA637400601BDB /* URLSession+Request.swift */; };
 		2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404B41EE356B100CCDF3A /* HomeViewController.swift */; };
 		2E5404B71EE356B100CCDF3A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404B51EE356B100CCDF3A /* HomeViewController.xib */; };
@@ -85,6 +90,11 @@
 		2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectItemViewController.xib; sourceTree = "<group>"; };
 		2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCategory.swift; sourceTree = "<group>"; };
 		2E2415B31EEC81330014CD40 /* UIImage+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Images.swift"; sourceTree = "<group>"; };
+		2E2780741EEF47E000CD574C /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		2E2780751EEF47E000CD574C /* ListsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListsViewController.xib; sourceTree = "<group>"; };
+		2E2780791EEF48F500CD574C /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		2E27807B1EEF4CF200CD574C /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		2E27807C1EEF4CF200CD574C /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		2E4871CB1EAA637400601BDB /* URLSession+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Request.swift"; sourceTree = "<group>"; };
 		2E5404B41EE356B100CCDF3A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2E5404B51EE356B100CCDF3A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -246,6 +256,7 @@
 			children = (
 				2E2415A81EEC6F500014CD40 /* InventoryItem.swift */,
 				2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */,
+				2E2780791EEF48F500CD574C /* List.swift */,
 			);
 			name = DTOs;
 			sourceTree = "<group>";
@@ -264,8 +275,6 @@
 			children = (
 				2E5404B81EE356D300CCDF3A /* InventoryViewController.swift */,
 				2E5404B91EE356D300CCDF3A /* InventoryViewController.xib */,
-				2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */,
-				2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */,
 			);
 			name = Inventory;
 			sourceTree = "<group>";
@@ -279,6 +288,24 @@
 			name = Account;
 			sourceTree = "<group>";
 		};
+		2E2780731EEF47A000CD574C /* Select Items */ = {
+			isa = PBXGroup;
+			children = (
+				2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */,
+				2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */,
+			);
+			name = "Select Items";
+			sourceTree = "<group>";
+		};
+		2E2780781EEF47E800CD574C /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				2E2780741EEF47E000CD574C /* ListsViewController.swift */,
+				2E2780751EEF47E000CD574C /* ListsViewController.xib */,
+			);
+			name = Lists;
+			sourceTree = "<group>";
+		};
 		2E5404CE1EE3695C00CCDF3A /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +315,8 @@
 				2E5404C51EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib */,
 				2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */,
 				2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */,
+				2E27807B1EEF4CF200CD574C /* ListTableViewCell.swift */,
+				2E27807C1EEF4CF200CD574C /* ListTableViewCell.xib */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -305,6 +334,8 @@
 			isa = PBXGroup;
 			children = (
 				2E5C86491EE48D7700CB3B38 /* BaseViewController.swift */,
+				2E2780781EEF47E800CD574C /* Lists */,
+				2E2780731EEF47A000CD574C /* Select Items */,
 				2E2415B01EEC7EE20014CD40 /* Home */,
 				2E2415B11EEC7EEA0014CD40 /* Inventory */,
 				2E2415B21EEC7EFC0014CD40 /* Account */,
@@ -479,7 +510,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E5404C31EE35F9300CCDF3A /* BaseTableViewCell.xib in Resources */,
+				2E27807E1EEF4CF200CD574C /* ListTableViewCell.xib in Resources */,
 				2E5404C71EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib in Resources */,
+				2E2780771EEF47E000CD574C /* ListsViewController.xib in Resources */,
 				2E0BE4E91E6B4D3D00E08DC1 /* LaunchScreen.storyboard in Resources */,
 				2E2415AD1EEC78140014CD40 /* SelectItemViewController.xib in Resources */,
 				2E5404BB1EE356D300CCDF3A /* InventoryViewController.xib in Resources */,
@@ -667,8 +700,11 @@
 				2E5C864D1EE4A45E00CB3B38 /* FatNavigationController.swift in Sources */,
 				2E5404BA1EE356D300CCDF3A /* InventoryViewController.swift in Sources */,
 				2E5404CB1EE3618F00CCDF3A /* UITableView+Setup.swift in Sources */,
+				2E27807A1EEF48F500CD574C /* List.swift in Sources */,
 				2E2415AC1EEC78140014CD40 /* SelectItemViewController.swift in Sources */,
+				2E2780761EEF47E000CD574C /* ListsViewController.swift in Sources */,
 				2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */,
+				2E27807D1EEF4CF200CD574C /* ListTableViewCell.swift in Sources */,
 				2E604F5A1E7CBF5800C65634 /* LocalDBData.swift in Sources */,
 				2E5404CD1EE3689000CCDF3A /* UICollectionView+Setup.swift in Sources */,
 				2E5C864A1EE48D7700CB3B38 /* BaseViewController.swift in Sources */,

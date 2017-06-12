@@ -22,6 +22,7 @@ class InventoryViewController: BaseViewController {
 			category.title = "category\(i)"
 			storeCategories.append(category)
 		}
+		
 		let section1 = TableViewSection(with: "Walmart", rowData: storeCategories)
 		section1.collapsed = false
 		sections.append(section1)
@@ -34,8 +35,6 @@ class InventoryViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
 	}
 	
 	override func didReceiveMemoryWarning() {

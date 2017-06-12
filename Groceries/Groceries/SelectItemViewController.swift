@@ -21,8 +21,11 @@ class SelectItemViewController: BaseViewController {
 			inventoryItem.price = "$\(i + i).00"
 			inventoryData.append(inventoryItem)
 		}
-		let section1 = TableViewSection(with: "test section", rowData: inventoryData)
-		sections.append(section1)
+		
+		let section1 = TableViewSection(with: "test section1", rowData: inventoryData)
+		let section2 = TableViewSection(with: "test section2", rowData: inventoryData)
+		
+		sections = [section1, section2]
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -31,8 +34,6 @@ class SelectItemViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
 	}
 	
 	override func didReceiveMemoryWarning() {

@@ -54,11 +54,13 @@ extension HomeViewController {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		var controller: UIViewController!
-//		if indexPath.row == 0 {
+		if indexPath.row == 0 {
 			controller = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
-//		} else {
-		
-//		}
+			controller.title = "Favorites"
+		} else {
+			controller = ListsViewController(nibName: "ListsViewController", bundle: nil)
+			controller.title = "Lists"
+		}
 		navigationController?.pushViewController(controller, animated: true)
 	}
 }
