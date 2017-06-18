@@ -59,4 +59,3 @@ extension AccountViewController {
 		return cell
 	}
 }
-
