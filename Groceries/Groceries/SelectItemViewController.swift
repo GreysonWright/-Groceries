@@ -87,12 +87,11 @@ extension SelectItemViewController {
 	}
 	
 	func shouldShowToolBar() -> Bool {
-		var test: [TableViewRow] = []
-		sections.forEach { (section: TableViewSection) in
-			test = section.rows.filter({ (row: TableViewRow) -> Bool in
+		let selectedRows: [TableViewRow] = sections.flatMap { (section: TableViewSection) -> [TableViewRow] in
+			return section.rows.filter({ (row: TableViewRow) -> Bool in
 				return row.selected
 			})
 		}
-		return test.count > 0
+		return selectedRows.count > 0
 	}
 }

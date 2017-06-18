@@ -65,8 +65,8 @@ extension ListsViewController {
 	
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let row = sections[indexPath.section].rows[indexPath.row]
-		let rowData = row.data as! List
+//		let row = sections[indexPath.section].rows[indexPath.row]
+//		let rowData = row.data as! List
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
