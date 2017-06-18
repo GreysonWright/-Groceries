@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectItemViewController" customModule="Groceries" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="jyd-sL-3FU" id="KuS-ot-QNJ"/>
+                <outlet property="toolBar" destination="FRw-tz-ctg" id="ERX-fP-lsv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,15 +29,31 @@
                         <outlet property="delegate" destination="-1" id="axu-b0-NSV"/>
                     </connections>
                 </tableView>
+                <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRw-tz-ctg">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <items>
+                        <barButtonItem image="ic_star_border" id="QVD-Yt-nSu"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xV2-CM-48n"/>
+                        <barButtonItem title="Save To" id="imF-Mu-bdB"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9iL-zC-8wy"/>
+                        <barButtonItem systemItem="stop" id="je1-bT-x4M"/>
+                    </items>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="jyd-sL-3FU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="10h-a8-9On"/>
-                <constraint firstItem="jyd-sL-3FU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4Az-KZ-Du8"/>
-                <constraint firstAttribute="bottom" secondItem="jyd-sL-3FU" secondAttribute="bottom" id="aws-P6-yZZ"/>
-                <constraint firstAttribute="trailing" secondItem="jyd-sL-3FU" secondAttribute="trailing" id="lWN-ZW-PKC"/>
+                <constraint firstAttribute="trailing" secondItem="FRw-tz-ctg" secondAttribute="trailing" id="4S2-Jd-0YB"/>
+                <constraint firstItem="FRw-tz-ctg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="E0Q-TH-Khx"/>
+                <constraint firstItem="jyd-sL-3FU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MBT-XV-tas"/>
+                <constraint firstAttribute="bottom" secondItem="jyd-sL-3FU" secondAttribute="bottom" id="Zme-bZ-iFA"/>
+                <constraint firstAttribute="trailing" secondItem="jyd-sL-3FU" secondAttribute="trailing" id="e0d-wM-uYS"/>
+                <constraint firstAttribute="bottom" secondItem="FRw-tz-ctg" secondAttribute="bottom" id="nve-GZ-JK9"/>
+                <constraint firstItem="jyd-sL-3FU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tlv-Ks-ReH"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_star_border" width="24" height="24"/>
+    </resources>
 </document>

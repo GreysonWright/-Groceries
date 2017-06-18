@@ -16,7 +16,7 @@ class ListsViewController: BaseViewController {
 		reuseIdentifier = "ListCell"
 		
 		var lists: [List] = []
-		for i in 0...8 {
+		for i in 0...12 {
 			let list = List()
 			list.title = "list\(i)"
 			list.totalPrice = "$\(i * i).\(i)"

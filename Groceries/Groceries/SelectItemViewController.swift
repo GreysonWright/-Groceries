@@ -9,13 +9,15 @@
 import UIKit
 
 class SelectItemViewController: BaseViewController {
+	@IBOutlet weak var toolBar: UIToolbar!
+	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)		
 		cellNibName = "SelectableTableViewCell"
 		reuseIdentifier = "SelectableCell"
 		
 		var inventoryData: [InventoryItem] = []
-		for i in 0...8 {
+		for i in 0...15 {
 			let inventoryItem = InventoryItem()
 			inventoryItem.title = "test\(i)"
 			inventoryItem.price = "$\(i + i).00"
@@ -69,5 +71,28 @@ extension SelectItemViewController {
 		row.selected = !row.selected
 		//		cell?.setSelected(row.selected, animated: false)
 		tableView.reloadData()
+		
+		toggleToolBarHidden()
+	}
+	
+	func toggleToolBarHidden() {
+		if shouldShowToolBar() {
+			tabBarController?.tabBar.isHidden = true
+			toolBar.isHidden = false
+		} else {
+			tabBarController?.tabBar.isHidden = false
+			toolBar.isHidden = true
+			
+		}
+	}
+	
+	func shouldShowToolBar() -> Bool {
+		var test: [TableViewRow] = []
+		sections.forEach { (section: TableViewSection) in
+			test = section.rows.filter({ (row: TableViewRow) -> Bool in
+				return row.selected
+			})
+		}
+		return test.count > 0
 	}
 }
