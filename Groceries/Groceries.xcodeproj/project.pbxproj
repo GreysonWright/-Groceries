@@ -49,9 +49,11 @@
 		2E604F5C1E7CBF5800C65634 /* WebserviceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F581E7CBF5800C65634 /* WebserviceData.swift */; };
 		2EBAF2701EEA63480088B878 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAF26F1EEA63480088B878 /* TableViewSection.swift */; };
 		2EBAF2721EEA64190088B878 /* TableViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAF2711EEA64190088B878 /* TableViewRow.swift */; };
-		2ED0E6021EF64DF600F26008 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0E6001EF64DF600F26008 /* AccountTableViewCell.swift */; };
-		2ED0E6031EF64DF600F26008 /* AccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0E6011EF64DF600F26008 /* AccountTableViewCell.xib */; };
 		2ED0E6051EF651B500F26008 /* AccountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0E6041EF651B500F26008 /* AccountField.swift */; };
+		2ED0E6081EF6583E00F26008 /* AccountFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0E6061EF6583E00F26008 /* AccountFieldTableViewCell.swift */; };
+		2ED0E6091EF6583E00F26008 /* AccountFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0E6071EF6583E00F26008 /* AccountFieldTableViewCell.xib */; };
+		2ED0E60C1EF6584800F26008 /* AccountButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0E60A1EF6584800F26008 /* AccountButtonTableViewCell.swift */; };
+		2ED0E60D1EF6584800F26008 /* AccountButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0E60B1EF6584800F26008 /* AccountButtonTableViewCell.xib */; };
 		5CD4C351852BAE93D95D018C /* Pods_Groceries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE4BA602B71B7DAE78549C8 /* Pods_Groceries.framework */; };
 		CAEB7D995637948C5A6B7776 /* Pods_GroceriesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0F97D6ABED0B7E869AD26E /* Pods_GroceriesUITests.framework */; };
 		CBD90E2A0EDAFE5AD297E7F1 /* Pods_GroceriesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDD86BAF9C1D0819D5A4D42 /* Pods_GroceriesTests.framework */; };
@@ -123,9 +125,11 @@
 		2E604F581E7CBF5800C65634 /* WebserviceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceData.swift; sourceTree = "<group>"; };
 		2EBAF26F1EEA63480088B878 /* TableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
 		2EBAF2711EEA64190088B878 /* TableViewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewRow.swift; sourceTree = "<group>"; };
-		2ED0E6001EF64DF600F26008 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
-		2ED0E6011EF64DF600F26008 /* AccountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountTableViewCell.xib; sourceTree = "<group>"; };
 		2ED0E6041EF651B500F26008 /* AccountField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountField.swift; sourceTree = "<group>"; };
+		2ED0E6061EF6583E00F26008 /* AccountFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountFieldTableViewCell.swift; sourceTree = "<group>"; };
+		2ED0E6071EF6583E00F26008 /* AccountFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountFieldTableViewCell.xib; sourceTree = "<group>"; };
+		2ED0E60A1EF6584800F26008 /* AccountButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountButtonTableViewCell.swift; sourceTree = "<group>"; };
+		2ED0E60B1EF6584800F26008 /* AccountButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountButtonTableViewCell.xib; sourceTree = "<group>"; };
 		43BB8591EB592EC767B3DDE9 /* Pods-Groceries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groceries.release.xcconfig"; path = "Pods/Target Support Files/Pods-Groceries/Pods-Groceries.release.xcconfig"; sourceTree = "<group>"; };
 		5234578D95AC3385AAA20700 /* Pods-Groceries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groceries.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Groceries/Pods-Groceries.debug.xcconfig"; sourceTree = "<group>"; };
 		5CE4BA602B71B7DAE78549C8 /* Pods_Groceries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Groceries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,8 +330,10 @@
 				2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */,
 				2E27807B1EEF4CF200CD574C /* ListTableViewCell.swift */,
 				2E27807C1EEF4CF200CD574C /* ListTableViewCell.xib */,
-				2ED0E6001EF64DF600F26008 /* AccountTableViewCell.swift */,
-				2ED0E6011EF64DF600F26008 /* AccountTableViewCell.xib */,
+				2ED0E6061EF6583E00F26008 /* AccountFieldTableViewCell.swift */,
+				2ED0E6071EF6583E00F26008 /* AccountFieldTableViewCell.xib */,
+				2ED0E60A1EF6584800F26008 /* AccountButtonTableViewCell.swift */,
+				2ED0E60B1EF6584800F26008 /* AccountButtonTableViewCell.xib */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -523,12 +529,13 @@
 				2E27807E1EEF4CF200CD574C /* ListTableViewCell.xib in Resources */,
 				2E5404C71EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib in Resources */,
 				2E2780771EEF47E000CD574C /* ListsViewController.xib in Resources */,
+				2ED0E6091EF6583E00F26008 /* AccountFieldTableViewCell.xib in Resources */,
+				2ED0E60D1EF6584800F26008 /* AccountButtonTableViewCell.xib in Resources */,
 				2E0BE4E91E6B4D3D00E08DC1 /* LaunchScreen.storyboard in Resources */,
 				2E2415AD1EEC78140014CD40 /* SelectItemViewController.xib in Resources */,
 				2E5404BB1EE356D300CCDF3A /* InventoryViewController.xib in Resources */,
 				2E0BE4E61E6B4D3D00E08DC1 /* Assets.xcassets in Resources */,
 				2E5404D21EE3697900CCDF3A /* BaseCollectionViewCell.xib in Resources */,
-				2ED0E6031EF64DF600F26008 /* AccountTableViewCell.xib in Resources */,
 				2E19962A1EEB4BB0003ED39E /* SelectableTableViewCell.xib in Resources */,
 				2E5404B71EE356B100CCDF3A /* HomeViewController.xib in Resources */,
 				2E5404BF1EE356EE00CCDF3A /* AccountViewController.xib in Resources */,
@@ -700,6 +707,7 @@
 				2E5C86521EE4EF5900CB3B38 /* UIColor+Colors.swift in Sources */,
 				2E5404D11EE3697900CCDF3A /* BaseCollectionViewCell.swift in Sources */,
 				2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */,
+				2ED0E60C1EF6584800F26008 /* AccountButtonTableViewCell.swift in Sources */,
 				2E5404C61EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift in Sources */,
 				2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */,
 				2E2415A91EEC6F500014CD40 /* InventoryItem.swift in Sources */,
@@ -710,6 +718,7 @@
 				2E604F591E7CBF5800C65634 /* Depot.swift in Sources */,
 				2E5C864D1EE4A45E00CB3B38 /* FatNavigationController.swift in Sources */,
 				2E5404BA1EE356D300CCDF3A /* InventoryViewController.swift in Sources */,
+				2ED0E6081EF6583E00F26008 /* AccountFieldTableViewCell.swift in Sources */,
 				2E5404CB1EE3618F00CCDF3A /* UITableView+Setup.swift in Sources */,
 				2E27807A1EEF48F500CD574C /* List.swift in Sources */,
 				2E2415AC1EEC78140014CD40 /* SelectItemViewController.swift in Sources */,
@@ -719,7 +728,6 @@
 				2ED0E6051EF651B500F26008 /* AccountField.swift in Sources */,
 				2E604F5A1E7CBF5800C65634 /* LocalDBData.swift in Sources */,
 				2E5404CD1EE3689000CCDF3A /* UICollectionView+Setup.swift in Sources */,
-				2ED0E6021EF64DF600F26008 /* AccountTableViewCell.swift in Sources */,
 				2E5C864A1EE48D7700CB3B38 /* BaseViewController.swift in Sources */,
 				2E5404C21EE35F9300CCDF3A /* BaseTableViewCell.swift in Sources */,
 				2EBAF2701EEA63480088B878 /* TableViewSection.swift in Sources */,

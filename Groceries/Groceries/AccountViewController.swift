@@ -12,8 +12,8 @@ class AccountViewController: BaseViewController {
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
-		cellNibName = "AccountTableViewCell"
-		reuseIdentifier = "AccountCell"
+		cellNibName = "AccountFieldTableViewCell"
+		reuseIdentifier = "AccountFieldCell"
 		
 		title = "Account"
 		tabBarItem.image = UIImage.account
@@ -29,9 +29,16 @@ class AccountViewController: BaseViewController {
 		
 		let accountFields = [nameField, emailField, passwordField]
 		
-		let section = TableViewSection(with: nil, rowData: accountFields)
-		section.collapsed = false
-		sections.append(section)
+		let fieldSection = TableViewSection(with: nil, rowData: accountFields)
+		fieldSection.collapsed = false
+		
+		let saveButton = AccountField()
+		saveButton.text = "Save"
+		
+		let buttonSection = TableViewSection(with: nil, rowData: [saveButton])
+		buttonSection.collapsed = false
+		
+		sections = [fieldSection, buttonSection]
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -40,6 +47,8 @@ class AccountViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		tableView.register(nib: "AccountButtonTableViewCell", forCellReuseIdentifier: "AccountButtonCell")
 	}
 }
 
@@ -53,9 +62,21 @@ extension AccountViewController {
 		let row = sections[indexPath.section].rows[indexPath.row]
 		let rowData = row.data as! AccountField
 		
-		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! AccountTableViewCell
-		cell.textField.placeholder = rowData.placeHolder
-		cell.textField.text = rowData.text
+		if indexPath.section == 0 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! AccountFieldTableViewCell
+			cell.textField.placeholder = rowData.placeHolder
+			cell.textField.text = rowData.text
+			return cell
+		}
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "AccountButtonCell") as! AccountButtonTableViewCell
+		cell.buttonAction = saveButtonTapped
+		cell.button.setTitle("Save", for: .normal)
 		return cell
+	}
+	
+	func saveButtonTapped(_ sender: Any) {
+		// save stuff
+		print("saved")
 	}
 }

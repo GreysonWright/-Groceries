@@ -1,5 +1,5 @@
 //
-//  AccountTableViewCell.swift
+//  AccountButtonTableViewCell.swift
 //  Groceries
 //
 //  Created by Greyson Wright on 6/18/17.
@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import SkyFloatingLabelTextField
 
-class AccountTableViewCell: UITableViewCell {
-	@IBOutlet weak var textField: SkyFloatingLabelTextField!
-
+class AccountButtonTableViewCell: UITableViewCell {
+	@IBOutlet weak var button: UIButton!
+	var buttonAction: ((Any) -> ())?
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,4 +23,7 @@ class AccountTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+	@IBAction func buttonTapped(_ sender: Any) {
+		buttonAction?(sender)
+	}
 }
