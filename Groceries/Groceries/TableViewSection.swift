@@ -27,7 +27,7 @@ class TableViewSection {
 		addRows(with: rowData)
 	}
 	
-	convenience init(title: String?) {
+	convenience init(with title: String?) {
 		self.init(with: title, rows: [])
 	}
 	

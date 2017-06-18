@@ -12,8 +12,26 @@ class AccountViewController: BaseViewController {
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
+		cellNibName = "AccountTableViewCell"
+		reuseIdentifier = "AccountCell"
+		
 		title = "Account"
 		tabBarItem.image = UIImage.account
+		
+		let nameField = AccountField()
+		nameField.placeHolder = "Name"
+		
+		let emailField = AccountField()
+		emailField.placeHolder = "Email"
+		
+		let passwordField = AccountField()
+		passwordField.placeHolder = "Password"
+		
+		let accountFields = [nameField, emailField, passwordField]
+		
+		let section = TableViewSection(with: nil, rowData: accountFields)
+		section.collapsed = false
+		sections.append(section)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -27,12 +45,17 @@ class AccountViewController: BaseViewController {
 
 // MARK: - UITableView
 extension AccountViewController {
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 50
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+		let row = sections[indexPath.section].rows[indexPath.row]
+		let rowData = row.data as! AccountField
+		
+		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! AccountTableViewCell
+		cell.textField.placeholder = rowData.placeHolder
+		cell.textField.text = rowData.text
 		return cell
 	}
 }

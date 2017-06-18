@@ -45,10 +45,6 @@ class ListsViewController: BaseViewController {
 
 // MARK: - UITableView
 extension ListsViewController {
-	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 0
-	}
-	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 48
 	}

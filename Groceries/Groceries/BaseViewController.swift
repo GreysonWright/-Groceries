@@ -39,7 +39,11 @@ extension BaseViewController {
 	}
 	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 40
+		if sections[section].title != nil {
+			return 40
+		}
+		
+		return 0
 	}
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
