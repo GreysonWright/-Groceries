@@ -68,6 +68,8 @@ extension AccountViewController {
 			let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! AccountFieldTableViewCell
 			cell.textField.placeholder = rowData.placeHolder
 			cell.textField.text = rowData.text
+			cell.textField.tag = indexPath.row
+			cell.textFieldReturnAction = textFieldShouldReturn
 			textFields[indexPath.row] = cell.textField
 			return cell
 		}
@@ -76,6 +78,15 @@ extension AccountViewController {
 		cell.buttonAction = saveButtonTapped
 		cell.button.setTitle("Save", for: .normal)
 		return cell
+	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if textField.tag == 2 {
+			saveButtonTapped(textField)
+		} else {
+			textFields[textField.tag + 1]?.becomeFirstResponder()
+		}
+		return true
 	}
 	
 	func saveButtonTapped(_ sender: Any) {

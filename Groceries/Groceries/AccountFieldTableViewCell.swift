@@ -9,12 +9,14 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-class AccountFieldTableViewCell: UITableViewCell {
+class AccountFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
 	@IBOutlet weak var textField: SkyFloatingLabelTextField!
-
+	var textFieldReturnAction: ((UITextField) -> Bool)?
+	
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+		
+		textField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,4 +25,10 @@ class AccountFieldTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		guard let textFieldReturnAction = textFieldReturnAction else {
+			return true
+		}
+		return textFieldReturnAction(textField)
+	}
 }
