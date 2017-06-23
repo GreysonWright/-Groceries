@@ -40,9 +40,9 @@
                         </connections>
                     </collectionView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_keyboard_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="BXc-el-pCH">
-                        <rect key="frame" x="84" y="13" width="30" height="30"/>
+                        <rect key="frame" x="76" y="13" width="20" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="LJz-zL-WGh"/>
+                            <constraint firstAttribute="width" constant="20" id="LJz-zL-WGh"/>
                             <constraint firstAttribute="height" constant="30" id="pMc-KH-uX5"/>
                         </constraints>
                     </imageView>
@@ -51,7 +51,7 @@
                 <constraints>
                     <constraint firstItem="7cn-qX-o0Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8uR-Qz-eiL"/>
                     <constraint firstItem="pqi-qe-fRP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Dgk-eq-hUO"/>
-                    <constraint firstItem="BXc-el-pCH" firstAttribute="leading" secondItem="pqi-qe-fRP" secondAttribute="trailing" constant="8" id="FU3-NZ-ecm"/>
+                    <constraint firstItem="BXc-el-pCH" firstAttribute="leading" secondItem="pqi-qe-fRP" secondAttribute="trailing" id="FU3-NZ-ecm"/>
                     <constraint firstItem="7cn-qX-o0Q" firstAttribute="top" secondItem="pqi-qe-fRP" secondAttribute="bottom" constant="11" id="Hi2-m9-yCG"/>
                     <constraint firstItem="pqi-qe-fRP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="VZf-pz-Zo0"/>
                     <constraint firstItem="BXc-el-pCH" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="YZC-BE-8Gb"/>

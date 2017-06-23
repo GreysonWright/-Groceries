@@ -207,6 +207,7 @@
 				2E0BE4DE1E6B4D3D00E08DC1 /* AppDelegate.swift */,
 				2EBAF26F1EEA63480088B878 /* TableViewSection.swift */,
 				2EBAF2711EEA64190088B878 /* TableViewRow.swift */,
+				2E2B8CE11EFDB26B009A0056 /* Extensions */,
 				2E2415A71EEC6F3A0014CD40 /* DTOs */,
 				2E604F2A1E7CBF1B00C65634 /* Libs */,
 				2E0BE5171E6B6C6800E08DC1 /* Views */,
@@ -319,6 +320,17 @@
 			name = Lists;
 			sourceTree = "<group>";
 		};
+		2E2B8CE11EFDB26B009A0056 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2E2415B31EEC81330014CD40 /* UIImage+Images.swift */,
+				2E5C86511EE4EF5900CB3B38 /* UIColor+Colors.swift */,
+				2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */,
+				2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		2E5404CE1EE3695C00CCDF3A /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,11 +384,7 @@
 		2E604F2A1E7CBF1B00C65634 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				2E2415B31EEC81330014CD40 /* UIImage+Images.swift */,
-				2E5C86511EE4EF5900CB3B38 /* UIColor+Colors.swift */,
 				2E4871CB1EAA637400601BDB /* URLSession+Request.swift */,
-				2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */,
-				2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */,
 				2E604F541E7CBF5800C65634 /* Depot */,
 			);
 			name = Libs;

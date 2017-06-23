@@ -47,14 +47,9 @@ extension HomeViewController {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		var controller: UIViewController!
-		if indexPath.row == 0 {
-			controller = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
-			controller.title = "Favorites"
-		} else {
-			controller = ListsViewController(nibName: "ListsViewController", bundle: nil)
-			controller.title = "Lists"
-		}
+		let cell = tableView.cellForRow(at: indexPath) as! NestedCollectionTableViewCell
+		let controller = ListsViewController(nibName: "ListsViewController", bundle: nil)
+		controller.title = cell.titleLabel.text
 		navigationController?.pushViewController(controller, animated: true)
 	}
 }
