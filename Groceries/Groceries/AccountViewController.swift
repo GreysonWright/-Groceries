@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AccountViewController: BaseViewController {	
+class AccountViewController: BaseViewController {
+	var textFields: [Int : UITextField] = [:]
+	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
@@ -66,6 +68,7 @@ extension AccountViewController {
 			let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! AccountFieldTableViewCell
 			cell.textField.placeholder = rowData.placeHolder
 			cell.textField.text = rowData.text
+			textFields[indexPath.row] = cell.textField
 			return cell
 		}
 		
@@ -78,5 +81,8 @@ extension AccountViewController {
 	func saveButtonTapped(_ sender: Any) {
 		// save stuff
 		print("saved")
+		textFields.keys.forEach { (key: Int) in
+			textFields[key]?.endEditing(true)
+		}
 	}
 }
