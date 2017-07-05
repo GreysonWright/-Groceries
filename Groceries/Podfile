@@ -9,6 +9,7 @@ target 'Groceries' do
   pod 'ObjectMapper'
   pod 'SkyFloatingLabelTextField'
   pod 'EasyPeasy'
+  pod 'RealmSwift'
 
   target 'GroceriesTests' do
     inherit! :search_paths

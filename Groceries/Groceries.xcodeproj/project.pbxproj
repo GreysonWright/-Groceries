@@ -124,7 +124,7 @@
 		2E604F571E7CBF5800C65634 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		2E604F581E7CBF5800C65634 /* WebserviceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceData.swift; sourceTree = "<group>"; };
 		2EBAF26F1EEA63480088B878 /* TableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
-		2EBAF2711EEA64190088B878 /* TableViewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewRow.swift; sourceTree = "<group>"; };
+		2EBAF2711EEA64190088B878 /* TableViewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewRow.swift; path = ../TableViewRow.swift; sourceTree = "<group>"; };
 		2ED0E6041EF651B500F26008 /* AccountField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountField.swift; sourceTree = "<group>"; };
 		2ED0E6061EF6583E00F26008 /* AccountFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountFieldTableViewCell.swift; sourceTree = "<group>"; };
 		2ED0E6071EF6583E00F26008 /* AccountFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountFieldTableViewCell.xib; sourceTree = "<group>"; };
@@ -206,7 +206,6 @@
 			children = (
 				2E0BE4DE1E6B4D3D00E08DC1 /* AppDelegate.swift */,
 				2EBAF26F1EEA63480088B878 /* TableViewSection.swift */,
-				2EBAF2711EEA64190088B878 /* TableViewRow.swift */,
 				2E2B8CE11EFDB26B009A0056 /* Extensions */,
 				2E2415A71EEC6F3A0014CD40 /* DTOs */,
 				2E604F2A1E7CBF1B00C65634 /* Libs */,
@@ -266,6 +265,7 @@
 		2E2415A71EEC6F3A0014CD40 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
+				2EBAF2711EEA64190088B878 /* TableViewRow.swift */,
 				2E2415A81EEC6F500014CD40 /* InventoryItem.swift */,
 				2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */,
 				2E2780791EEF48F500CD574C /* List.swift */,

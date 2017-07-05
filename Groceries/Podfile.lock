@@ -1,18 +1,26 @@
 PODS:
   - EasyPeasy (1.4.1)
   - ObjectMapper (2.2.3)
+  - Realm (2.4.2):
+    - Realm/Headers (= 2.4.2)
+  - Realm/Headers (2.4.2)
+  - RealmSwift (2.4.2):
+    - Realm (= 2.4.2)
   - SkyFloatingLabelTextField (2.0.1)
 
 DEPENDENCIES:
   - EasyPeasy
   - ObjectMapper
+  - RealmSwift
   - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   EasyPeasy: b8a2feebd47395aaf46bde178abcddd36c922d37
   ObjectMapper: d3b3de11267f5d971f390eb8d63dd509116a4329
+  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
+  RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
 
-PODFILE CHECKSUM: 7ac90f75e1be6c430f9521eb932965276852bffe
+PODFILE CHECKSUM: ffcdce3b9e84006974addc0613e194df04f5733c
 
 COCOAPODS: 1.2.0
