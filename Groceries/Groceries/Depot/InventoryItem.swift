@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-class InventoryItem {
-	var title: String?
-	var price: String?
+class InventoryItem: Object {
+	dynamic var title: String?
+	var price: Double?
 }

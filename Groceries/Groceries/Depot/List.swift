@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import RealmSwift
 
 class List {
 	var title: String?
 	var totalPrice: String?
+	var items: [InventoryItem]?
 }

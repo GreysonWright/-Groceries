@@ -20,7 +20,7 @@ class SelectItemViewController: BaseViewController {
 		for i in 0...15 {
 			let inventoryItem = InventoryItem()
 			inventoryItem.title = "test\(i)"
-			inventoryItem.price = "$\(i + i).00"
+			inventoryItem.price = Double(i + i)
 			inventoryData.append(inventoryItem)
 		}
 		
@@ -56,7 +56,7 @@ extension SelectItemViewController {
 		
 		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! SelectableTableViewCell
 		cell.titleTextLabel.text = rowData.title
-		cell.priceTextLabel.text = rowData.price
+		cell.priceTextLabel.text = "$\(rowData.price!)"
 		if !row.selected {
 			cell.selectedIconImageView.image = UIImage.unSelected
 		} else {
