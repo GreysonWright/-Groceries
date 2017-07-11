@@ -19,7 +19,7 @@ class ListsViewController: BaseViewController {
 		for i in 0...12 {
 			let list = List()
 			list.title = "list\(i)"
-			list.totalPrice = "$\(i * i).\(i)"
+			list.totalPrice = Double(i * i)
 			lists.append(list)
 		}
 		let section1 = TableViewSection(with: nil, rowData: lists)
@@ -55,7 +55,7 @@ extension ListsViewController {
 		
 		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! ListTableViewCell
 		cell.titleLabel.text = rowData.title
-		cell.priceLabel.text = rowData.totalPrice
+		cell.priceLabel.text = String(format: "$%.2lf", rowData.totalPrice!)
 		return cell
 	}
 	

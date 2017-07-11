@@ -11,6 +11,6 @@ import RealmSwift
 
 class List {
 	var title: String?
-	var totalPrice: String?
+	var totalPrice: Double?
 	var items: [InventoryItem]?
 }

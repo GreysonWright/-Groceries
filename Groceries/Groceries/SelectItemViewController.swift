@@ -56,7 +56,7 @@ extension SelectItemViewController {
 		
 		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! SelectableTableViewCell
 		cell.titleTextLabel.text = rowData.title
-		cell.priceTextLabel.text = "$\(rowData.price!)"
+		cell.priceTextLabel.text = String(format: "$%.2lf", rowData.price!)
 		if !row.selected {
 			cell.selectedIconImageView.image = UIImage.unSelected
 		} else {
