@@ -18,6 +18,13 @@ extension Realm {
 		return try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
 	}
 	
+	static func exists(named name: String) -> Bool {
+		guard let filePath = try? buildRealmURL(with: name).path else {
+			return false
+		}
+		return FileManager.default.fileExists(atPath: filePath)
+	}
+	
 	static func newRealm(named fileName: String) throws -> Realm{
 		let realmFileURL = try buildRealmURL(with: fileName)
 		var configuration = Realm.Configuration()

@@ -9,12 +9,13 @@
 import UIKit
 import RealmSwift
 
-enum RealmWriterError: Error {
+enum RealmManagerError: Error {
 	case fileDoesNotExist
 	case nilRealm
+	case nilObjectForKey
 }
 
-class RealmWriter {
+class RealmManager {
 	fileprivate var currentRealm: Realm?
 	var realm: Realm {
 		guard let currentRealm = self.currentRealm else {
@@ -35,7 +36,7 @@ class RealmWriter {
 		do {
 			currentRealm = try Realm(fileURL: realmURL)
 		} catch {
-			throw RealmWriterError.fileDoesNotExist
+			throw RealmManagerError.fileDoesNotExist
 		}
 	}
 	
@@ -48,23 +49,49 @@ class RealmWriter {
 		try FileManager.default.removeItem(at: realmURL)
 	}
 	
-	func write(object: Object) throws {
+	func add(object: Object) throws {
 		do {
 			try realm.write {
 				realm.add(object)
 			}
 		} catch {
-			throw RealmWriterError.nilRealm
+			throw RealmManagerError.nilRealm
 		}
 	}
 	
-	func remove(object: Object) throws {
+	func add(objects: [Object]) throws {
+		do {
+			try realm.write {
+				objects.forEach({ (object: Object) in
+					realm.add(object)
+				})
+			}
+		} catch {
+			throw RealmManagerError.nilRealm
+		}
+	}
+	
+	func getAllObjects<T>(_ type: T.Type) -> Results<T> {
+		return realm.objects(type)
+	}
+		
+	func delete(object: Object) throws {
 		do {
 			try realm.write {
 				realm.delete(object)
 			}
 		} catch {
-			throw RealmWriterError.nilRealm
+			throw RealmManagerError.nilRealm
+		}
+	}
+	
+	func deleteAll() throws {
+		do {
+			try realm.write {
+				realm.deleteAll()
+			}
+		} catch {
+			throw RealmManagerError.nilRealm
 		}
 	}
 }
