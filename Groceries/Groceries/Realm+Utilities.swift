@@ -21,6 +21,7 @@ extension Realm {
 	static func newRealm(named fileName: String) throws -> Realm{
 		let realmFileURL = try buildRealmURL(with: fileName)
 		var configuration = Realm.Configuration()
+//		configuration.deleteRealmIfMigrationNeeded = true
 		configuration.fileURL = realmFileURL
 		let realm = try Realm(configuration: configuration)
 		return realm

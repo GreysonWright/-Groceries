@@ -7,14 +7,15 @@
 //
 
 import XCTest
+import RealmSwift
 @testable import Groceries
 
 class RealmWriterTests: XCTestCase {
 	var writer: RealmWriter!
+	var testItem: InventoryItem!
 	
     override func setUp() {
         super.setUp()
-		
 		writer = try! RealmWriter()
 		try! writer.createRealm(named: "Test")
     }

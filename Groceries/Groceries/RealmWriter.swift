@@ -15,23 +15,32 @@ enum RealmWriterError: Error {
 }
 
 class RealmWriter {
-	fileprivate var realm: Realm!
+	fileprivate var currentRealm: Realm?
+	var realm: Realm {
+		guard let currentRealm = self.currentRealm else {
+			return defaultRealm
+		}
+		return currentRealm
+	}
+	var defaultRealm: Realm {
+		return try! Realm()
+	}
 	
 	init() throws {
-		realm = try Realm()
+		currentRealm = nil
 	}
 	
 	init(fileName: String) throws {
 		let realmURL = try Realm.buildRealmURL(with: fileName)
 		do {
-			realm = try Realm(fileURL: realmURL)
+			currentRealm = try Realm(fileURL: realmURL)
 		} catch {
 			throw RealmWriterError.fileDoesNotExist
 		}
 	}
 	
 	func createRealm(named fileName: String) throws {
-		realm = try Realm.newRealm(named: fileName)
+		currentRealm = try Realm.newRealm(named: fileName)
 	}
 	
 	func removeRealm(named fileName: String) throws {

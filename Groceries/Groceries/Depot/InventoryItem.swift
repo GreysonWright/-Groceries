@@ -10,6 +10,6 @@ import UIKit
 import RealmSwift
 
 class InventoryItem: Object {
-	dynamic var title: String?
-	var price: Double?
+	dynamic var title: String = ""
+	dynamic var price: Double = 0.0
 }
