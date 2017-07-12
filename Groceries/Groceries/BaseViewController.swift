@@ -47,21 +47,44 @@ extension BaseViewController {
 	}
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let headerView = UIView()
-		headerView.backgroundColor = UIColor.white
-		headerView.tag = section
+		let headerView = buildHeaderView(with: section)
+		return headerView
+	}
+	
+	func buildHeaderView(with section: Int) -> UIView {
+		let headerView = initView(with: section)
 		
-		let headerTitleLabel = UILabel()
-		headerTitleLabel.text = sections[section].title
-		headerTitleLabel.font = UIFont.boldSystemFont(ofSize: 25)
-		headerTitleLabel.sizeToFit()
+		let headerTitleLabel = buildHeaderTitleLabel(with: sections[section].title)
 		headerView.addSubview(headerTitleLabel)
 		headerTitleLabel <- [Leading(15), Trailing(0), Top(0), Bottom(0)]
 		
-		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(headerViewTap(recognizer:)))
-		headerView.addGestureRecognizer(tapRecognizer)
+		guard sections[section].collapsable else {
+			return headerView
+		}
+		
+		addTapRecognizer(to: headerView)
 		
 		return headerView
+	}
+	
+	func initView(with section: Int) -> UIView {
+		let view = UIView()
+		view.backgroundColor = UIColor.white
+		view.tag = section
+		return view
+	}
+	
+	func buildHeaderTitleLabel(with title: String?) -> UILabel {
+		let label = UILabel()
+		label.text = title
+		label.font = UIFont.boldSystemFont(ofSize: 25)
+		label.sizeToFit()
+		return label
+	}
+	
+	func addTapRecognizer(to view: UIView) {
+		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(headerViewTap(recognizer:)))
+		view.addGestureRecognizer(tapRecognizer)
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

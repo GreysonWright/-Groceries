@@ -12,5 +12,5 @@ import RealmSwift
 class ItemList: Object {
 	dynamic var title = ""
 	dynamic var totalPrice: Double = 0.0
-	var items = List<InventoryItem>()
+	var inventory = List<InventoryItem>()
 }

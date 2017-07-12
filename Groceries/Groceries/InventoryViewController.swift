@@ -25,6 +25,7 @@ class InventoryViewController: BaseViewController {
 		
 		let section1 = TableViewSection(with: "Walmart", rowData: storeCategories)
 		section1.collapsed = false
+		section1.collapsable = false
 		sections.append(section1)
 
 	}
