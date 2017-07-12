@@ -15,9 +15,9 @@ class ListsViewController: BaseViewController {
 		cellNibName = "ListTableViewCell"
 		reuseIdentifier = "ListCell"
 		
-		var lists: [List] = []
+		var lists: [ItemList] = []
 		for i in 0...12 {
-			let list = List()
+			let list = ItemList()
 			list.title = "list\(i)"
 			list.totalPrice = Double(i * i)
 			lists.append(list)
@@ -51,11 +51,11 @@ extension ListsViewController {
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let row = sections[indexPath.section].rows[indexPath.row]
-		let rowData = row.data as! List
+		let rowData = row.data as! ItemList
 		
 		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! ListTableViewCell
 		cell.titleLabel.text = rowData.title
-		cell.priceLabel.text = String(format: "$%.2lf", rowData.totalPrice!)
+		cell.priceLabel.text = String(format: "$%.2lf", rowData.totalPrice)
 		return cell
 	}
 	

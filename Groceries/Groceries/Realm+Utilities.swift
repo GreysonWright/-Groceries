@@ -25,13 +25,9 @@ extension Realm {
 		return FileManager.default.fileExists(atPath: filePath)
 	}
 	
-	static func newRealm(named fileName: String) throws -> Realm{
-		let realmFileURL = try buildRealmURL(with: fileName)
-		var configuration = Realm.Configuration()
-//		configuration.deleteRealmIfMigrationNeeded = true
-		configuration.fileURL = realmFileURL
-		let realm = try Realm(configuration: configuration)
-		return realm
+	static func remove(named name: String) throws {
+		let realmURL = try buildRealmURL(with: name)
+		try FileManager.default.removeItem(at: realmURL)
 	}
 	
 	static func buildRealmURL(with fileName: String) throws -> URL {

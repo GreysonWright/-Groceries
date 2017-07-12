@@ -21,7 +21,7 @@
 		2E2415B41EEC81330014CD40 /* UIImage+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415B31EEC81330014CD40 /* UIImage+Images.swift */; };
 		2E2780761EEF47E000CD574C /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2780741EEF47E000CD574C /* ListsViewController.swift */; };
 		2E2780771EEF47E000CD574C /* ListsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2780751EEF47E000CD574C /* ListsViewController.xib */; };
-		2E27807A1EEF48F500CD574C /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2780791EEF48F500CD574C /* List.swift */; };
+		2E27807A1EEF48F500CD574C /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2780791EEF48F500CD574C /* ItemList.swift */; };
 		2E27807D1EEF4CF200CD574C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E27807B1EEF4CF200CD574C /* ListTableViewCell.swift */; };
 		2E27807E1EEF4CF200CD574C /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E27807C1EEF4CF200CD574C /* ListTableViewCell.xib */; };
 		2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4871CB1EAA637400601BDB /* URLSession+Request.swift */; };
@@ -100,7 +100,7 @@
 		2E2415B31EEC81330014CD40 /* UIImage+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Images.swift"; sourceTree = "<group>"; };
 		2E2780741EEF47E000CD574C /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		2E2780751EEF47E000CD574C /* ListsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListsViewController.xib; sourceTree = "<group>"; };
-		2E2780791EEF48F500CD574C /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		2E2780791EEF48F500CD574C /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		2E27807B1EEF4CF200CD574C /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		2E27807C1EEF4CF200CD574C /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		2E4871CB1EAA637400601BDB /* URLSession+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Request.swift"; sourceTree = "<group>"; };
@@ -275,7 +275,7 @@
 				2EBAF2711EEA64190088B878 /* TableViewRow.swift */,
 				2E2415A81EEC6F500014CD40 /* InventoryItem.swift */,
 				2E2415AE1EEC7A920014CD40 /* StoreCategory.swift */,
-				2E2780791EEF48F500CD574C /* List.swift */,
+				2E2780791EEF48F500CD574C /* ItemList.swift */,
 				2ED0E6041EF651B500F26008 /* AccountField.swift */,
 			);
 			name = DTOs;
@@ -746,7 +746,7 @@
 				2EEA7DFB1F143258002E8DEF /* Realm+Utilities.swift in Sources */,
 				2ED0E6081EF6583E00F26008 /* AccountFieldTableViewCell.swift in Sources */,
 				2E5404CB1EE3618F00CCDF3A /* UITableView+Setup.swift in Sources */,
-				2E27807A1EEF48F500CD574C /* List.swift in Sources */,
+				2E27807A1EEF48F500CD574C /* ItemList.swift in Sources */,
 				2E2415AC1EEC78140014CD40 /* SelectItemViewController.swift in Sources */,
 				2E2780761EEF47E000CD574C /* ListsViewController.swift in Sources */,
 				2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */,

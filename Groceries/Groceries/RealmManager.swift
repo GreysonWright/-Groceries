@@ -16,37 +16,26 @@ enum RealmManagerError: Error {
 }
 
 class RealmManager {
-	fileprivate var currentRealm: Realm?
-	var realm: Realm {
-		guard let currentRealm = self.currentRealm else {
-			return defaultRealm
-		}
-		return currentRealm
-	}
-	var defaultRealm: Realm {
-		return try! Realm()
+	fileprivate var realm: Realm!
+	fileprivate var realmName: String!
+	
+	init() throws {
+		realm = try Realm()
+		realmName = "default"
 	}
 	
-	init() {
-		currentRealm = nil
-	}
-	
-	init(fileName: String) throws {
-		let realmURL = try Realm.buildRealmURL(with: fileName)
+	init(fileNamed name: String) throws {
+		let realmURL = try Realm.buildRealmURL(with: name)
 		do {
-			currentRealm = try Realm(fileURL: realmURL)
+			realm = try Realm(fileURL: realmURL)
+			realmName = name
 		} catch {
 			throw RealmManagerError.fileDoesNotExist
 		}
 	}
 	
-	func createRealm(named fileName: String) throws {
-		currentRealm = try Realm.newRealm(named: fileName)
-	}
-	
-	func removeRealm(named fileName: String) throws {
-		let realmURL = try Realm.buildRealmURL(with: fileName)
-		try FileManager.default.removeItem(at: realmURL)
+	func removeCurrentRealm() throws {
+		try Realm.remove(named: realmName)
 	}
 	
 	func add(object: Object) throws {
