@@ -9,7 +9,7 @@
 import UIKit
 
 class SelectItemViewController: BaseViewController {
-	@IBOutlet weak var toolBar: UIToolbar!
+	@IBOutlet weak var toolbar: UIToolbar!
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)		
@@ -36,11 +36,55 @@ class SelectItemViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		addItemsToToolbar()
 	}
 	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
+	func addItemsToToolbar() {
+		let favoriteBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_star_border"), style: .plain, target: self, action: #selector(favoriteBarButtonTapped))
+		let flexibleSpaceItem1 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+		let saveToBarButton = UIBarButtonItem(title: "Save To", style: .plain, target: self, action: #selector(saveToBarButtonTapped))
+		let flexibleSpaceItem2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+		let deleteBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_clear"), style: .plain, target: self, action: #selector(deleteBarButtonTapped))
+		toolbar.items = [favoriteBarButton, flexibleSpaceItem1, saveToBarButton, flexibleSpaceItem2, deleteBarButton]
+	}
+	
+	func favoriteBarButtonTapped() {
+		let selectedRows = getSelectedRows()
+		let selectedRowData = extractRowData(from: selectedRows)
+		write(rowData: selectedRowData, to: "Favorites")
+		hideToolbar()
+		navigationController?.popViewController(animated: true)
+	}
+	
+	func saveToBarButtonTapped() {
+		
+	}
+	
+	func deleteBarButtonTapped() {
+		
+	}
+	
+	func getSelectedRows() -> [TableViewRow] {
+		let selectedRows = sections.flatMap { (section: TableViewSection) -> [TableViewRow] in
+			return section.selectedRows
+		}
+		return selectedRows
+	}
+	
+	func extractRowData(from rows: [TableViewRow]) -> [InventoryItem] {
+		let selectedRowData = rows.map { (row: TableViewRow) in
+			return row.data
+		}
+		return selectedRowData as! [InventoryItem]
+	}
+	
+	func write(rowData: [InventoryItem], to realmName: String) {
+		do {
+			let manager = try RealmManager(fileNamed: realmName)
+			try manager.add(objects: rowData)
+		} catch {
+			print("Could not write to favorites")
+		}
 	}
 }
 
@@ -76,22 +120,33 @@ extension SelectItemViewController {
 	}
 	
 	func toggleToolBarHidden() {
-		if shouldShowToolBar() {
-			tabBarController?.tabBar.isHidden = true
-			toolBar.isHidden = false
+		if shouldShowToolbar() {
+			showToolbar()
 		} else {
-			tabBarController?.tabBar.isHidden = false
-			toolBar.isHidden = true
-			
+			hideToolbar()
 		}
 	}
 	
-	func shouldShowToolBar() -> Bool {
-		let selectedRows: [TableViewRow] = sections.flatMap { (section: TableViewSection) -> [TableViewRow] in
-			return section.rows.filter({ (row: TableViewRow) -> Bool in
-				return row.selected
-			})
+	func shouldShowToolbar() -> Bool {
+		let selectedRowCount = getSelectedRowCount()
+		return selectedRowCount > 0
+	}
+	
+	func showToolbar() {
+		tabBarController?.tabBar.isHidden = true
+		toolbar.isHidden = false
+	}
+	
+	func hideToolbar() {
+		tabBarController?.tabBar.isHidden = false
+		toolbar.isHidden = true
+	}
+	
+	func getSelectedRowCount() -> Int {
+		var selectedRowCount = 0
+		sections.forEach { (section: TableViewSection) in
+			selectedRowCount += section.rowCount
 		}
-		return selectedRows.count > 0
+		return selectedRowCount
 	}
 }

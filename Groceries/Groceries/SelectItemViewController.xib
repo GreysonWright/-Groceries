@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectItemViewController" customModule="Groceries" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="jyd-sL-3FU" id="KuS-ot-QNJ"/>
-                <outlet property="toolBar" destination="FRw-tz-ctg" id="ERX-fP-lsv"/>
+                <outlet property="toolbar" destination="FRw-tz-ctg" id="LiK-0r-GXO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,19 +25,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="nbF-3D-dm0"/>
-                        <outlet property="delegate" destination="-1" id="axu-b0-NSV"/>
+                        <outlet property="dataSource" destination="-1" id="YjA-uO-eS4"/>
+                        <outlet property="delegate" destination="-1" id="78e-hu-IIa"/>
                     </connections>
                 </tableView>
                 <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRw-tz-ctg">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                    <items>
-                        <barButtonItem image="ic_star_border" id="QVD-Yt-nSu"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xV2-CM-48n"/>
-                        <barButtonItem title="Save To" id="imF-Mu-bdB"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9iL-zC-8wy"/>
-                        <barButtonItem systemItem="stop" id="je1-bT-x4M"/>
-                    </items>
+                    <items/>
                 </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,7 +47,4 @@
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="ic_star_border" width="24" height="24"/>
-    </resources>
 </document>

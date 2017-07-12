@@ -10,7 +10,7 @@ import UIKit
 
 class NestedCollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
 	@IBOutlet weak var collectionView: UICollectionView!
-	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var titleTextLabel: UILabel!
 	let collectionCellNibName = "BaseCollectionViewCell"
 	let collectionReuseIdentifier = "BaseCollectionCell"
 	

@@ -9,9 +9,12 @@
 import UIKit
 
 class ListInventoryViewController: BaseViewController {
-	convenience init(with title: String, inventory: [InventoryItem]) {
+	convenience init(with title: String?, inventory: [InventoryItem]) {
 		self.init(nibName: "ListInventoryViewController", bundle: nil)
 		self.title = title
+		
+		cellNibName = "SelectableTableViewCell"
+		reuseIdentifier = "SelectableCell"
 		
 		let section1 = TableViewSection(with: nil, rowData: inventory)
 		section1.collapsed = false
@@ -34,16 +37,16 @@ class ListInventoryViewController: BaseViewController {
 // MARK: - UITableView
 extension ListInventoryViewController {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 48
+		return 100
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let row = sections[indexPath.section].rows[indexPath.row]
-		let rowData = row.data as! ItemList
+		let rowData = row.data as! InventoryItem
 		
-		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! ListTableViewCell
-		cell.titleLabel.text = rowData.title
-		cell.priceLabel.text = String(format: "$%.2lf", rowData.totalPrice)
+		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! SelectableTableViewCell
+		cell.titleTextLabel.text = rowData.title
+		cell.priceTextLabel.text = String(format: "$%.2lf", rowData.price)
 		return cell
 	}
 	

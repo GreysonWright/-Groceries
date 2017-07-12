@@ -9,8 +9,8 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell {
-	@IBOutlet weak var titleLabel: UILabel!
-	@IBOutlet weak var priceLabel: UILabel!
+	@IBOutlet weak var titleTextLabel: UILabel!
+	@IBOutlet weak var priceTextLabel: UILabel!
 	
     override func awakeFromNib() {
         super.awakeFromNib()

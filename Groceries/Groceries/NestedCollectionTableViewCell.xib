@@ -62,7 +62,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="collectionView" destination="7cn-qX-o0Q" id="Fxi-L6-w3Z"/>
-                <outlet property="titleLabel" destination="pqi-qe-fRP" id="W2T-BR-fbc"/>
+                <outlet property="titleTextLabel" destination="pqi-qe-fRP" id="TtG-hL-mVG"/>
             </connections>
             <point key="canvasLocation" x="34" y="29.5"/>
         </tableViewCell>

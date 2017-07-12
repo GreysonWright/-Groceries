@@ -39,17 +39,34 @@ extension HomeViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NestedCollectionTableViewCell
 		if indexPath.row == 0 {
-			cell.titleLabel.text = "Favorites"
+			cell.titleTextLabel.text = "Favorites"
 		} else {
-			cell.titleLabel.text = "Lists"
+			cell.titleTextLabel.text = "Lists"
 		}
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let cell = tableView.cellForRow(at: indexPath) as! NestedCollectionTableViewCell
-		let controller = ListsViewController(nibName: "ListsViewController", bundle: nil)
-		controller.title = cell.titleLabel.text
+		let controller: UIViewController!
+		if indexPath.row == 0 {
+			let favorites = getFavoritesFromRealm()
+			controller = ListInventoryViewController(with: cell.titleTextLabel.text, inventory: favorites)
+		} else {
+			controller = ListsViewController(nibName: "ListsViewController", bundle: nil)
+			controller.title = cell.titleTextLabel.text
+		}
 		navigationController?.pushViewController(controller, animated: true)
+	}
+	
+	func getFavoritesFromRealm() -> [InventoryItem] {
+		guard let manager = try? RealmManager(fileNamed: "Favorites") else {
+			print("Could not find favorites realm.")
+			return []
+		}
+		
+		let results = manager.getAllObjects(InventoryItem.self)
+		let favorites = Array(results)
+		return favorites
 	}
 }

@@ -15,7 +15,7 @@
 		2E1996291EEB4BB0003ED39E /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */; };
 		2E19962A1EEB4BB0003ED39E /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */; };
 		2E1F8DEF1F168143008047BF /* ListInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F8DED1F168143008047BF /* ListInventoryViewController.swift */; };
-		2E1F8DF01F168143008047BF /* ListItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1F8DEE1F168143008047BF /* ListItemsViewController.xib */; };
+		2E1F8DF01F168143008047BF /* ListInventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1F8DEE1F168143008047BF /* ListInventoryViewController.xib */; };
 		2E2415A91EEC6F500014CD40 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415A81EEC6F500014CD40 /* InventoryItem.swift */; };
 		2E2415AC1EEC78140014CD40 /* SelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */; };
 		2E2415AD1EEC78140014CD40 /* SelectItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */; };
@@ -96,7 +96,7 @@
 		2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTableViewCell.swift; sourceTree = "<group>"; };
 		2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
 		2E1F8DED1F168143008047BF /* ListInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInventoryViewController.swift; sourceTree = "<group>"; };
-		2E1F8DEE1F168143008047BF /* ListItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListItemsViewController.xib; sourceTree = "<group>"; };
+		2E1F8DEE1F168143008047BF /* ListInventoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListInventoryViewController.xib; sourceTree = "<group>"; };
 		2E2415A81EEC6F500014CD40 /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemViewController.swift; sourceTree = "<group>"; };
 		2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectItemViewController.xib; sourceTree = "<group>"; };
@@ -273,13 +273,13 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		2E1F8DF11F168149008047BF /* List Items */ = {
+		2E1F8DF11F168149008047BF /* List Inventory */ = {
 			isa = PBXGroup;
 			children = (
 				2E1F8DED1F168143008047BF /* ListInventoryViewController.swift */,
-				2E1F8DEE1F168143008047BF /* ListItemsViewController.xib */,
+				2E1F8DEE1F168143008047BF /* ListInventoryViewController.xib */,
 			);
-			name = "List Items";
+			name = "List Inventory";
 			sourceTree = "<group>";
 		};
 		2E2415A71EEC6F3A0014CD40 /* DTOs */ = {
@@ -387,7 +387,7 @@
 				2EEA7DF51F14184D002E8DEF /* Base ViewController */,
 				2E2780781EEF47E800CD574C /* Lists */,
 				2E2780731EEF47A000CD574C /* Select Items */,
-				2E1F8DF11F168149008047BF /* List Items */,
+				2E1F8DF11F168149008047BF /* List Inventory */,
 				2E2415B01EEC7EE20014CD40 /* Home */,
 				2E2415B11EEC7EEA0014CD40 /* Inventory */,
 				2E2415B21EEC7EFC0014CD40 /* Account */,
@@ -564,7 +564,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E1F8DF01F168143008047BF /* ListItemsViewController.xib in Resources */,
+				2E1F8DF01F168143008047BF /* ListInventoryViewController.xib in Resources */,
 				2E5404C31EE35F9300CCDF3A /* BaseTableViewCell.xib in Resources */,
 				2E27807E1EEF4CF200CD574C /* ListTableViewCell.xib in Resources */,
 				2E5404C71EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib in Resources */,

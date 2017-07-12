@@ -17,6 +17,16 @@ class TableViewSection {
 		return rows.count
 	}
 	
+	var selectedRows: [TableViewRow] {
+		return rows.filter({ (row: TableViewRow) -> Bool in
+			return row.selected
+		})
+	}
+	
+	var selectedRowCount: Int {
+		return selectedRows.count
+	}
+	
 	init(with title: String?, rows: [TableViewRow]) {
 		self.title = title
 		self.rows = rows

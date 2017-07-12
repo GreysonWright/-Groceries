@@ -54,15 +54,17 @@ extension ListsViewController {
 		let rowData = row.data as! ItemList
 		
 		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! ListTableViewCell
-		cell.titleLabel.text = rowData.title
-		cell.priceLabel.text = String(format: "$%.2lf", rowData.totalPrice)
+		cell.titleTextLabel.text = rowData.title
+		cell.priceTextLabel.text = String(format: "$%.2lf", rowData.totalPrice)
 		return cell
 	}
 	
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		let row = sections[indexPath.section].rows[indexPath.row]
-//		let rowData = row.data as! List
+		let row = sections[indexPath.section].rows[indexPath.row]
+		let rowData = row.data as! ItemList
+		let listInventoryViewController = ListInventoryViewController(with: rowData.title, inventory: Array(rowData.inventory))
+		navigationController?.pushViewController(listInventoryViewController, animated: true)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }

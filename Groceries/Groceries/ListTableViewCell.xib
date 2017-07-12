@@ -44,8 +44,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="priceLabel" destination="TGd-Jr-xDN" id="7CI-4I-3Qv"/>
-                <outlet property="titleLabel" destination="5O6-tg-fGd" id="Msa-6S-FLj"/>
+                <outlet property="priceTextLabel" destination="TGd-Jr-xDN" id="ScZ-yA-FPF"/>
+                <outlet property="titleTextLabel" destination="5O6-tg-fGd" id="Jbh-Jq-ctP"/>
             </connections>
         </tableViewCell>
     </objects>
