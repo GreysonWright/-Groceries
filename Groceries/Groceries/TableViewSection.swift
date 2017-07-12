@@ -12,7 +12,7 @@ class TableViewSection {
 	var title: String?
 	fileprivate(set) public var rows: [TableViewRow]
 	var collapsed: Bool
-	var collapsable: Bool
+	var collapsible: Bool
 	var rowCount: Int {
 		return rows.count
 	}
@@ -21,7 +21,7 @@ class TableViewSection {
 		self.title = title
 		self.rows = rows
 		collapsed = true
-		collapsable = true
+		collapsible = true
 	}
 	
 	convenience init(with title: String?, rowData: [Any]) {

@@ -58,7 +58,7 @@ extension BaseViewController {
 		headerView.addSubview(headerTitleLabel)
 		headerTitleLabel <- [Leading(15), Trailing(0), Top(0), Bottom(0)]
 		
-		guard sections[section].collapsable else {
+		guard sections[section].collapsible else {
 			return headerView
 		}
 		
