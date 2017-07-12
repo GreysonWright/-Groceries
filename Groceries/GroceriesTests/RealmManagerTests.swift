@@ -20,7 +20,7 @@ class RealmManagerTests: XCTestCase {
     }
 	
 	func initRealmManager() {
-		manager = try! RealmManager()
+		manager = RealmManager()
 		try! manager.createRealm(named: "Test")
 	}
 	

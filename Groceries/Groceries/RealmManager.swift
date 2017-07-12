@@ -27,7 +27,7 @@ class RealmManager {
 		return try! Realm()
 	}
 	
-	init() throws {
+	init() {
 		currentRealm = nil
 	}
 	
