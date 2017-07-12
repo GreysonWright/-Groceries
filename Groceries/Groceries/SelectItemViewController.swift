@@ -145,7 +145,7 @@ extension SelectItemViewController {
 	func getSelectedRowCount() -> Int {
 		var selectedRowCount = 0
 		sections.forEach { (section: TableViewSection) in
-			selectedRowCount += section.rowCount
+			selectedRowCount += section.selectedRowCount
 		}
 		return selectedRowCount
 	}
