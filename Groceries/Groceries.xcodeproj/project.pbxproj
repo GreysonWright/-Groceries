@@ -14,8 +14,7 @@
 		2E0BE4FF1E6B4D3D00E08DC1 /* GroceriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE4FE1E6B4D3D00E08DC1 /* GroceriesUITests.swift */; };
 		2E1996291EEB4BB0003ED39E /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */; };
 		2E19962A1EEB4BB0003ED39E /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */; };
-		2E1F8DEF1F168143008047BF /* ListInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F8DED1F168143008047BF /* ListInventoryViewController.swift */; };
-		2E1F8DF01F168143008047BF /* ListInventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1F8DEE1F168143008047BF /* ListInventoryViewController.xib */; };
+		2E1F8DF31F16D336008047BF /* RealmManager+Realms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F8DF21F16D336008047BF /* RealmManager+Realms.swift */; };
 		2E2415A91EEC6F500014CD40 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415A81EEC6F500014CD40 /* InventoryItem.swift */; };
 		2E2415AC1EEC78140014CD40 /* SelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */; };
 		2E2415AD1EEC78140014CD40 /* SelectItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */; };
@@ -95,8 +94,7 @@
 		2E0BE5001E6B4D3D00E08DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E1996271EEB4BB0003ED39E /* SelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTableViewCell.swift; sourceTree = "<group>"; };
 		2E1996281EEB4BB0003ED39E /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
-		2E1F8DED1F168143008047BF /* ListInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInventoryViewController.swift; sourceTree = "<group>"; };
-		2E1F8DEE1F168143008047BF /* ListInventoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListInventoryViewController.xib; sourceTree = "<group>"; };
+		2E1F8DF21F16D336008047BF /* RealmManager+Realms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmManager+Realms.swift"; sourceTree = "<group>"; };
 		2E2415A81EEC6F500014CD40 /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		2E2415AA1EEC78140014CD40 /* SelectItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemViewController.swift; sourceTree = "<group>"; };
 		2E2415AB1EEC78140014CD40 /* SelectItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectItemViewController.xib; sourceTree = "<group>"; };
@@ -273,15 +271,6 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		2E1F8DF11F168149008047BF /* List Inventory */ = {
-			isa = PBXGroup;
-			children = (
-				2E1F8DED1F168143008047BF /* ListInventoryViewController.swift */,
-				2E1F8DEE1F168143008047BF /* ListInventoryViewController.xib */,
-			);
-			name = "List Inventory";
-			sourceTree = "<group>";
-		};
 		2E2415A71EEC6F3A0014CD40 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +338,7 @@
 				2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */,
 				2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */,
 				2EEA7DFA1F143258002E8DEF /* Realm+Utilities.swift */,
+				2E1F8DF21F16D336008047BF /* RealmManager+Realms.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -387,7 +377,6 @@
 				2EEA7DF51F14184D002E8DEF /* Base ViewController */,
 				2E2780781EEF47E800CD574C /* Lists */,
 				2E2780731EEF47A000CD574C /* Select Items */,
-				2E1F8DF11F168149008047BF /* List Inventory */,
 				2E2415B01EEC7EE20014CD40 /* Home */,
 				2E2415B11EEC7EEA0014CD40 /* Inventory */,
 				2E2415B21EEC7EFC0014CD40 /* Account */,
@@ -564,7 +553,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E1F8DF01F168143008047BF /* ListInventoryViewController.xib in Resources */,
 				2E5404C31EE35F9300CCDF3A /* BaseTableViewCell.xib in Resources */,
 				2E27807E1EEF4CF200CD574C /* ListTableViewCell.xib in Resources */,
 				2E5404C71EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib in Resources */,
@@ -746,11 +734,11 @@
 				2E604F5C1E7CBF5800C65634 /* WebserviceData.swift in Sources */,
 				2E5C86521EE4EF5900CB3B38 /* UIColor+Colors.swift in Sources */,
 				2E5404D11EE3697900CCDF3A /* BaseCollectionViewCell.swift in Sources */,
-				2E1F8DEF1F168143008047BF /* ListInventoryViewController.swift in Sources */,
 				2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */,
 				2ED0E60C1EF6584800F26008 /* AccountButtonTableViewCell.swift in Sources */,
 				2E5404C61EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift in Sources */,
 				2E4871CC1EAA637400601BDB /* URLSession+Request.swift in Sources */,
+				2E1F8DF31F16D336008047BF /* RealmManager+Realms.swift in Sources */,
 				2E2415A91EEC6F500014CD40 /* InventoryItem.swift in Sources */,
 				2E1996291EEB4BB0003ED39E /* SelectableTableViewCell.swift in Sources */,
 				2E2415AF1EEC7A920014CD40 /* StoreCategory.swift in Sources */,

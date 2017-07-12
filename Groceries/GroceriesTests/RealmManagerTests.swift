@@ -12,7 +12,6 @@ import RealmSwift
 
 class RealmManagerTests: XCTestCase {
 	var manager: RealmManager!
-	let realmName = "Test"
 	
     override func setUp() {
         super.setUp()
@@ -21,7 +20,7 @@ class RealmManagerTests: XCTestCase {
     }
 	
 	func initRealmManager() {
-		manager = try! RealmManager(fileNamed: realmName)
+		manager = try! RealmManager(fileNamed: RealmManager.testRealm)
 	}
 	
 	override func tearDown() {
@@ -93,6 +92,6 @@ class RealmManagerTests: XCTestCase {
 	
 	func testRemoveRealm() {
 		try! manager.removeCurrentRealm()
-		XCTAssertEqual(Realm.exists(named: realmName), false)
+		XCTAssertEqual(Realm.exists(named: RealmManager.testRealm), false)
 	}
 }

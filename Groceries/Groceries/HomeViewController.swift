@@ -37,6 +37,11 @@ extension HomeViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = buildCell(with: tableView, at: indexPath)
+		return cell
+	}
+	
+	func buildCell(with tableView: UITableView, at indexPath: IndexPath) -> NestedCollectionTableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NestedCollectionTableViewCell
 		if indexPath.row == 0 {
 			cell.titleTextLabel.text = "Favorites"
@@ -47,20 +52,34 @@ extension HomeViewController {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		pushViewController(at: indexPath)
+	}
+	
+	func pushViewController(at indexPath: IndexPath) {
 		let cell = tableView.cellForRow(at: indexPath) as! NestedCollectionTableViewCell
 		let controller: UIViewController!
 		if indexPath.row == 0 {
-			let favorites = getFavoritesFromRealm()
-			controller = ListInventoryViewController(with: cell.titleTextLabel.text, inventory: favorites)
+			controller = buildFavoritesViewController(with: cell)
 		} else {
-			controller = ListsViewController(nibName: "ListsViewController", bundle: nil)
-			controller.title = cell.titleTextLabel.text
+			controller = buildListViewController(with: cell)
 		}
 		navigationController?.pushViewController(controller, animated: true)
 	}
 	
+	func buildFavoritesViewController(with cell: NestedCollectionTableViewCell) -> UIViewController{
+		let favorites = getFavoritesFromRealm()
+		let controller = SelectItemViewController(with: cell.titleTextLabel.text, inventory: favorites)
+		return controller
+	}
+	
+	func buildListViewController(with cell: NestedCollectionTableViewCell) -> UIViewController{
+		let controller = ListsViewController(nibName: "ListsViewController", bundle: nil)
+		controller.title = cell.titleTextLabel.text
+		return controller
+	}
+	
 	func getFavoritesFromRealm() -> [InventoryItem] {
-		guard let manager = try? RealmManager(fileNamed: "Favorites") else {
+		guard let manager = try? RealmManager(fileNamed: RealmManager.favoritesRealm) else {
 			print("Could not find favorites realm.")
 			return []
 		}

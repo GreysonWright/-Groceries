@@ -11,23 +11,24 @@ import UIKit
 class SelectItemViewController: BaseViewController {
 	@IBOutlet weak var toolbar: UIToolbar!
 	
+	convenience init(with title: String?, inventory: [InventoryItem]) {
+		let section1 = TableViewSection(with: nil, rowData: inventory)
+		section1.collapsed = false
+		section1.collapsible = false
+		self.init(with: title, sections: [section1])
+	}
+	
+	convenience init(with title: String?, sections: [TableViewSection]) {
+		self.init(nibName: "SelectItemViewController", bundle: nil)
+		self.title = title
+		
+		self.sections = sections
+	}
+	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)		
 		cellNibName = "SelectableTableViewCell"
 		reuseIdentifier = "SelectableCell"
-		
-		var inventoryData: [InventoryItem] = []
-		for i in 0...15 {
-			let inventoryItem = InventoryItem()
-			inventoryItem.title = "test\(i)"
-			inventoryItem.price = Double(i + i)
-			inventoryData.append(inventoryItem)
-		}
-		
-		let section1 = TableViewSection(with: "test section1", rowData: inventoryData)
-		let section2 = TableViewSection(with: "test section2", rowData: inventoryData)
-		
-		sections = [section1, section2]
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -51,7 +52,7 @@ class SelectItemViewController: BaseViewController {
 	func favoriteBarButtonTapped() {
 		let selectedRows = getSelectedRows()
 		let selectedRowData = extractRowData(from: selectedRows)
-		write(rowData: selectedRowData, to: "Favorites")
+		write(rowData: selectedRowData, to: RealmManager.favoritesRealm)
 		hideToolbar()
 		navigationController?.popViewController(animated: true)
 	}
