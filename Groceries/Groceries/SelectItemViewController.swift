@@ -11,8 +11,8 @@ import UIKit
 class SelectItemViewController: BaseViewController {
 	@IBOutlet weak var toolbar: UIToolbar!
 	
-	convenience init(with title: String?, inventory: [InventoryItem]) {
-		let section1 = TableViewSection(with: nil, rowData: inventory)
+	convenience init(with title: String?, listItems: [InventoryItem]) {
+		let section1 = TableViewSection(with: nil, rowData: listItems)
 		section1.collapsed = false
 		section1.collapsible = false
 		self.init(with: title, sections: [section1])

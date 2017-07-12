@@ -63,7 +63,7 @@ extension ListsViewController {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let row = sections[indexPath.section].rows[indexPath.row]
 		let rowData = row.data as! ItemList
-		let listInventoryViewController = SelectItemViewController(with: rowData.title, inventory: Array(rowData.inventory))
+		let listInventoryViewController = SelectItemViewController(with: rowData.title, listItems: Array(rowData.inventory))
 		navigationController?.pushViewController(listInventoryViewController, animated: true)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
