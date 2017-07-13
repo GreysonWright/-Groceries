@@ -14,6 +14,7 @@ fileprivate enum ListsViewControllerMode {
 }
 
 class ListsViewController: BaseViewController {
+	fileprivate var selectionCompleted: ((Bool) -> (Void))?
 	fileprivate var newInentory: [InventoryItem]?
 	fileprivate var mode: ListsViewControllerMode {
 		if newInentory == nil {
@@ -60,7 +61,7 @@ class ListsViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
 	
-	func addToUserDefinedList(inventory: [InventoryItem], target: UIViewController, navigationController: UINavigationController?) {
+	func addToUserDefinedList(inventory: [InventoryItem], target: UIViewController, navigationController: UINavigationController?, completed: ((Bool) -> Void)?) {
 		newInentory = inventory
 		guard let navigationController = navigationController else {
 			target.present(self, animated: true, completion: nil)
@@ -68,6 +69,7 @@ class ListsViewController: BaseViewController {
 		}
 		navigationController.viewControllers.append(self)
 		target.present(navigationController, animated: true, completion: nil)
+		selectionCompleted = completed
 	}
 }
 
@@ -102,6 +104,7 @@ extension ListsViewController {
 			dismiss(animated: true, completion: nil)
 		}
 		tableView.deselectRow(at: indexPath, animated: true)
+		selectionCompleted?(true)
 	}
 	
 	func pushToSelectViewController(with rowData: ItemList, at indexPath: IndexPath) {

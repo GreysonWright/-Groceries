@@ -68,7 +68,10 @@ class SelectItemViewController: BaseViewController {
 		let selectedRowData = extractRowData(from: selectedRows)
 		let listsNavigationController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil)
 		let listViewController = ListsViewController(with: "Save To")
-		listViewController.addToUserDefinedList(inventory: selectedRowData, target: self.navigationController!, navigationController: listsNavigationController)
+		listViewController.addToUserDefinedList(inventory: selectedRowData, target: self.navigationController!, navigationController: listsNavigationController) { (completed: Bool) in
+			self.hideToolbar()
+			self.navigationController?.popViewController(animated: true)
+		}
 	}
 	
 	func deleteBarButtonTapped() {
