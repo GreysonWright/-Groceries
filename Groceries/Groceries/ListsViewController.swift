@@ -34,16 +34,20 @@ class ListsViewController: BaseViewController {
 		cellNibName = "ListTableViewCell"
 		reuseIdentifier = "ListCell"
 		
-		var lists: [ItemList] = []
-		for i in 0...12 {
-			let list = ItemList()
-			list.title = "list\(i)"
-			list.totalPrice = Double(i * i)
-			lists.append(list)
-		}
+		let lists = getListsFromRealm()
 		let section1 = TableViewSection(with: nil, rowData: lists)
 		section1.collapsed = false
+		section1.collapsible = false
 		sections.append(section1)
+	}
+	
+	func getListsFromRealm() -> [ItemList] {
+		guard let manager = try? RealmManager(fileNamed: RealmManager.listsRealm) else {
+			print("Couldn't find lists realm.")
+			return []
+		}
+		let listInventory = manager.getAllObjects(ItemList.self)
+		return Array(listInventory)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

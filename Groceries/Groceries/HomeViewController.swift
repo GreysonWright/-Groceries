@@ -72,12 +72,6 @@ extension HomeViewController {
 		return controller
 	}
 	
-	func buildListViewController(with cell: NestedCollectionTableViewCell) -> UIViewController{
-		let controller = ListsViewController(nibName: "ListsViewController", bundle: nil)
-		controller.title = cell.titleTextLabel.text
-		return controller
-	}
-	
 	func getFavoritesFromRealm() -> [InventoryItem] {
 		guard let manager = try? RealmManager(fileNamed: RealmManager.favoritesRealm) else {
 			print("Could not find favorites realm.")
@@ -87,5 +81,11 @@ extension HomeViewController {
 		let results = manager.getAllObjects(InventoryItem.self)
 		let favorites = Array(results)
 		return favorites
+	}
+	
+	func buildListViewController(with cell: NestedCollectionTableViewCell) -> UIViewController{
+		let controller = ListsViewController(nibName: "ListsViewController", bundle: nil)
+		controller.title = cell.titleTextLabel.text
+		return controller
 	}
 }
