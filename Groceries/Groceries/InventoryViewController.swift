@@ -64,9 +64,26 @@ extension InventoryViewController {
 		let row = sections[indexPath.section].rows[indexPath.row]
 		let rowData = row.data as! StoreCategory
 		
-		let selectItemViewController = SelectItemViewController(nibName: "SelectItemViewController", bundle: nil)
+		let categorySections = buildCategorySections()
+		let selectItemViewController = SelectItemViewController(with: rowData.title, sections: categorySections)
 		selectItemViewController.title = rowData.title
 		navigationController?.pushViewController(selectItemViewController, animated: true)
 		tableView.deselectRow(at: indexPath, animated: true)
+	}
+	
+	func buildCategorySections() -> [TableViewSection] {
+		var inventoryData: [InventoryItem] = []
+		for i in 0...15 {
+			let inventoryItem = InventoryItem()
+			inventoryItem.title = "test\(i)"
+			inventoryItem.price = Double(i + i)
+			inventoryData.append(inventoryItem)
+		}
+		
+		let section1 = TableViewSection(with: "test section1", rowData: inventoryData)
+		let section2 = TableViewSection(with: "test section2", rowData: inventoryData)
+		
+		let categorySections = [section1, section2]
+		return categorySections
 	}
 }

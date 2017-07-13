@@ -12,4 +12,8 @@ import RealmSwift
 class InventoryItem: Object {
 	dynamic var title: String = ""
 	dynamic var price: Double = 0.0
+	
+	override static func primaryKey() -> String? {
+		return "title"
+	}
 }

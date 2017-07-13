@@ -8,7 +8,25 @@
 
 import UIKit
 
+fileprivate enum ListsViewControllerMode {
+	case normal
+	case selectList
+}
+
 class ListsViewController: BaseViewController {
+	fileprivate var newInentory: [InventoryItem]?
+	fileprivate var mode: ListsViewControllerMode {
+		if newInentory == nil {
+			return .normal
+		}
+		return .selectList
+	}
+	
+	convenience init(with title: String?) {
+		self.init(nibName: "ListsViewController", bundle: nil)
+		self.title = title
+	}
+	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
@@ -41,6 +59,16 @@ class ListsViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func addToUserDefinedList(inventory: [InventoryItem], target: UIViewController, navigationController: UINavigationController?) {
+		newInentory = inventory
+		guard let navigationController = navigationController else {
+			target.present(self, animated: true, completion: nil)
+			return
+		}
+		navigationController.viewControllers.append(self)
+		target.present(navigationController, animated: true, completion: nil)
+	}
 }
 
 // MARK: - UITableView
@@ -63,8 +91,30 @@ extension ListsViewController {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let row = sections[indexPath.section].rows[indexPath.row]
 		let rowData = row.data as! ItemList
+		if mode == .normal {
+			pushToSelectViewController(with: rowData, at: indexPath)
+		} else {
+			let updatedRowData = rowData
+			newInentory?.forEach({ (item: InventoryItem) in
+				updatedRowData.inventory.append(item)
+			})
+			writeUpdate(rowData, realm: RealmManager.listsRealm)
+			dismiss(animated: true, completion: nil)
+		}
+		tableView.deselectRow(at: indexPath, animated: true)
+	}
+	
+	func pushToSelectViewController(with rowData: ItemList, at indexPath: IndexPath) {
 		let listInventoryViewController = SelectItemViewController(with: rowData.title, listItems: Array(rowData.inventory))
 		navigationController?.pushViewController(listInventoryViewController, animated: true)
-		tableView.deselectRow(at: indexPath, animated: true)
+	}
+	
+	func writeUpdate(_ itemList: ItemList, realm realmName: String) {
+		do {
+			let manager = try RealmManager(fileNamed: realmName)
+			try manager.updatingAdd(itemList)
+		} catch {
+			print("Could not update object.")
+		}
 	}
 }

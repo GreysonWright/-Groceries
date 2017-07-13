@@ -10,9 +10,7 @@ import UIKit
 import RealmSwift
 
 enum RealmManagerError: Error {
-	case fileDoesNotExist
-	case nilRealm
-	case nilObjectForKey
+	case primaryKeyNotFound
 }
 
 class RealmManager {
@@ -26,61 +24,71 @@ class RealmManager {
 	
 	init(fileNamed name: String) throws {
 		let realmURL = try Realm.buildRealmURL(with: name)
-		do {
-			realm = try Realm(fileURL: realmURL)
-			realmName = name
-		} catch {
-			throw RealmManagerError.fileDoesNotExist
-		}
+		realm = try Realm(fileURL: realmURL)
+		realmName = name
 	}
 	
 	func removeCurrentRealm() throws {
 		try Realm.remove(named: realmName)
 	}
 	
-	func add(object: Object) throws {
-		do {
-			try realm.write {
-				realm.add(object)
-			}
-		} catch {
-			throw RealmManagerError.nilRealm
+	func add(_ object: Object) throws {
+		try add(object, update: false)
+	}
+	
+	func updatingAdd(_ object: Object) throws {
+		try add(object, update: true)
+	}
+	
+	fileprivate func add(_ object: Object, update: Bool) throws {
+		try realm.write {
+			realm.add(object, update: update)
 		}
 	}
 	
-	func add(objects: [Object]) throws {
-		do {
-			try realm.write {
-				objects.forEach({ (object: Object) in
-					realm.add(object)
-				})
-			}
-		} catch {
-			throw RealmManagerError.nilRealm
+	func add(_ objects: [Object]) throws {
+		try add(objects, update: false)
+	}
+
+	func updatingAdd(_ objects: [Object]) throws {
+		try add(objects, update: true)
+	}
+	
+	fileprivate func add(_ objects: [Object], update: Bool) throws {
+		try realm.write {
+			objects.forEach({ (object: Object) in
+				realm.add(object, update: update)
+			})
+		}
+	}
+	
+	func update(from old: Object, to new: Object) throws {
+		try realm.write {
+			realm.delete(old)
+			realm.add(new)
 		}
 	}
 	
 	func getAllObjects<T>(_ type: T.Type) -> Results<T> {
 		return realm.objects(type)
 	}
-		
-	func delete(object: Object) throws {
-		do {
-			try realm.write {
-				realm.delete(object)
-			}
-		} catch {
-			throw RealmManagerError.nilRealm
+	
+	func getObject<T: Object, K>(_ type: T.Type, for primaryKey: K) throws -> T {
+		guard let dbResult = realm.object(ofType: type, forPrimaryKey: primaryKey) else {
+			throw RealmManagerError.primaryKeyNotFound
+		}
+		return dbResult
+	}
+	
+	func delete(_ object: Object) throws {
+		try realm.write {
+			realm.delete(object)
 		}
 	}
 	
 	func deleteAll() throws {
-		do {
-			try realm.write {
-				realm.deleteAll()
-			}
-		} catch {
-			throw RealmManagerError.nilRealm
+		try realm.write {
+			realm.deleteAll()
 		}
 	}
 }

@@ -13,4 +13,8 @@ class ItemList: Object {
 	dynamic var title = ""
 	dynamic var totalPrice: Double = 0.0
 	var inventory = List<InventoryItem>()
+	
+	override static func primaryKey() -> String? {
+		return "title"
+	}
 }

@@ -26,7 +26,7 @@ class SelectItemViewController: BaseViewController {
 	}
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)		
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		cellNibName = "SelectableTableViewCell"
 		reuseIdentifier = "SelectableCell"
 	}
@@ -38,6 +38,14 @@ class SelectItemViewController: BaseViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		addItemsToToolbar()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		if !toolbar.isHidden {
+			hideToolbar()
+		}
 	}
 	
 	func addItemsToToolbar() {
@@ -53,12 +61,14 @@ class SelectItemViewController: BaseViewController {
 		let selectedRows = getSelectedRows()
 		let selectedRowData = extractRowData(from: selectedRows)
 		write(rowData: selectedRowData, to: RealmManager.favoritesRealm)
-		hideToolbar()
-		navigationController?.popViewController(animated: true)
 	}
 	
 	func saveToBarButtonTapped() {
-		
+		let selectedRows = getSelectedRows()
+		let selectedRowData = extractRowData(from: selectedRows)
+		let listsNavigationController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil)
+		let listViewController = ListsViewController(with: "Save To")
+		listViewController.addToUserDefinedList(inventory: selectedRowData, target: self.navigationController!, navigationController: listsNavigationController)
 	}
 	
 	func deleteBarButtonTapped() {
@@ -82,7 +92,7 @@ class SelectItemViewController: BaseViewController {
 	func write(rowData: [InventoryItem], to realmName: String) {
 		do {
 			let manager = try RealmManager(fileNamed: realmName)
-			try manager.add(objects: rowData)
+			try manager.add(rowData)
 		} catch {
 			print("Could not write to favorites")
 		}

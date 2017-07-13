@@ -15,25 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		let homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
-		let homeNavController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil) //FatNavigationController(rootViewController: homeViewController)
+		let homeNavController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil)
 		homeNavController.viewControllers.append(homeViewController)
 		
 		let inventoryViewController = InventoryViewController(nibName: "InventoryViewController", bundle: nil)
-		let inventoryNavController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil) //FatNavigationController(rootViewController: inventoryViewController)
+		let inventoryNavController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil)
 		inventoryNavController.viewControllers.append(inventoryViewController)
 		
 		let accountViewController = AccountViewController(nibName: "AccountViewController", bundle: nil)
-		let accountNavController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil) //FatNavigationController(rootViewController: accountViewController)
+		let accountNavController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil)
 		accountNavController.viewControllers.append(accountViewController)
 		
 		let tabBarController = UITabBarController()
 		tabBarController.viewControllers = [homeNavController, inventoryNavController, accountNavController]
 		
-//		UINavigationBar.appearance().isOpaque = true
-//		UINavigationBar.appearance().barTintColor = UIColor(red: 29 / 255, green: 185 / 255, blue: 84 / 255, alpha: 1)//(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
-//		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
-//		UITabBar.appearance().tintColor = UIColor(red: 33 / 255, green: 150 / 255, blue: 243 / 255, alpha: 1)
-//		
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.rootViewController = tabBarController
 		window?.makeKeyAndVisible()

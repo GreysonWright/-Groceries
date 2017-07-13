@@ -213,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				2E0BE4DE1E6B4D3D00E08DC1 /* AppDelegate.swift */,
-				2EEA7DF31F14182F002E8DEF /* RealmManager.swift */,
 				2E2B8CE11EFDB26B009A0056 /* Extensions */,
 				2E2415A71EEC6F3A0014CD40 /* DTOs */,
 				2E604F2A1E7CBF1B00C65634 /* Libs */,
@@ -329,6 +328,15 @@
 			name = Lists;
 			sourceTree = "<group>";
 		};
+		2E27CF1B1F17F63D0061689A /* RealmManager */ = {
+			isa = PBXGroup;
+			children = (
+				2EEA7DF31F14182F002E8DEF /* RealmManager.swift */,
+				2EEA7DFA1F143258002E8DEF /* Realm+Utilities.swift */,
+			);
+			name = RealmManager;
+			sourceTree = "<group>";
+		};
 		2E2B8CE11EFDB26B009A0056 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,7 +345,6 @@
 				2E5C86511EE4EF5900CB3B38 /* UIColor+Colors.swift */,
 				2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */,
 				2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */,
-				2EEA7DFA1F143258002E8DEF /* Realm+Utilities.swift */,
 				2E1F8DF21F16D336008047BF /* RealmManager+Realms.swift */,
 			);
 			name = Extensions;
@@ -396,6 +403,7 @@
 		2E604F2A1E7CBF1B00C65634 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2E27CF1B1F17F63D0061689A /* RealmManager */,
 				2E604F541E7CBF5800C65634 /* Depot */,
 			);
 			name = Libs;
