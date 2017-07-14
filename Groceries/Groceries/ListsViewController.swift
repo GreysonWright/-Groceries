@@ -14,7 +14,7 @@ fileprivate enum ListsViewControllerMode {
 }
 
 class ListsViewController: BaseViewController {
-	@IBOutlet var newListAlertTextField: UITextField!
+	var newListAlertTextField: UITextField!
 	@IBOutlet weak var newListButton: UIButton!
 	fileprivate var selectionCompleted: ((Bool) -> (Void))?
 	fileprivate var newInentory: [InventoryItem]?
