@@ -41,8 +41,7 @@ class ListsViewController: BaseViewController {
 	fileprivate func loadListsIntoTableView() {
 		let lists = getListsFromRealm()
 		let section = buildSection(with: lists)
-		sections.removeAll()
-		sections.append(section)
+		sections = [section]
 	}
 	
 	fileprivate func getListsFromRealm() -> [ItemList] {

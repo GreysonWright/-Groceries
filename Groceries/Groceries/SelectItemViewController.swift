@@ -86,10 +86,13 @@ class SelectItemViewController: BaseViewController {
 	}
 	
 	func extractRowData(from rows: [TableViewRow]) -> [InventoryItem] {
-		let selectedRowData = rows.map { (row: TableViewRow) in
-			return row.data
+		let selectedRowData = rows.map { (row: TableViewRow) -> InventoryItem in
+			let rowData = row.data as! InventoryItem
+			rowData.listTitle = RealmManager.favoritesRealm
+			rowData.key = rowData.builtKey
+			return rowData
 		}
-		return selectedRowData as! [InventoryItem]
+		return selectedRowData 
 	}
 	
 	func write(rowData: [InventoryItem], to realmName: String) {
@@ -127,13 +130,11 @@ extension SelectItemViewController {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let row = sections[indexPath.section].rows[indexPath.row]
 		row.selected = !row.selected
-		//		cell?.setSelected(row.selected, animated: false)
 		tableView.reloadData()
-		
-		toggleToolBarHidden()
+		hideToolBarIfNeed()
 	}
 	
-	func toggleToolBarHidden() {
+	func hideToolBarIfNeed() {
 		if shouldShowToolbar() {
 			showToolbar()
 		} else {
