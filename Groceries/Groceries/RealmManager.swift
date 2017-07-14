@@ -69,6 +69,12 @@ class RealmManager {
 		}
 	}
 	
+	func update(write: (() throws -> Void)) throws {
+		try realm.write {
+			try write()
+		}
+	}
+	
 	func getAllObjects<T>(_ type: T.Type) -> Results<T> {
 		return realm.objects(type)
 	}

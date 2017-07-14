@@ -100,10 +100,6 @@ extension ListsViewController {
 		if mode == .normal {
 			pushToSelectViewController(with: rowData, at: indexPath)
 		} else {
-			let updatedRowData = rowData
-			newInentory?.forEach({ (item: InventoryItem) in
-				updatedRowData.inventory.append(item)
-			})
 			writeUpdate(rowData, realm: RealmManager.listsRealm)
 			dismiss(animated: true, completion: nil)
 		}
@@ -119,7 +115,11 @@ extension ListsViewController {
 	func writeUpdate(_ itemList: ItemList, realm realmName: String) {
 		do {
 			let manager = try RealmManager(fileNamed: realmName)
-			try manager.updatingAdd(itemList)
+			try manager.update {
+				newInentory?.forEach({ (item: InventoryItem) in
+					itemList.inventory.append(item)
+				})
+			}
 		} catch {
 			print("Could not update object.")
 		}

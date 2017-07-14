@@ -130,6 +130,17 @@ class RealmManagerTests: XCTestCase {
 		XCTAssertEqual(dbItem.price, 10.0)
 	}
 	
+	func testUpdateWriteBlock() {
+		let item = buildItem(with: "Item 0", price: 0.0)
+		try! manager.add(item)
+		try! manager.update {
+			item.price = 10
+		}
+		let dbItems = manager.getAllObjects(InventoryItem.self)
+		let dbItem = dbItems.first!
+		XCTAssertEqual(dbItem.price, 10.0)
+	}
+	
 	func buildItem(with name: String, price: Double) -> InventoryItem {
 		let item = InventoryItem()
 		item.title = name

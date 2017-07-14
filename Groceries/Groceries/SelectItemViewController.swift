@@ -95,7 +95,7 @@ class SelectItemViewController: BaseViewController {
 	func write(rowData: [InventoryItem], to realmName: String) {
 		do {
 			let manager = try RealmManager(fileNamed: realmName)
-			try manager.add(rowData)
+			try manager.updatingAdd(rowData)
 		} catch {
 			print("Could not write to favorites")
 		}
