@@ -50,6 +50,7 @@
 		2E604F5C1E7CBF5800C65634 /* WebserviceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E604F581E7CBF5800C65634 /* WebserviceData.swift */; };
 		2EBAF2701EEA63480088B878 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAF26F1EEA63480088B878 /* TableViewSection.swift */; };
 		2EBAF2721EEA64190088B878 /* TableViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAF2711EEA64190088B878 /* TableViewRow.swift */; };
+		2ECC47911F19605A00FB129F /* UIAlertController+CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECC47901F19605A00FB129F /* UIAlertController+CustomAlert.swift */; };
 		2ED0E6051EF651B500F26008 /* AccountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0E6041EF651B500F26008 /* AccountField.swift */; };
 		2ED0E6081EF6583E00F26008 /* AccountFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0E6061EF6583E00F26008 /* AccountFieldTableViewCell.swift */; };
 		2ED0E6091EF6583E00F26008 /* AccountFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0E6071EF6583E00F26008 /* AccountFieldTableViewCell.xib */; };
@@ -130,6 +131,7 @@
 		2E604F581E7CBF5800C65634 /* WebserviceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceData.swift; sourceTree = "<group>"; };
 		2EBAF26F1EEA63480088B878 /* TableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
 		2EBAF2711EEA64190088B878 /* TableViewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewRow.swift; path = ../TableViewRow.swift; sourceTree = "<group>"; };
+		2ECC47901F19605A00FB129F /* UIAlertController+CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+CustomAlert.swift"; sourceTree = "<group>"; };
 		2ED0E6041EF651B500F26008 /* AccountField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountField.swift; sourceTree = "<group>"; };
 		2ED0E6061EF6583E00F26008 /* AccountFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountFieldTableViewCell.swift; sourceTree = "<group>"; };
 		2ED0E6071EF6583E00F26008 /* AccountFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountFieldTableViewCell.xib; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				2E5404CA1EE3618F00CCDF3A /* UITableView+Setup.swift */,
 				2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */,
 				2E1F8DF21F16D336008047BF /* RealmManager+Realms.swift */,
+				2ECC47901F19605A00FB129F /* UIAlertController+CustomAlert.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				2ED0E6081EF6583E00F26008 /* AccountFieldTableViewCell.swift in Sources */,
 				2E5404CB1EE3618F00CCDF3A /* UITableView+Setup.swift in Sources */,
 				2E27807A1EEF48F500CD574C /* ItemList.swift in Sources */,
+				2ECC47911F19605A00FB129F /* UIAlertController+CustomAlert.swift in Sources */,
 				2E2415AC1EEC78140014CD40 /* SelectItemViewController.swift in Sources */,
 				2E2780761EEF47E000CD574C /* ListsViewController.swift in Sources */,
 				2E5404B61EE356B100CCDF3A /* HomeViewController.swift in Sources */,

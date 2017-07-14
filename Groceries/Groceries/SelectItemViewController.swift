@@ -49,7 +49,7 @@ class SelectItemViewController: BaseViewController {
 	}
 	
 	func addItemsToToolbar() {
-		let favoriteBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_star_border"), style: .plain, target: self, action: #selector(favoriteBarButtonTapped))
+		let favoriteBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_star"), style: .plain, target: self, action: #selector(favoriteBarButtonTapped))
 		let flexibleSpaceItem1 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
 		let saveToBarButton = UIBarButtonItem(title: "Save To", style: .plain, target: self, action: #selector(saveToBarButtonTapped))
 		let flexibleSpaceItem2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)

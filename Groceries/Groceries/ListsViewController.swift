@@ -14,6 +14,7 @@ fileprivate enum ListsViewControllerMode {
 }
 
 class ListsViewController: BaseViewController {
+	@IBOutlet var newListAlertTextField: UITextField!
 	@IBOutlet weak var newListButton: UIButton!
 	fileprivate var selectionCompleted: ((Bool) -> (Void))?
 	fileprivate var newInentory: [InventoryItem]?
@@ -85,23 +86,39 @@ class ListsViewController: BaseViewController {
 //MARK: -UIButton
 extension ListsViewController {
 	@IBAction func newListButtonTapped(_ sender: Any) {
-		let newListAlertController = UIAlertController(title: "New List", message: nil, preferredStyle: .alert)
-		newListAlertController.addTextField { (textField: UITextField) in
-			textField.placeholder = "List Name"
-		}
-		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-		newListAlertController.addAction(cancelAction)
-		let createListAction = UIAlertAction(title: "Create", style: .default) { (action: UIAlertAction) in
-			self.createListActionTapped(alertAction: action, controller: newListAlertController)
-		}
-		newListAlertController.addAction(createListAction)
+		showNewListAlert()
+	}
+	
+	fileprivate func showNewListAlert() {
+		let newListAlertController = buildNewListAlertController()
 		present(newListAlertController, animated: true, completion: nil)
 	}
 	
-	fileprivate func createListActionTapped(alertAction: UIAlertAction, controller alertController: UIAlertController) {
-		guard let listTitle = alertController.textFields![0].text else {
+	fileprivate func buildNewListAlertController() -> UIAlertController {
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		let createListAction = UIAlertAction(title: "Create", style: .default, handler: createListActionTapped)
+		
+		let alertController = UIAlertController(title: "New List", message: nil, preferredStyle: .alert)
+		alertController.addTextField(configurationHandler: configureAlertControllerTextField)
+		alertController.addAction(cancelAction)
+		alertController.addAction(createListAction)
+		return alertController
+	}
+	
+	fileprivate func configureAlertControllerTextField(textField: UITextField) {
+		textField.placeholder = "List Name"
+		newListAlertTextField = textField
+	}
+	
+	fileprivate func createListActionTapped(alertAction: UIAlertAction) {
+		let listTitle = newListAlertTextField.text!
+		guard !listTitle.isEmpty else {
+			UIAlertController.showAlert(with: "Please provide a list name.", on: self, dismiss: { (action: UIAlertAction) in
+				self.showNewListAlert()
+			})
 			return
 		}
+		
 		let newList = buildNewList(with: listTitle)
 		write(newList, to: RealmManager.listsRealm)
 		loadListsIntoTableView()
@@ -120,6 +137,7 @@ extension ListsViewController {
 			try manager.add(list)
 		} catch {
 			print("Couldn't create new list.")
+			UIAlertController.showAlert(with: "Could not create list.", on: self)
 		}
 	}
 }
