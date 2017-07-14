@@ -14,6 +14,7 @@ fileprivate enum ListsViewControllerMode {
 }
 
 class ListsViewController: BaseViewController {
+	@IBOutlet weak var newListButton: UIButton!
 	fileprivate var selectionCompleted: ((Bool) -> (Void))?
 	fileprivate var newInentory: [InventoryItem]?
 	fileprivate var mode: ListsViewControllerMode {
@@ -34,20 +35,30 @@ class ListsViewController: BaseViewController {
 		cellNibName = "ListTableViewCell"
 		reuseIdentifier = "ListCell"
 		
-		let lists = getListsFromRealm()
-		let section1 = TableViewSection(with: nil, rowData: lists)
-		section1.collapsed = false
-		section1.collapsible = false
-		sections.append(section1)
+		loadListsIntoTableView()
 	}
 	
-	func getListsFromRealm() -> [ItemList] {
+	fileprivate func loadListsIntoTableView() {
+		let lists = getListsFromRealm()
+		let section = buildSection(with: lists)
+		sections.removeAll()
+		sections.append(section)
+	}
+	
+	fileprivate func getListsFromRealm() -> [ItemList] {
 		guard let manager = try? RealmManager(fileNamed: RealmManager.listsRealm) else {
 			print("Couldn't find lists realm.")
 			return []
 		}
 		let listInventory = manager.getAllObjects(ItemList.self)
 		return Array(listInventory)
+	}
+
+	fileprivate func buildSection(with lists: [ItemList]) -> TableViewSection {
+		let section = TableViewSection(with: nil, rowData: lists)
+		section.collapsed = false
+		section.collapsible = false
+		return section
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -59,11 +70,6 @@ class ListsViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 	
 	func addToUserDefinedList(inventory: [InventoryItem], target: UIViewController, navigationController: UINavigationController?, completed: ((Bool) -> Void)?) {
 		newInentory = inventory
@@ -74,6 +80,48 @@ class ListsViewController: BaseViewController {
 		navigationController.viewControllers.append(self)
 		target.present(navigationController, animated: true, completion: nil)
 		selectionCompleted = completed
+	}
+}
+
+//MARK: -UIButton
+extension ListsViewController {
+	@IBAction func newListButtonTapped(_ sender: Any) {
+		let newListAlertController = UIAlertController(title: "New List", message: nil, preferredStyle: .alert)
+		newListAlertController.addTextField { (textField: UITextField) in
+			textField.placeholder = "List Name"
+		}
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		newListAlertController.addAction(cancelAction)
+		let createListAction = UIAlertAction(title: "Create", style: .default) { (action: UIAlertAction) in
+			self.createListActionTapped(alertAction: action, controller: newListAlertController)
+		}
+		newListAlertController.addAction(createListAction)
+		present(newListAlertController, animated: true, completion: nil)
+	}
+	
+	fileprivate func createListActionTapped(alertAction: UIAlertAction, controller alertController: UIAlertController) {
+		guard let listTitle = alertController.textFields![0].text else {
+			return
+		}
+		let newList = buildNewList(with: listTitle)
+		write(newList, to: RealmManager.listsRealm)
+		loadListsIntoTableView()
+		tableView.reloadData()
+	}
+	
+	fileprivate func buildNewList(with title: String) -> ItemList {
+		let newList = ItemList()
+		newList.title = title
+		return newList
+	}
+	
+	fileprivate func write(_ list: ItemList, to realmName: String) {
+		do {
+			let manager = try RealmManager(fileNamed: realmName)
+			try manager.add(list)
+		} catch {
+			print("Couldn't create new list.")
+		}
 	}
 }
 
@@ -100,7 +148,7 @@ extension ListsViewController {
 		if mode == .normal {
 			pushToSelectViewController(with: rowData, at: indexPath)
 		} else {
-			writeUpdate(rowData, realm: RealmManager.listsRealm)
+			writeUpdate(for: rowData, to: RealmManager.listsRealm)
 			dismiss(animated: true, completion: nil)
 		}
 		tableView.deselectRow(at: indexPath, animated: true)
@@ -112,11 +160,13 @@ extension ListsViewController {
 		navigationController?.pushViewController(listInventoryViewController, animated: true)
 	}
 	
-	func writeUpdate(_ itemList: ItemList, realm realmName: String) {
+	fileprivate func writeUpdate(for itemList: ItemList, to realmName: String) {
 		do {
 			let manager = try RealmManager(fileNamed: realmName)
 			try manager.update {
 				newInentory?.forEach({ (item: InventoryItem) in
+					item.listTitle = itemList.title
+					item.key = item.builtKey
 					itemList.inventory.append(item)
 				})
 			}

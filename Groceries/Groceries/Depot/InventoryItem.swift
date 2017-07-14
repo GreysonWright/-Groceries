@@ -12,8 +12,13 @@ import RealmSwift
 class InventoryItem: Object {
 	dynamic var title: String = ""
 	dynamic var price: Double = 0.0
+	dynamic var listTitle = ""
+	var key = ""
+	var builtKey: String {
+		return "\(listTitle)-\(title)"
+	}
 	
 	override static func primaryKey() -> String? {
-		return "title"
+		return "key"
 	}
 }
