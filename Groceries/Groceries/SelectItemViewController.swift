@@ -93,7 +93,7 @@ class SelectItemViewController: BaseViewController {
 		copiedItem.price = item.price
 		copiedItem.title = item.title
 		copiedItem.listTitle = RealmManager.favoritesRealm
-		copiedItem.key = copiedItem.builtKey
+		copiedItem.generatePrimaryKey()
 		return copiedItem
 	}
 	
@@ -136,6 +136,9 @@ class SelectItemViewController: BaseViewController {
 		let selectedRowData = extractRowData(from: selectedRows)
 		delete(items: selectedRowData, from: realm)
 		realodTableView(in: realm)
+		if realm != RealmManager.favoritesRealm {
+			updateListPrice()
+		}
 	}
 	
 	fileprivate func getSelectedRows() -> [TableViewRow] {
@@ -169,6 +172,21 @@ class SelectItemViewController: BaseViewController {
 		let section = buildSection(listItems: listItems)
 		sections = [section]
 		tableView.reloadData()
+	}
+	
+	fileprivate func updateListPrice() {
+		guard let manager = try? RealmManager(fileNamed: RealmManager.listsRealm) else {
+			UIAlertController.showAlert(with: "Could not find realm.", on: self)
+			return
+		}
+		do {
+			let list = try manager.getObject(ItemList.self, for: title!)
+			try manager.update {
+				list.calculateTotalPrice()
+			}
+		} catch {
+			UIAlertController.showAlert(with: "Could not update \(title!) price.", on: self)
+		}
 	}
 	
 	fileprivate func getObjects(from realm: String) -> [InventoryItem] {

@@ -21,4 +21,8 @@ class InventoryItem: Object {
 	override static func primaryKey() -> String? {
 		return "key"
 	}
+	
+	func generatePrimaryKey() {
+		key = builtKey
+	}
 }

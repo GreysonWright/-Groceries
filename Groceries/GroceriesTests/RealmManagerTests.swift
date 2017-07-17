@@ -154,7 +154,7 @@ class RealmManagerTests: XCTestCase {
 		item.title = name
 		item.price = price
 		item.listTitle = "test"
-		item.key = item.builtKey
+		item.storePrimaryKey()
 		return item
 	}
 	

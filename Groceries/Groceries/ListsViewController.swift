@@ -71,6 +71,11 @@ class ListsViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		tableView.reloadData()
+	}
+	
 	func addToUserDefinedList(inventory: [InventoryItem], target: UIViewController, navigationController: UINavigationController?, completed: ((Bool) -> Void)?) {
 		newInentory = inventory
 		guard let navigationController = navigationController else {
@@ -166,6 +171,7 @@ extension ListsViewController {
 			pushToSelectViewController(with: rowData, at: indexPath)
 		} else {
 			writeUpdate(for: rowData, to: RealmManager.listsRealm)
+			tableView.reloadData()
 			dismiss(animated: true, completion: nil)
 		}
 		tableView.deselectRow(at: indexPath, animated: true)
@@ -183,9 +189,10 @@ extension ListsViewController {
 			try manager.update {
 				newInentory?.forEach({ (item: InventoryItem) in
 					item.listTitle = itemList.title
-					item.key = item.builtKey
+					item.generatePrimaryKey()
 					itemList.inventory.append(item)
 				})
+				itemList.calculateTotalPrice()
 			}
 		} catch {
 			print("Could not update object.")

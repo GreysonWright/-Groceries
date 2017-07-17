@@ -17,4 +17,11 @@ class ItemList: Object {
 	override static func primaryKey() -> String? {
 		return "title"
 	}
+	
+	func calculateTotalPrice() {
+		totalPrice = 0
+		inventory.forEach { (item: InventoryItem) in
+			totalPrice += item.price
+		}
+	}
 }
