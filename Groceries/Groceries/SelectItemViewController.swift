@@ -66,6 +66,9 @@ class SelectItemViewController: BaseViewController {
 		if (realm == nil) {
 			deleteBarButton.isEnabled = false
 		}
+		if (realm == RealmManager.favoritesRealm) {
+			favoriteBarButton.isEnabled = false
+		}
 	}
 	
 	func favoriteBarButtonTapped() {
