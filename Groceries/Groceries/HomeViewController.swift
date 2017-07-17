@@ -68,7 +68,7 @@ extension HomeViewController {
 	
 	func buildFavoritesViewController(with cell: NestedCollectionTableViewCell) -> UIViewController{
 		let favorites = getFavoritesFromRealm()
-		let controller = SelectItemViewController(with: cell.titleTextLabel.text, listItems: favorites)
+		let controller = SelectItemViewController(with: cell.titleTextLabel.text, realm: RealmManager.favoritesRealm, listItems: favorites)
 		return controller
 	}
 	

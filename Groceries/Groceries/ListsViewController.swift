@@ -173,7 +173,7 @@ extension ListsViewController {
 	}
 	
 	func pushToSelectViewController(with rowData: ItemList, at indexPath: IndexPath) {
-		let listInventoryViewController = SelectItemViewController(with: rowData.title, listItems: Array(rowData.inventory))
+		let listInventoryViewController = SelectItemViewController(with: rowData.title, realm: RealmManager.listsRealm, listItems: Array(rowData.inventory))
 		navigationController?.pushViewController(listInventoryViewController, animated: true)
 	}
 	

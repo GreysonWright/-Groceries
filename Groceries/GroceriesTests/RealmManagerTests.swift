@@ -93,6 +93,15 @@ class RealmManagerTests: XCTestCase {
 		XCTAssertEqual(dbObjects.count, 0)
 	}
 	
+	func testRemoveMultiple() {
+		let items = buildItems()
+		try! manager.add(items)
+		var dbObjects = manager.getAllObjects(InventoryItem.self)
+		try! manager.delete(Array(dbObjects))
+		dbObjects = manager.getAllObjects(InventoryItem.self)
+		XCTAssertEqual(dbObjects.count, 0)
+	}
+	
 	func testReadAll() {
 		let items: [InventoryItem] = buildItems()
 		try! manager.add(items)
@@ -145,6 +154,8 @@ class RealmManagerTests: XCTestCase {
 		let item = InventoryItem()
 		item.title = name
 		item.price = price
+		item.listTitle = "test"
+		item.key = item.builtKey
 		return item
 	}
 	

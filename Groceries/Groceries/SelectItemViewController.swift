@@ -9,19 +9,27 @@
 import UIKit
 
 class SelectItemViewController: BaseViewController {
+	var realm: String?
 	@IBOutlet weak var toolbar: UIToolbar!
 	
-	convenience init(with title: String?, listItems: [InventoryItem]) {
-		let section1 = TableViewSection(with: nil, rowData: listItems)
-		section1.collapsed = false
-		section1.collapsible = false
-		self.init(with: title, sections: [section1])
+	convenience init(with title: String?, realm: String?, listItems: [InventoryItem]) {
+		self.init(with: title, realm: realm, sections: [])
+		let section1 = buildSection(listItems: listItems)
+		sections = [section1]
+		self.realm = realm
 	}
 	
-	convenience init(with title: String?, sections: [TableViewSection]) {
+	fileprivate func buildSection(listItems: [InventoryItem]) -> TableViewSection {
+		let section = TableViewSection(with: nil, rowData: listItems)
+		section.collapsed = false
+		section.collapsible = false
+		return section
+	}
+	
+	convenience init(with title: String?, realm: String?, sections: [TableViewSection]) {
 		self.init(nibName: "SelectItemViewController", bundle: nil)
 		self.title = title
-		
+		self.realm = realm
 		self.sections = sections
 	}
 	
@@ -48,24 +56,36 @@ class SelectItemViewController: BaseViewController {
 		}
 	}
 	
-	func addItemsToToolbar() {
+	fileprivate func addItemsToToolbar() {
 		let favoriteBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_star"), style: .plain, target: self, action: #selector(favoriteBarButtonTapped))
 		let flexibleSpaceItem1 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
 		let saveToBarButton = UIBarButtonItem(title: "Save To", style: .plain, target: self, action: #selector(saveToBarButtonTapped))
 		let flexibleSpaceItem2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
 		let deleteBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_clear"), style: .plain, target: self, action: #selector(deleteBarButtonTapped))
 		toolbar.items = [favoriteBarButton, flexibleSpaceItem1, saveToBarButton, flexibleSpaceItem2, deleteBarButton]
+		if (realm == nil) {
+			deleteBarButton.isEnabled = false
+		}
 	}
 	
 	func favoriteBarButtonTapped() {
 		let selectedRows = getSelectedRows()
-		let selectedRowData = extractRowData(from: selectedRows)
+		let selectedRowData = extractRowDataBuildingKey(from: selectedRows)
 		write(rowData: selectedRowData, to: RealmManager.favoritesRealm)
+	}
+	
+	fileprivate func write(rowData: [InventoryItem], to realmName: String) {
+		do {
+			let manager = try RealmManager(fileNamed: realmName)
+			try manager.updatingAdd(rowData)
+		} catch {
+			print("Could not write to favorites")
+		}
 	}
 	
 	func saveToBarButtonTapped() {
 		let selectedRows = getSelectedRows()
-		let selectedRowData = extractRowData(from: selectedRows)
+		let selectedRowData = extractRowDataBuildingKey(from: selectedRows)
 		let listsNavigationController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil)
 		let listViewController = ListsViewController(with: "Save To")
 		listViewController.addToUserDefinedList(inventory: selectedRowData, target: self.navigationController!, navigationController: listsNavigationController) { (completed: Bool) in
@@ -75,17 +95,23 @@ class SelectItemViewController: BaseViewController {
 	}
 	
 	func deleteBarButtonTapped() {
-		
+		guard let realm = realm else {
+			return
+		}
+		let selectedRows = getSelectedRows()
+		let selectedRowData = extractRowData(from: selectedRows)
+		delete(items: selectedRowData, from: realm)
+		realodTableView(in: realm)
 	}
 	
-	func getSelectedRows() -> [TableViewRow] {
+	fileprivate func getSelectedRows() -> [TableViewRow] {
 		let selectedRows = sections.flatMap { (section: TableViewSection) -> [TableViewRow] in
 			return section.selectedRows
 		}
 		return selectedRows
 	}
 	
-	func extractRowData(from rows: [TableViewRow]) -> [InventoryItem] {
+	fileprivate func extractRowDataBuildingKey(from rows: [TableViewRow]) -> [InventoryItem] {
 		let selectedRowData = rows.map { (row: TableViewRow) -> InventoryItem in
 			let rowData = row.data as! InventoryItem
 			rowData.listTitle = RealmManager.favoritesRealm
@@ -95,13 +121,41 @@ class SelectItemViewController: BaseViewController {
 		return selectedRowData 
 	}
 	
-	func write(rowData: [InventoryItem], to realmName: String) {
-		do {
-			let manager = try RealmManager(fileNamed: realmName)
-			try manager.updatingAdd(rowData)
-		} catch {
-			print("Could not write to favorites")
+	fileprivate func extractRowData(from rows: [TableViewRow]) -> [InventoryItem] {
+		let selectedRowData = rows.map { (row: TableViewRow) in
+			return row.data as! InventoryItem
 		}
+		return selectedRowData
+	}
+	
+	fileprivate func delete(items: [InventoryItem], from realm: String) {
+		guard let manager = try? RealmManager(fileNamed: realm) else {
+			UIAlertController.showAlert(with: "Could not find realm.", on: self)
+			return
+		}
+		do {
+			try manager.delete(items)
+		} catch {
+			UIAlertController.showAlert(with: "Could not delete selected item(s).", on: self)
+		}
+	}
+	
+	fileprivate func realodTableView(in realm: String) {
+		let listItems = getObjects(from: realm)
+		let section = buildSection(listItems: listItems)
+		sections = [section]
+		tableView.reloadData()
+	}
+	
+	fileprivate func getObjects(from realm: String) -> [InventoryItem] {
+		guard let manager = try? RealmManager(fileNamed: realm) else {
+			UIAlertController.showAlert(with: "Could not find realm.", on: self)
+			return []
+		}
+		
+		let results = manager.getAllObjects(InventoryItem.self)
+		let objects = Array(results)
+		return objects
 	}
 }
 
@@ -134,7 +188,7 @@ extension SelectItemViewController {
 		hideToolBarIfNeed()
 	}
 	
-	func hideToolBarIfNeed() {
+	fileprivate func hideToolBarIfNeed() {
 		if shouldShowToolbar() {
 			showToolbar()
 		} else {
@@ -142,22 +196,22 @@ extension SelectItemViewController {
 		}
 	}
 	
-	func shouldShowToolbar() -> Bool {
+	fileprivate func shouldShowToolbar() -> Bool {
 		let selectedRowCount = getSelectedRowCount()
 		return selectedRowCount > 0
 	}
 	
-	func showToolbar() {
+	fileprivate func showToolbar() {
 		tabBarController?.tabBar.isHidden = true
 		toolbar.isHidden = false
 	}
 	
-	func hideToolbar() {
+	fileprivate func hideToolbar() {
 		tabBarController?.tabBar.isHidden = false
 		toolbar.isHidden = true
 	}
 	
-	func getSelectedRowCount() -> Int {
+	fileprivate func getSelectedRowCount() -> Int {
 		var selectedRowCount = 0
 		sections.forEach { (section: TableViewSection) in
 			selectedRowCount += section.selectedRowCount

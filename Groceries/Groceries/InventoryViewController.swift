@@ -65,7 +65,7 @@ extension InventoryViewController {
 		let rowData = row.data as! StoreCategory
 		
 		let categorySections = buildCategorySections()
-		let selectItemViewController = SelectItemViewController(with: rowData.title, sections: categorySections)
+		let selectItemViewController = SelectItemViewController(with: rowData.title, realm: nil, sections: categorySections)
 		selectItemViewController.title = rowData.title
 		navigationController?.pushViewController(selectItemViewController, animated: true)
 		tableView.deselectRow(at: indexPath, animated: true)

@@ -92,6 +92,14 @@ class RealmManager {
 		}
 	}
 	
+	func delete(_ objects: [Object]) throws {
+		try realm.write {
+			objects.forEach({ (object: Object) in
+				realm.delete(object)
+			})
+		}
+	}
+	
 	func deleteAll() throws {
 		try realm.write {
 			realm.deleteAll()
