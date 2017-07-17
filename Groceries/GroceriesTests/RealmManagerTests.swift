@@ -44,7 +44,6 @@ class RealmManagerTests: XCTestCase {
 		let dbItems = manager.getAllObjects(InventoryItem.self)
 		let dbItem = dbItems.first!
 		XCTAssertEqual(dbItem.price, 10.0)
-
 	}
 	
 	func testAddMultiple() {
@@ -116,7 +115,7 @@ class RealmManagerTests: XCTestCase {
 	func testReadForPrimaryKey() {
 		let item = buildItem(with: "Item 0", price: 0.0)
 		try! manager.add(item)
-		let dbItem = try! manager.getObject(InventoryItem.self, for: "Item 0")
+		let dbItem = try! manager.getObject(InventoryItem.self, for: item.builtKey)
 		XCTAssertEqual(item.price, dbItem.price)
 	}
 	

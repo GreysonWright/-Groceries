@@ -70,9 +70,40 @@ class SelectItemViewController: BaseViewController {
 	
 	func favoriteBarButtonTapped() {
 		let selectedRows = getSelectedRows()
-		let selectedRowData = extractRowDataBuildingKey(from: selectedRows)
+		let selectedRowData = extractFavoriteRowData(from: selectedRows)
 		write(rowData: selectedRowData, to: RealmManager.favoritesRealm)
 	}
+	
+	
+	fileprivate func extractFavoriteRowData(from rows: [TableViewRow]) -> [InventoryItem] {
+		let selectedRowData = rows.map { (row: TableViewRow) -> InventoryItem in
+			let rowData = row.data as! InventoryItem
+			let copiedItem = buildItemCopy(item: rowData)
+			return copiedItem
+		}
+		return selectedRowData
+	}
+	
+	func buildItemCopy(item: InventoryItem) -> InventoryItem {
+		let copiedItem = InventoryItem()
+		copiedItem.title = item.title
+		copiedItem.price = item.price
+		copiedItem.title = item.title
+		copiedItem.listTitle = RealmManager.favoritesRealm
+		copiedItem.key = copiedItem.builtKey
+		return copiedItem
+	}
+	
+	fileprivate func copy(item: InventoryItem) -> InventoryItem {
+		let copiedItem = InventoryItem()
+		copiedItem.title = item.title
+		copiedItem.price = item.price
+		copiedItem.title = item.title
+		copiedItem.listTitle = item.listTitle
+		copiedItem.key = item.key
+		return copiedItem
+	}
+	
 	
 	fileprivate func write(rowData: [InventoryItem], to realmName: String) {
 		do {
@@ -85,7 +116,7 @@ class SelectItemViewController: BaseViewController {
 	
 	func saveToBarButtonTapped() {
 		let selectedRows = getSelectedRows()
-		let selectedRowData = extractRowDataBuildingKey(from: selectedRows)
+		let selectedRowData = extractRowData(from: selectedRows)
 		let listsNavigationController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil)
 		let listViewController = ListsViewController(with: "Save To")
 		listViewController.addToUserDefinedList(inventory: selectedRowData, target: self.navigationController!, navigationController: listsNavigationController) { (completed: Bool) in
@@ -109,16 +140,6 @@ class SelectItemViewController: BaseViewController {
 			return section.selectedRows
 		}
 		return selectedRows
-	}
-	
-	fileprivate func extractRowDataBuildingKey(from rows: [TableViewRow]) -> [InventoryItem] {
-		let selectedRowData = rows.map { (row: TableViewRow) -> InventoryItem in
-			let rowData = row.data as! InventoryItem
-			rowData.listTitle = RealmManager.favoritesRealm
-			rowData.key = rowData.builtKey
-			return rowData
-		}
-		return selectedRowData 
 	}
 	
 	fileprivate func extractRowData(from rows: [TableViewRow]) -> [InventoryItem] {
