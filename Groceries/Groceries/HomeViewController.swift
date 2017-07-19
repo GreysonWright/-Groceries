@@ -9,6 +9,9 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
+	fileprivate var favorites: [InventoryItem]!
+	fileprivate var lists: [ItemList]!
+	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		
@@ -19,6 +22,45 @@ class HomeViewController: BaseViewController {
 		reuseIdentifier = "NestedCollectionCell"
 		
 		sections.append(TableViewSection(with: nil))
+		
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		loadTableViewData()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		loadTableViewData()
+	}
+	
+	fileprivate func loadTableViewData() {
+		favorites = getFavorites()
+		lists = getLists()
+		tableView.reloadData()
+	}
+	
+	fileprivate func getFavorites() -> [InventoryItem] {
+		guard let manager = try? RealmManager(fileNamed: RealmManager.favoritesRealm) else {
+			UIAlertController.showAlert(with: "Could not find realm.", on: self)
+			return []
+		}
+		
+		let results = manager.getAllObjects(InventoryItem.self)
+		let objects = Array(results)
+		return objects
+	}
+	
+	fileprivate func getLists() -> [ItemList] {
+		guard let manager = try? RealmManager(fileNamed: RealmManager.listsRealm) else {
+			UIAlertController.showAlert(with: "Could not find realm.", on: self)
+			return []
+		}
+		
+		let results = manager.getAllObjects(ItemList.self)
+		let objects = Array(results)
+		return objects
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -45,10 +87,42 @@ extension HomeViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NestedCollectionTableViewCell
 		if indexPath.row == 0 {
 			cell.titleTextLabel.text = "Favorites"
+			cell.collectionViewData = buildDataFromFavorites()
+			cell.collectionView.reloadData()
 		} else {
 			cell.titleTextLabel.text = "Lists"
+			cell.collectionViewData = buildDataFromLists()
+			cell.collectionView.reloadData()
 		}
 		return cell
+	}
+	
+	fileprivate func buildDataFromFavorites() -> [BaseCollectionViewCellData] {
+		let data = favorites.map { (item: InventoryItem) in
+			return buildCellData(from: item)
+		}
+		return data
+	}
+	
+	fileprivate func buildCellData(from item: InventoryItem) -> BaseCollectionViewCellData {
+		let cellData = BaseCollectionViewCellData()
+		cellData.image = item.image
+		cellData.title = item.title
+		return cellData
+	}
+	
+	fileprivate func buildDataFromLists() -> [BaseCollectionViewCellData] {
+		let data = lists.map { (list: ItemList) in
+			return buildCellData(from: list)
+		}
+		return data
+	}
+	
+	fileprivate func buildCellData(from list: ItemList) -> BaseCollectionViewCellData {
+		let cellData = BaseCollectionViewCellData()
+		cellData.image = #imageLiteral(resourceName: "ic_description")
+		cellData.title = list.title
+		return cellData
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

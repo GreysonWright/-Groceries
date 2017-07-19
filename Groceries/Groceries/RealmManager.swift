@@ -75,7 +75,7 @@ class RealmManager {
 		}
 	}
 	
-	func getAllObjects<T>(_ type: T.Type) -> Results<T> {
+	func getAllObjects<T: AnyObject>(_ type: T.Type) -> Results<T> {
 		return realm.objects(type)
 	}
 	

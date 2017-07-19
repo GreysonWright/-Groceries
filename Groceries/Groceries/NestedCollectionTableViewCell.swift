@@ -11,8 +11,9 @@ import UIKit
 class NestedCollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var titleTextLabel: UILabel!
-	let collectionCellNibName = "BaseCollectionViewCell"
-	let collectionReuseIdentifier = "BaseCollectionCell"
+	fileprivate let collectionCellNibName = "BaseCollectionViewCell"
+	fileprivate let collectionReuseIdentifier = "BaseCollectionCell"
+	var collectionViewData: [BaseCollectionViewCellData]!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,11 +32,12 @@ class NestedCollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, 
 // MARK: - UICollectionView
 extension NestedCollectionTableViewCell {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
+		return min(collectionViewData.count, 10)
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionReuseIdentifier, for: indexPath)
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionReuseIdentifier, for: indexPath) as! BaseCollectionViewCell
+		cell.setContent(data: collectionViewData[indexPath.row])
 		return cell
 	}
 }
