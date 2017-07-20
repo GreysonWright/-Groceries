@@ -40,6 +40,7 @@
 		2E5404CD1EE3689000CCDF3A /* UICollectionView+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */; };
 		2E5404D11EE3697900CCDF3A /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5404CF1EE3697900CCDF3A /* BaseCollectionViewCell.swift */; };
 		2E5404D21EE3697900CCDF3A /* BaseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5404D01EE3697900CCDF3A /* BaseCollectionViewCell.xib */; };
+		2E57D8101F21041E0098F68B /* UIImage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E57D80F1F21041E0098F68B /* UIImage+Data.swift */; };
 		2E5C864A1EE48D7700CB3B38 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C86491EE48D7700CB3B38 /* BaseViewController.swift */; };
 		2E5C864D1EE4A45E00CB3B38 /* FatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C864C1EE4A45E00CB3B38 /* FatNavigationController.swift */; };
 		2E5C864F1EE4A70600CB3B38 /* FatNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C864E1EE4A70600CB3B38 /* FatNavigationBar.swift */; };
@@ -123,6 +124,7 @@
 		2E5404CC1EE3689000CCDF3A /* UICollectionView+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Setup.swift"; sourceTree = "<group>"; };
 		2E5404CF1EE3697900CCDF3A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E5404D01EE3697900CCDF3A /* BaseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseCollectionViewCell.xib; sourceTree = "<group>"; };
+		2E57D80F1F21041E0098F68B /* UIImage+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Data.swift"; sourceTree = "<group>"; };
 		2E5C86491EE48D7700CB3B38 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2E5C864C1EE4A45E00CB3B38 /* FatNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatNavigationController.swift; sourceTree = "<group>"; };
 		2E5C864E1EE4A70600CB3B38 /* FatNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatNavigationBar.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				2E1F8DF21F16D336008047BF /* RealmManager+Realms.swift */,
 				2ECC47901F19605A00FB129F /* UIAlertController+CustomAlert.swift */,
 				2EC521C01F2005CE00ABA23E /* UIImage+WebImage.swift */,
+				2E57D80F1F21041E0098F68B /* UIImage+Data.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -799,6 +802,7 @@
 				2E604F5C1E7CBF5800C65634 /* WebserviceData.swift in Sources */,
 				2E5C86521EE4EF5900CB3B38 /* UIColor+Colors.swift in Sources */,
 				2E5404D11EE3697900CCDF3A /* BaseCollectionViewCell.swift in Sources */,
+				2E57D8101F21041E0098F68B /* UIImage+Data.swift in Sources */,
 				2E604F5B1E7CBF5800C65634 /* TestData.swift in Sources */,
 				2ED0E60C1EF6584800F26008 /* AccountButtonTableViewCell.swift in Sources */,
 				2E5404C61EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift in Sources */,

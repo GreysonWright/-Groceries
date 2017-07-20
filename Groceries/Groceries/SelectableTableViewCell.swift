@@ -10,6 +10,7 @@ import UIKit
 
 class SelectableTableViewCell: UITableViewCell {
 	@IBOutlet weak var selectedIconImageView: UIImageView!
+	@IBOutlet weak var itemImageView: UIImageView!
 	@IBOutlet weak var titleTextLabel: UILabel!
 	@IBOutlet weak var priceTextLabel: UILabel!
 

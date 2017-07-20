@@ -64,6 +64,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="itemImageView" destination="npl-AW-298" id="4gm-nV-F4P"/>
                 <outlet property="priceTextLabel" destination="rjM-cU-7Kr" id="5he-kS-ck6"/>
                 <outlet property="selectedIconImageView" destination="FIQ-pw-Bh4" id="a9i-Wt-Bqe"/>
                 <outlet property="titleTextLabel" destination="xMw-GH-zlt" id="3rH-9s-igK"/>

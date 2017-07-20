@@ -75,6 +75,7 @@ extension InventoryViewController {
 		var inventoryData: [InventoryItem] = []
 		for i in 0...15 {
 			let inventoryItem = InventoryItem()
+			inventoryItem.imageData = #imageLiteral(resourceName: "ic_settings").base64EncodedString!
 			inventoryItem.title = "test\(i)"
 			inventoryItem.price = Double(i + i)
 			inventoryData.append(inventoryItem)

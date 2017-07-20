@@ -89,6 +89,7 @@ class SelectItemViewController: BaseViewController {
 	
 	func buildItemCopy(item: InventoryItem) -> InventoryItem {
 		let copiedItem = InventoryItem()
+		copiedItem.imageData = item.imageData
 		copiedItem.title = item.title
 		copiedItem.price = item.price
 		copiedItem.title = item.title
@@ -96,17 +97,6 @@ class SelectItemViewController: BaseViewController {
 		copiedItem.generatePrimaryKey()
 		return copiedItem
 	}
-	
-	fileprivate func copy(item: InventoryItem) -> InventoryItem {
-		let copiedItem = InventoryItem()
-		copiedItem.title = item.title
-		copiedItem.price = item.price
-		copiedItem.title = item.title
-		copiedItem.listTitle = item.listTitle
-		copiedItem.key = item.key
-		return copiedItem
-	}
-	
 	
 	fileprivate func write(rowData: [InventoryItem], to realmName: String) {
 		do {
@@ -212,6 +202,7 @@ extension SelectItemViewController {
 		let rowData = row.data as! InventoryItem
 		
 		let cell = super.tableView(tableView, cellForRowAt: indexPath) as! SelectableTableViewCell
+		cell.itemImageView?.image = rowData.image
 		cell.titleTextLabel.text = rowData.title
 		cell.priceTextLabel.text = String(format: "$%.2lf", rowData.price)
 		if !row.selected {

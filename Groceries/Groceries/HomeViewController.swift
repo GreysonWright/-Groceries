@@ -120,7 +120,7 @@ extension HomeViewController {
 	
 	fileprivate func buildCellData(from list: ItemList) -> BaseCollectionViewCellData {
 		let cellData = BaseCollectionViewCellData()
-		cellData.image = #imageLiteral(resourceName: "ic_description")
+		cellData.image = nil
 		cellData.title = list.title
 		return cellData
 	}
