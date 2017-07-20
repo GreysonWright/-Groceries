@@ -75,6 +75,7 @@ class SelectItemViewController: BaseViewController {
 		let selectedRows = getSelectedRows()
 		let selectedRowData = extractFavoriteRowData(from: selectedRows)
 		write(rowData: selectedRowData, to: RealmManager.favoritesRealm)
+		UIAlertController.showAlert(with: .seconds(1), message: "Added \(selectedRows.count) item(s) to favorites.", on: self)
 	}
 	
 	
