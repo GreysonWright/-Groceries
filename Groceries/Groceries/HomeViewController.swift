@@ -88,12 +88,11 @@ extension HomeViewController {
 		if indexPath.row == 0 {
 			cell.titleTextLabel.text = "Favorites"
 			cell.collectionViewData = buildDataFromFavorites()
-			cell.collectionView.reloadData()
 		} else {
 			cell.titleTextLabel.text = "Lists"
 			cell.collectionViewData = buildDataFromLists()
-			cell.collectionView.reloadData()
 		}
+		cell.collectionView.reloadData()
 		return cell
 	}
 	
