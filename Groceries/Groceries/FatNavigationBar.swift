@@ -11,7 +11,7 @@ import EasyPeasy
 
 class FatNavigationBar: UINavigationBar, FatNavigationControllerDelegate {
 	var titleLabel: UILabel?
-	var detailLabel: UILabel?
+//	var detailLabel: UILabel?
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -23,9 +23,9 @@ class FatNavigationBar: UINavigationBar, FatNavigationControllerDelegate {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	override func sizeThatFits(_ size: CGSize) -> CGSize {
-		return CGSize(width: UIScreen.main.bounds.width, height: 86)
-	}
+//	override func sizeThatFits(_ size: CGSize) -> CGSize {
+//		return CGSize(width: UIScreen.main.bounds.width, height: 86)
+//	}
 	
 	func navigationControllerDidLoad(title: String?) {
 		guard let title = title else {
@@ -54,34 +54,23 @@ extension FatNavigationBar {
 	}
 	
 	func navigationControllerPush(_ viewController: UIViewController, animated: Bool) {
-		detailLabel = UILabel()
-		detailLabel!.text = viewController.title
-		detailLabel!.font = UIFont(name: detailLabel!.font.fontName, size: 20) //UIFont.italicSystemFont(ofSize: 20)
-		detailLabel!.sizeToFit()
-		detailLabel!.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 2, y: frame.height - detailLabel!.frame.height - 15)
-		addSubview(detailLabel!)
-		
+		animateTitleLabelRight()
+	}
+	
+	fileprivate func animateTitleLabelRight() {
 		UIView.animate(withDuration: 0.36, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
 			self.titleLabel?.frame.origin = CGPoint(x: UIScreen.main.bounds.width - self.titleLabel!.frame.width - 15, y: 0)
 		}, completion: nil)
-		
-		UIView.animate(withDuration: 0.185, delay: 0 , options: .layoutSubviews, animations: {
-			self.detailLabel?.frame.origin = CGPoint(x: UIScreen.main.bounds.width - self.detailLabel!.frame.width - 15, y: self.detailLabel!.frame.origin.y)
-		}) { (completed: Bool) in
-			self.detailLabel?.font = UIFont.italicSystemFont(ofSize: 20)
-		}
 	}
 	
 	func navigationControllerPop(animated: Bool) {
+		animateTitleLabelLeft()
+	}
+	
+	fileprivate func animateTitleLabelLeft() {
 		UIView.animate(withDuration: 0.36, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
 			self.titleLabel?.frame.origin = CGPoint(x: 15, y: 0)
 		}, completion: nil)
-
-		UIView.animate(withDuration: 0.36, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
-			self.detailLabel?.frame.origin = CGPoint(x: UIScreen.main.bounds.width * 2, y: self.detailLabel!.frame.origin.y)
-		}) { (completed: Bool) in
-			self.detailLabel?.removeFromSuperview()
-		}
 	}
 	
 	func popCancelled() {

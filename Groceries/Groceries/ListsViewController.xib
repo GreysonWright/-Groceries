@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="newListButton" destination="Q1H-Eo-C2T" id="lwG-0u-Pyz"/>
                 <outlet property="tableView" destination="S9V-Z1-A6u" id="GPR-na-aw5"/>
+                <outlet property="titleLabel" destination="NGV-0r-7Xl" id="NlN-LD-0sO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S9V-Z1-A6u">
-                    <rect key="frame" x="0.0" y="38" width="375" height="629"/>
+                    <rect key="frame" x="0.0" y="62" width="375" height="605"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Zny-1r-lb4"/>
@@ -30,7 +31,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1H-Eo-C2T">
-                    <rect key="frame" x="15" y="0.0" width="360" height="30"/>
+                    <rect key="frame" x="15" y="24" width="360" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Fhs-EN-v8X"/>
                     </constraints>
@@ -40,10 +41,18 @@
                         <action selector="newListButtonTapped:" destination="-1" eventType="touchUpInside" id="zMv-Tb-f0W"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGV-0r-7Xl">
+                    <rect key="frame" x="308" y="0.0" width="49" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Q1H-Eo-C2T" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="D2Z-0y-usG"/>
+                <constraint firstAttribute="trailing" secondItem="NGV-0r-7Xl" secondAttribute="trailing" constant="18" id="7Ud-mb-w5g"/>
+                <constraint firstItem="Q1H-Eo-C2T" firstAttribute="top" secondItem="NGV-0r-7Xl" secondAttribute="bottom" id="I1V-fW-gVI"/>
+                <constraint firstItem="NGV-0r-7Xl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WBl-Db-Jdu"/>
                 <constraint firstAttribute="bottom" secondItem="S9V-Z1-A6u" secondAttribute="bottom" id="YIA-ta-rpP"/>
                 <constraint firstAttribute="trailing" secondItem="S9V-Z1-A6u" secondAttribute="trailing" id="bog-WZ-NwO"/>
                 <constraint firstItem="Q1H-Eo-C2T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="f77-eE-TAA"/>

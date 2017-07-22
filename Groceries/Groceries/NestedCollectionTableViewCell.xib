@@ -34,10 +34,6 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="17" minY="0.0" maxX="17" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <connections>
-                            <outlet property="dataSource" destination="-1" id="Elg-Vw-SW6"/>
-                            <outlet property="delegate" destination="-1" id="L2r-af-c7D"/>
-                        </connections>
                     </collectionView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_keyboard_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="BXc-el-pCH">
                         <rect key="frame" x="76" y="13" width="20" height="30"/>

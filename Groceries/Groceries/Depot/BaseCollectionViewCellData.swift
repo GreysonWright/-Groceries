@@ -11,4 +11,5 @@ import UIKit
 class BaseCollectionViewCellData {
 	var image: UIImage?
 	var title: String?
+	var data: Any?
 }

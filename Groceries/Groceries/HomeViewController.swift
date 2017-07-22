@@ -91,9 +91,18 @@ extension HomeViewController {
 		} else {
 			cell.titleTextLabel.text = "Lists"
 			cell.collectionViewData = buildDataFromLists()
+			cell.didSelectCollectionViewCell = didSelectListsCollectionCell
 		}
 		cell.collectionView.reloadData()
 		return cell
+	}
+	
+	fileprivate func didSelectListsCollectionCell(cellData: BaseCollectionViewCellData) {
+		guard let listData = cellData.data as? ItemList else {
+			return
+		}
+		let listInventoryViewController = SelectItemViewController(with: listData.title, realm: RealmManager.listsRealm, listItems: Array(listData.inventory))
+		navigationController?.pushViewController(listInventoryViewController, animated: true)
 	}
 	
 	fileprivate func buildDataFromFavorites() -> [BaseCollectionViewCellData] {
@@ -121,6 +130,7 @@ extension HomeViewController {
 		let cellData = BaseCollectionViewCellData()
 		cellData.image = nil
 		cellData.title = list.title
+		cellData.data = list
 		return cellData
 	}
 	

@@ -14,12 +14,14 @@ class NestedCollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, 
 	fileprivate let collectionCellNibName = "BaseCollectionViewCell"
 	fileprivate let collectionReuseIdentifier = "BaseCollectionCell"
 	var collectionViewData: [BaseCollectionViewCellData]!
+	var didSelectCollectionViewCell: ((BaseCollectionViewCellData) -> (Void))?
 	
     override func awakeFromNib() {
         super.awakeFromNib()
 		
 		collectionView.register(nib: collectionCellNibName, forCellReuseIdentifier: collectionReuseIdentifier)
 		collectionView.dataSource = self
+		collectionView.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,5 +41,9 @@ extension NestedCollectionTableViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionReuseIdentifier, for: indexPath) as! BaseCollectionViewCell
 		cell.setContent(data: collectionViewData[indexPath.row])
 		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		didSelectCollectionViewCell?(collectionViewData[indexPath.row])
 	}
 }

@@ -10,6 +10,7 @@ import UIKit
 import EasyPeasy
 
 class BaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+	@IBOutlet weak var titleLabel: UILabel?
 	@IBOutlet weak var tableView: UITableView!
 	var cellNibName = "BaseTableViewCell"
 	var reuseIdentifier = "BaseCell"
@@ -22,6 +23,15 @@ class BaseViewController: UIViewController, UITableViewDelegate, UITableViewData
 		
 		tableView.register(nib: cellNibName, forCellReuseIdentifier: reuseIdentifier)
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		titleLabel?.text = title
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.395) {
+			self.titleLabel?.font =  UIFont.italicSystemFont(ofSize: 20)
+		}
+	}
 }
 
 // MARK: - UITableView
