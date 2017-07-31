@@ -103,6 +103,13 @@ extension ListsViewController {
 			return
 		}
 		
+		guard !listExists(named: listTitle, realmName: RealmManager.listsRealm) else {
+			UIAlertController.showAlert(with: "A list with that name already exists.", on: self, dismiss: { (action: UIAlertAction) in
+				self.showNewListAlert()
+			})
+			return
+		}
+		
 		let newList = buildNewList(with: listTitle)
 		write(newList, to: RealmManager.listsRealm)
 		loadListsIntoTableView()
@@ -180,6 +187,17 @@ extension ListsViewController {
 	func pushToSelectViewController(with rowData: ItemList, at indexPath: IndexPath) {
 		let listInventoryViewController = SelectItemViewController(with: rowData.title, realm: RealmManager.listsRealm, listItems: Array(rowData.inventory))
 		navigationController?.pushViewController(listInventoryViewController, animated: true)
+	}
+	
+	fileprivate func listExists(named title: String, realmName: String) -> Bool {
+		do {
+			let manager = try RealmManager(fileNamed: realmName)
+			let list = try? manager.getObject(ItemList.self, for: title)
+			return list != nil
+		} catch {
+			fatalError("Realm not found")
+		}
+		return true
 	}
 	
 	fileprivate func writeUpdate(for itemList: ItemList, to realmName: String) {
