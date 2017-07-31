@@ -16,7 +16,7 @@ fileprivate enum ListsViewControllerMode {
 class ListsViewController: BaseViewController {
 	var newListAlertTextField: UITextField!
 	@IBOutlet weak var newListButton: UIButton!
-	fileprivate var selectionCompleted: ((Bool) -> (Void))?
+	fileprivate var selectionCompleted: (() -> (Void))?
 	fileprivate var newInentory: [InventoryItem]?
 	fileprivate var mode: ListsViewControllerMode {
 		if newInentory == nil {
@@ -76,7 +76,7 @@ class ListsViewController: BaseViewController {
 		tableView.reloadData()
 	}
 	
-	func addToUserDefinedList(inventory: [InventoryItem], target: UIViewController, navigationController: UINavigationController?, completed: ((Bool) -> Void)?) {
+	func addToUserDefinedList(inventory: [InventoryItem], target: UIViewController, navigationController: UINavigationController?, completed: (() -> Void)?) {
 		newInentory = inventory
 		guard let navigationController = navigationController else {
 			target.present(self, animated: true, completion: nil)
@@ -92,6 +92,21 @@ class ListsViewController: BaseViewController {
 extension ListsViewController {
 	@IBAction func newListButtonTapped(_ sender: Any) {
 		showNewListAlert()
+	}
+	
+	fileprivate func createListActionTapped(alertAction: UIAlertAction) {
+		let listTitle = newListAlertTextField.text!
+		guard !listTitle.isEmpty else {
+			UIAlertController.showAlert(with: "Please provide a list name.", on: self, dismiss: { (action: UIAlertAction) in
+				self.showNewListAlert()
+			})
+			return
+		}
+		
+		let newList = buildNewList(with: listTitle)
+		write(newList, to: RealmManager.listsRealm)
+		loadListsIntoTableView()
+		tableView.reloadData()
 	}
 	
 	fileprivate func showNewListAlert() {
@@ -113,21 +128,6 @@ extension ListsViewController {
 	fileprivate func configureAlertControllerTextField(textField: UITextField) {
 		textField.placeholder = "List Name"
 		newListAlertTextField = textField
-	}
-	
-	fileprivate func createListActionTapped(alertAction: UIAlertAction) {
-		let listTitle = newListAlertTextField.text!
-		guard !listTitle.isEmpty else {
-			UIAlertController.showAlert(with: "Please provide a list name.", on: self, dismiss: { (action: UIAlertAction) in
-				self.showNewListAlert()
-			})
-			return
-		}
-		
-		let newList = buildNewList(with: listTitle)
-		write(newList, to: RealmManager.listsRealm)
-		loadListsIntoTableView()
-		tableView.reloadData()
 	}
 	
 	fileprivate func buildNewList(with title: String) -> ItemList {
@@ -172,10 +172,9 @@ extension ListsViewController {
 		} else {
 			writeUpdate(for: rowData, to: RealmManager.listsRealm)
 			tableView.reloadData()
-			dismiss(animated: true, completion: nil)
+			dismiss(animated: true, completion: selectionCompleted)
 		}
 		tableView.deselectRow(at: indexPath, animated: true)
-		selectionCompleted?(true)
 	}
 	
 	func pushToSelectViewController(with rowData: ItemList, at indexPath: IndexPath) {

@@ -16,7 +16,8 @@ class FatNavigationController: UINavigationController, UINavigationControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
 		delegate = self
-		fatNavigationBar.set(title: viewControllers.first?.title)
+		fatNavigationBar.title = viewControllers.first?.title
+		fatNavigationBar.setup()
     }
 	
 	override func pushViewController(_ viewController: UIViewController, animated: Bool) {
@@ -24,7 +25,8 @@ class FatNavigationController: UINavigationController, UINavigationControllerDel
 		if viewControllers.count == 1 {
 			fatNavigationBar.animateTitleLabelRight()
 		} else {
-			fatNavigationBar.animateDetailLabelToTitleLabel()
+			fatNavigationBar.title = viewControllers.last?.title
+			fatNavigationBar.animateNestedPush()
 		}
 		super.pushViewController(viewController, animated: animated)
 	}
@@ -32,11 +34,18 @@ class FatNavigationController: UINavigationController, UINavigationControllerDel
 	override func popViewController(animated: Bool) -> UIViewController? {
 		if viewControllers.count < 3 {
 			fatNavigationBar.animateTitleLabelLeft()
+		} else if viewControllers.count == 3 {
+			fatNavigationBar.title = viewControllers.first?.title
+			fatNavigationBar.animateNestPop()
+		} else {
+			fatNavigationBar.title = viewControllers[viewControllers.count - 2].title
+			fatNavigationBar.animateNestPop()
 		}
 		return super.popViewController(animated: animated)
 	}
 	
 	override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+		fatNavigationBar.title = viewControllers.first?.title
 		fatNavigationBar.animateTitleLabelLeft()
 		return super.popToRootViewController(animated: true)
 	}
@@ -50,6 +59,7 @@ class FatNavigationController: UINavigationController, UINavigationControllerDel
 			self.navigationController(self, willShow: fromViewController, animated: animated)
 			let animationCompletion: TimeInterval = context.transitionDuration * Double(context.percentComplete)
 			DispatchQueue.main.asyncAfter(deadline: .now() + animationCompletion) {
+				self.fatNavigationBar.title = viewController.title
 				self.fatNavigationBar.popCancelled()
 			}
 		}

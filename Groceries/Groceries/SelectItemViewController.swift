@@ -114,7 +114,7 @@ class SelectItemViewController: BaseViewController {
 		let listsNavigationController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil)
 		let listViewController = ListsViewController(with: "Save To")
 		listViewController.titleLabelHidden = true
-		listViewController.addToUserDefinedList(inventory: selectedRowData, target: self.navigationController!, navigationController: listsNavigationController) { (completed: Bool) in
+		listViewController.addToUserDefinedList(inventory: selectedRowData, target: self.navigationController!, navigationController: listsNavigationController) {
 			self.hideToolbar()
 			self.navigationController?.popViewController(animated: true)
 		}
