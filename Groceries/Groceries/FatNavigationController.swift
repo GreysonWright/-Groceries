@@ -20,6 +20,7 @@ class FatNavigationController: UINavigationController, UINavigationControllerDel
     }
 	
 	override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+		fatNavigationBar.detailTitle = viewControllers.last?.title
 		if viewControllers.count == 1 {
 			fatNavigationBar.animateTitleLabelRight()
 		} else {

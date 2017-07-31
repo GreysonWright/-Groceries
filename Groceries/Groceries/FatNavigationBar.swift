@@ -10,8 +10,15 @@ import UIKit
 import EasyPeasy
 
 class FatNavigationBar: UINavigationBar {
+	fileprivate var titleLabelDefaultConstraints: [PositionAttribute] {
+		return [Leading(15), CenterY(0), Trailing(>=15)]
+	}
+	fileprivate var titleLabelPushedConstraints: [PositionAttribute] {
+		return [Leading(>=15), CenterY(0), Trailing(15)]
+	}
 	var titleLabel: UILabel?
 	var title: String?
+	var detailTitle: String?
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -37,6 +44,7 @@ class FatNavigationBar: UINavigationBar {
 		
 		titleLabel = buildTitleLabel(with: title)
 		addSubview(titleLabel!)
+		titleLabel! <- titleLabelDefaultConstraints
 	}
 	
 	func buildTitleLabel(with title: String) -> UILabel {
@@ -54,28 +62,53 @@ class FatNavigationBar: UINavigationBar {
 	}
 	
 	func animateTitleLabelRight() {
-		let newOrigin = CGPoint(x: UIScreen.main.bounds.width - self.titleLabel!.frame.width - 15, y: 0)
-		animateTitleLabel(to: newOrigin)
+		updateTitleLabelConstraints(titleLabelPushedConstraints)
+		animateLayoutIfNeeded(completion: nil)
 	}
 	
 	func animateTitleLabelLeft() {
-		let newOrigin = CGPoint(x: 15, y: 0)
-		animateTitleLabel(to: newOrigin)
+		updateTitleLabelConstraints(titleLabelDefaultConstraints)
+		animateLayoutIfNeeded(completion: nil)
 	}
 	
-	fileprivate func animateTitleLabel(to point: CGPoint) {
-		UIView.animate(withDuration: 0.36, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
-			self.titleLabel?.frame.origin = point
-		}, completion: nil)
+	func updateTitleLabelConstraints(_ constraints: [PositionAttribute]) {
+		titleLabel?.easy_clear()
+		titleLabel! <- constraints
 	}
 	
 	func animateDetailLabelToTitleLabel() {
-		let animationLabel = buildLabel(with: title!, font: UIFont.systemFont(ofSize: 20))
-		animationLabel.frame.origin = CGPoint(x: UIScreen.main.bounds.width - animationLabel.frame.width - 18, y: frame.height)
+		let animationLabel = buildLabel(with: detailTitle!, font: UIFont.systemFont(ofSize: 20))
 		addSubview(animationLabel)
+		animationLabel <- [Trailing(15), Top(frame.height)]
+		layoutIfNeeded()
+		
+		animationLabel.font = self.titleLabel?.font
+		animationLabel.easy_clear()
+		animationLabel <- [Trailing(15), CenterY(0)]
+		
+		animateWithSpringAndDamping(animations: { 
+			self.titleLabel?.alpha = 0
+			animationLabel.sizeToFit()
+			self.layoutIfNeeded()
+		}) { (completed: Bool) in
+			self.titleLabel?.alpha = 1
+			self.titleLabel?.text = animationLabel.text
+			animationLabel.easy_clear()
+			animationLabel.removeFromSuperview()
+		}
+	}
+	
+	fileprivate func animateLayoutIfNeeded(completion: ((Bool) -> Void)?) {
+		animateWithSpringAndDamping(animations: { 
+			self.layoutIfNeeded()
+		}, completion: nil)
+	}
+	
+	fileprivate func animateWithSpringAndDamping(animations: @escaping (() -> Void), completion: ((Bool) -> Void)?) {
+		UIView.animate(withDuration: 0.36, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: animations, completion: completion)
 	}
 	
 	func popCancelled() {
-		titleLabel?.frame.origin = CGPoint(x: UIScreen.main.bounds.width - self.titleLabel!.frame.width - 15, y: 0)
+		updateTitleLabelConstraints(titleLabelPushedConstraints)
 	}
 }
