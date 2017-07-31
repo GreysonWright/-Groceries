@@ -15,6 +15,7 @@ class BaseViewController: UIViewController, UITableViewDelegate, UITableViewData
 	var cellNibName = "BaseTableViewCell"
 	var reuseIdentifier = "BaseCell"
 	var sections: [TableViewSection] = []
+	var titleLabelHidden = false
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class BaseViewController: UIViewController, UITableViewDelegate, UITableViewData
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
+		titleLabel?.isHidden = titleLabelHidden
 		titleLabel?.text = title
 		DispatchQueue.main.asyncAfter(deadline: .now() + 0.395) {
 			self.titleLabel?.font =  UIFont.italicSystemFont(ofSize: 20)
