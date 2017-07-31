@@ -7,38 +7,36 @@
 //
 
 import UIKit
-import EasyPeasy
-
-@objc protocol FatNavigationControllerDelegate {
-	@objc optional func navigationControllerDidLoad(title: String?)
-	@objc optional func navigationControllerPush(_ viewController: UIViewController, animated: Bool)
-	@objc optional func navigationControllerPop(animated: Bool)
-	@objc optional func navigationControllerPopToRoot(animated: Bool)
-	@objc optional func popCancelled()
-}
 
 class FatNavigationController: UINavigationController, UINavigationControllerDelegate {
-	var updaterDelegate: FatNavigationControllerDelegate?
+	var fatNavigationBar: FatNavigationBar {
+		return navigationBar as! FatNavigationBar
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		delegate = self
-		updaterDelegate = navigationBar as! FatNavigationBar
-		updaterDelegate?.navigationControllerDidLoad?(title: viewControllers[0].title)
+		fatNavigationBar.set(title: viewControllers.first?.title)
     }
 	
 	override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+		if viewControllers.count == 1 {
+			fatNavigationBar.animateTitleLabelRight()
+		} else {
+			fatNavigationBar.animateDetailLabelToTitleLabel()
+		}
 		super.pushViewController(viewController, animated: animated)
-		updaterDelegate?.navigationControllerPush?(viewController, animated: animated)
 	}
 	
 	override func popViewController(animated: Bool) -> UIViewController? {
-		updaterDelegate?.navigationControllerPop?(animated: animated)
+		if viewControllers.count < 3 {
+			fatNavigationBar.animateTitleLabelLeft()
+		}
 		return super.popViewController(animated: animated)
 	}
 	
 	override func popToRootViewController(animated: Bool) -> [UIViewController]? {
-		updaterDelegate?.navigationControllerPopToRoot?(animated: animated)
+		fatNavigationBar.animateTitleLabelLeft()
 		return super.popToRootViewController(animated: true)
 	}
 	
@@ -51,7 +49,7 @@ class FatNavigationController: UINavigationController, UINavigationControllerDel
 			self.navigationController(self, willShow: fromViewController, animated: animated)
 			let animationCompletion: TimeInterval = context.transitionDuration * Double(context.percentComplete)
 			DispatchQueue.main.asyncAfter(deadline: .now() + animationCompletion) {
-				self.updaterDelegate?.popCancelled?()
+				self.fatNavigationBar.popCancelled()
 			}
 		}
 	}

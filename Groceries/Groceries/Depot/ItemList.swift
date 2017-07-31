@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 
 class ItemList: Object {
+	dynamic var dateCreated = Date()
 	dynamic var title = ""
 	dynamic var totalPrice: Double = 0.0
 	var inventory = List<InventoryItem>()
