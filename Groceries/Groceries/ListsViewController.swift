@@ -177,7 +177,7 @@ extension ListsViewController {
 		if mode == .normal {
 			pushToSelectViewController(with: rowData, at: indexPath)
 		} else {
-			writeUpdate(for: rowData, to: RealmManager.listsRealm)
+			addNewItemsIgnoringDuplicates(to: rowData, realmName: RealmManager.listsRealm)
 			tableView.reloadData()
 			dismiss(animated: true, completion: selectionCompleted)
 		}
@@ -200,19 +200,26 @@ extension ListsViewController {
 		return true
 	}
 	
-	fileprivate func writeUpdate(for itemList: ItemList, to realmName: String) {
+	fileprivate func addNewItemsIgnoringDuplicates(to itemList: ItemList, realmName: String) {
 		do {
 			let manager = try RealmManager(fileNamed: realmName)
 			try manager.update {
 				newInentory?.forEach({ (item: InventoryItem) in
 					item.listTitle = itemList.title
 					item.generatePrimaryKey()
-					itemList.inventory.append(item)
+					if isDuplicate(in: itemList, item) {
+						itemList.inventory.append(item)
+					}
 				})
 				itemList.calculateTotalPrice()
 			}
 		} catch {
 			print("Could not update object.")
 		}
+	}
+	
+	fileprivate func isDuplicate(in itemList: ItemList, _ item: InventoryItem) -> Bool {
+		let duplicates = itemList.inventory.filter("title = %@", item.title)
+		return duplicates.count != 0
 	}
 }
