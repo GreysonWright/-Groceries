@@ -207,7 +207,7 @@ extension ListsViewController {
 				newInentory?.forEach({ (item: InventoryItem) in
 					item.listTitle = itemList.title
 					item.generatePrimaryKey()
-					if isDuplicate(in: itemList, item) {
+					if !isDuplicate(in: itemList, item) {
 						itemList.inventory.append(item)
 					}
 				})
