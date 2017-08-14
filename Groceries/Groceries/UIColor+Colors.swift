@@ -25,20 +25,20 @@ extension UIColor {
 		return UIColor.white
 	}
 	
-	open class var tabBarForeground: UIColor {
-		return UIColor.white
-	}
-	
 	open class var tabBarBackground: UIColor {
-		return UIColor.white
+		return UIColor(red: 74 / 255, green: 73 / 255, blue: 71 / 255, alpha: 1)
 	}
 	
 	open class var tabBarTint: UIColor {
+		return UIColor(red: 98 / 255, green: 160 / 255, blue: 93 / 255, alpha: 1)
+	}
+	
+	open class var tabBarUnselectedTint: UIColor {
 		return UIColor.white
 	}
 	
 	open class var navBarForeground: UIColor {
-		return UIColor.white
+		return UIColor(red: 98 / 255, green: 160 / 255, blue: 93 / 255, alpha: 1)
 	}
 	
 	open class var navBarBackground: UIColor {

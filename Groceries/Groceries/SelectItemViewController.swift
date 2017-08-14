@@ -45,7 +45,7 @@ class SelectItemViewController: BaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		addItemsToToolbar()
+		setupToolbar()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -54,6 +54,12 @@ class SelectItemViewController: BaseViewController {
 		if !toolbar.isHidden {
 			hideToolbar()
 		}
+	}
+	
+	func setupToolbar() {
+		toolbar.barTintColor = UIColor.tabBarBackground
+		toolbar.tintColor = UIColor.tabBarTint
+		addItemsToToolbar()
 	}
 	
 	fileprivate func addItemsToToolbar() {

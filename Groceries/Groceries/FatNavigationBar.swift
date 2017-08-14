@@ -27,6 +27,7 @@ class FatNavigationBar: UINavigationBar {
 	}
 	
 	func configureFlatBarStyle() {
+		barTintColor = UIColor.navBarBackground
 		isTranslucent = false
 		setBackgroundImage(UIImage(), for: .default)
 		shadowImage = UIImage()
@@ -89,6 +90,7 @@ class FatNavigationBar: UINavigationBar {
 	
 	fileprivate func buildTitleLabel(with title: String) -> UILabel {
 		let label = buildLabel(with: title, font: UIFont.boldSystemFont(ofSize: 40))
+		label.textColor = UIColor.navBarForeground
 		label.frame.origin = CGPoint(x: 15, y: 0)
 		return label
 	}

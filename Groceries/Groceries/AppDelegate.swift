@@ -27,6 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		accountNavController.viewControllers.append(accountViewController)
 		
 		let tabBarController = UITabBarController()
+		tabBarController.tabBar.isTranslucent = false
+		tabBarController.tabBar.tintColor = UIColor.tabBarTint
+		tabBarController.tabBar.barTintColor = UIColor.tabBarBackground
+		if #available(iOS 10.0, *) {
+			tabBarController.tabBar.unselectedItemTintColor = UIColor.tabBarUnselectedTint
+		} else {
+			tabBarController.tabBar.tintColor = UIColor.tabBarUnselectedTint
+			tabBarController.tabBar.selectedImageTintColor = UIColor.tabBarTint
+		}
 		tabBarController.viewControllers = [homeNavController, inventoryNavController, accountNavController]
 		
 		window = UIWindow(frame: UIScreen.main.bounds)
