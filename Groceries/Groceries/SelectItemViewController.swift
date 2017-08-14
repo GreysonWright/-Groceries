@@ -119,7 +119,7 @@ class SelectItemViewController: BaseViewController {
 		let selectedRowData = extractRowData(from: selectedRows)
 		let listsNavigationController = FatNavigationController(navigationBarClass: FatNavigationBar.self, toolbarClass: nil)
 		let listViewController = ListsViewController(with: "Save To")
-		listViewController.titleLabelHidden = true
+		listViewController.isTitleLabelHidden = true
 		listViewController.addToUserDefinedList(inventory: selectedRowData, target: self.navigationController!, navigationController: listsNavigationController) {
 			self.hideToolbar()
 			self.navigationController?.popViewController(animated: true)
@@ -242,6 +242,14 @@ extension SelectItemViewController {
 		return selectedRowCount > 0
 	}
 	
+	fileprivate func getSelectedRowCount() -> Int {
+		var selectedRowCount = 0
+		sections.forEach { (section: TableViewSection) in
+			selectedRowCount += section.selectedRowCount
+		}
+		return selectedRowCount
+	}
+	
 	fileprivate func showToolbar() {
 		tabBarController?.tabBar.isHidden = true
 		toolbar.isHidden = false
@@ -250,13 +258,5 @@ extension SelectItemViewController {
 	fileprivate func hideToolbar() {
 		tabBarController?.tabBar.isHidden = false
 		toolbar.isHidden = true
-	}
-	
-	fileprivate func getSelectedRowCount() -> Int {
-		var selectedRowCount = 0
-		sections.forEach { (section: TableViewSection) in
-			selectedRowCount += section.selectedRowCount
-		}
-		return selectedRowCount
 	}
 }

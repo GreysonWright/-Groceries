@@ -10,35 +10,47 @@ import UIKit
 
 extension UIColor {
 	open class var primary: UIColor {
-		return UIColor.white
-	}
-	
-	open class var secondary: UIColor {
-		return UIColor.white
-	}
-	
-	open class var accent1: UIColor {
-		return UIColor.white
-	}
-	
-	open class var accent2: UIColor {
-		return UIColor.white
-	}
-	
-	open class var tabBarBackground: UIColor {
 		return UIColor(red: 74 / 255, green: 73 / 255, blue: 71 / 255, alpha: 1)
 	}
 	
-	open class var tabBarTint: UIColor {
+	open class var secondary: UIColor {
 		return UIColor(red: 98 / 255, green: 160 / 255, blue: 93 / 255, alpha: 1)
+	}
+	
+	open class var accent1: UIColor {
+		return UIColor(red: 119 / 255, green: 122 / 255, blue: 127 / 255, alpha: 1)
+	}
+	
+	open class var accent2: UIColor {
+		return UIColor(red: 140 / 255, green: 178 / 255, blue: 138 / 255, alpha: 1)
+	}
+	
+	open class var accent3: UIColor {
+		return UIColor(red: 179 / 255, green: 183 / 255, blue: 188 / 255, alpha: 1)
+	}
+	
+	open class var sectionTitle: UIColor {
+		return accent2
+	}
+	
+	open class var viewControllerTitle: UIColor {
+		return accent2
+	}
+	
+	open class var tabBarBackground: UIColor {
+		return primary
+	}
+	
+	open class var tabBarTint: UIColor {
+		return secondary
 	}
 	
 	open class var tabBarUnselectedTint: UIColor {
-		return UIColor.white
+		return accent3
 	}
 	
 	open class var navBarForeground: UIColor {
-		return UIColor(red: 98 / 255, green: 160 / 255, blue: 93 / 255, alpha: 1)
+		return secondary
 	}
 	
 	open class var navBarBackground: UIColor {

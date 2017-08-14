@@ -10,12 +10,19 @@ import UIKit
 import EasyPeasy
 
 class BaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+	@IBOutlet weak var titleLabelTopConstraint: NSLayoutConstraint?
 	@IBOutlet weak var titleLabel: UILabel?
 	@IBOutlet weak var tableView: UITableView!
 	var cellNibName = "BaseTableViewCell"
 	var reuseIdentifier = "BaseCell"
 	var sections: [TableViewSection] = []
-	var titleLabelHidden = false
+	var isTitleLabelHidden = false
+	var topOffsetHeight: CGFloat {
+		guard let navController = navigationController else { return 0 }
+		let statusBarHeight = UIApplication.shared.statusBarFrame.height
+		let navBarHeight = navController.navigationBar.frame.height
+		return statusBarHeight + navBarHeight
+	}
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -36,12 +43,23 @@ class BaseViewController: UIViewController, UITableViewDelegate, UITableViewData
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		
-		titleLabel?.isHidden = titleLabelHidden
+		offsetTitleLabel()
+		titleLabel?.isHidden = isTitleLabelHidden
+		titleLabel?.textColor = UIColor.viewControllerTitle
 		titleLabel?.text = title
 		DispatchQueue.main.asyncAfter(deadline: .now() + 0.395) {
 			self.titleLabel?.font =  UIFont.italicSystemFont(ofSize: 20)
 		}
+	}
+	
+	func offsetTitleLabel() {
+		titleLabelTopConstraint?.constant = topOffsetHeight
+	}
+
+	override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+		guard titleLabel != nil else { return }
+		tableView.contentInset.top = 0.0
 	}
 }
 
@@ -98,6 +116,7 @@ extension BaseViewController {
 	func buildHeaderTitleLabel(with title: String?) -> UILabel {
 		let label = UILabel()
 		label.text = title
+		label.textColor = UIColor.sectionTitle
 		label.font = UIFont.boldSystemFont(ofSize: 25)
 		label.sizeToFit()
 		return label

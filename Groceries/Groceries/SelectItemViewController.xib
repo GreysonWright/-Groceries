@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="tableView" destination="jyd-sL-3FU" id="KuS-ot-QNJ"/>
                 <outlet property="titleLabel" destination="tHe-Lk-Txb" id="LyL-SO-Q8P"/>
+                <outlet property="titleLabelTopConstraint" destination="A6V-yR-FNA" id="HnN-YF-W8i"/>
                 <outlet property="toolbar" destination="FRw-tz-ctg" id="LiK-0r-GXO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
