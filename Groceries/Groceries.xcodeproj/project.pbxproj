@@ -366,7 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				2EC521B81F1FFCCE00ABA23E /* Base */,
-				2EC521B91F1FFCD700ABA23E /* Nested */,
+				2EC521B91F1FFCD700ABA23E /* Nested Collection */,
 				2EC521BA1F1FFCE000ABA23E /* Selectable */,
 				2EC521BB1F1FFCE600ABA23E /* List */,
 				2EC521BC1F1FFCEC00ABA23E /* Account Field */,
@@ -435,13 +435,13 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
-		2EC521B91F1FFCD700ABA23E /* Nested */ = {
+		2EC521B91F1FFCD700ABA23E /* Nested Collection */ = {
 			isa = PBXGroup;
 			children = (
 				2E5404C41EE35FA000CCDF3A /* NestedCollectionTableViewCell.swift */,
 				2E5404C51EE35FA000CCDF3A /* NestedCollectionTableViewCell.xib */,
 			);
-			name = Nested;
+			name = "Nested Collection";
 			sourceTree = "<group>";
 		};
 		2EC521BA1F1FFCE000ABA23E /* Selectable */ = {

@@ -11,6 +11,7 @@ import UIKit
 class NestedCollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var titleTextLabel: UILabel!
+	@IBOutlet weak var titleDetailImageView: UIImageView!
 	fileprivate let collectionCellNibName = "BaseCollectionViewCell"
 	fileprivate let collectionReuseIdentifier = "BaseCollectionCell"
 	var collectionViewData: [BaseCollectionViewCellData]!
@@ -19,16 +20,21 @@ class NestedCollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, 
     override func awakeFromNib() {
         super.awakeFromNib()
 		
+		setupCollectionView()
+		colorSectionHeader()
+    }
+	
+	func colorSectionHeader() {
+		titleTextLabel.textColor = UIColor.sectionTitle
+		titleDetailImageView.image = titleDetailImageView.image?.withRenderingMode(.alwaysTemplate)
+		titleDetailImageView.tintColor = UIColor.sectionTitle
+	}
+	
+	func setupCollectionView() {
 		collectionView.register(nib: collectionCellNibName, forCellReuseIdentifier: collectionReuseIdentifier)
 		collectionView.dataSource = self
 		collectionView.delegate = self
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+	}
 }
 
 // MARK: - UICollectionView
