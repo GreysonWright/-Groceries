@@ -38,11 +38,11 @@ extension UIColor {
 	}
 	
 	open class var tabBarBackground: UIColor {
-		return primary
+		return secondary
 	}
 	
 	open class var tabBarTint: UIColor {
-		return secondary
+		return white
 	}
 	
 	open class var tabBarUnselectedTint: UIColor {

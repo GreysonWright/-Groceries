@@ -11,10 +11,10 @@ import EasyPeasy
 
 class FatNavigationBar: UINavigationBar {
 	fileprivate var titleLabelDefaultConstraints: [PositionAttribute] {
-		return [Leading(15), CenterY(0), Trailing(>=15)]
+		return [Leading(15), CenterY(-5), Trailing(>=15)]
 	}
 	fileprivate var titleLabelPushedConstraints: [PositionAttribute] {
-		return [Leading(>=15), CenterY(0), Trailing(15)]
+		return [Leading(>=15), CenterY(-5), Trailing(15)]
 	}
 	fileprivate var titleLabel: UILabel?
 	fileprivate var animationLabel: UILabel?
@@ -50,6 +50,7 @@ class FatNavigationBar: UINavigationBar {
 		
 		let animationLabelConstraints = [Trailing(15), Top(frame.height)]
 		animationLabel = buildLabel(with: detailTitle, font: UIFont.systemFont(ofSize: 20))
+		animationLabel?.textColor = UIColor.navBarForeground
 		addAnimationLabelToBar(constraints: animationLabelConstraints)
 		prepareAnimationLabelForPush()
 		animateWithSpringAndDamping(animations: nestedPushAnimation, completion: nestedPushCompletion)
@@ -91,7 +92,7 @@ class FatNavigationBar: UINavigationBar {
 	fileprivate func buildTitleLabel(with title: String) -> UILabel {
 		let label = buildLabel(with: title, font: UIFont.boldSystemFont(ofSize: 40))
 		label.textColor = UIColor.navBarForeground
-		label.frame.origin = CGPoint(x: 15, y: 0)
+		label.frame.origin = CGPoint(x: 15, y: 5)
 		return label
 	}
 	

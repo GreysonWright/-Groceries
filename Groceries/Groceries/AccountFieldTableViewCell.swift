@@ -16,14 +16,15 @@ class AccountFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
 		
+		setupTextField()
+    }
+	
+	func setupTextField() {
 		textField.delegate = self
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+		textField.tintColor = UIColor.secondary
+		textField.selectedTitleColor = UIColor.secondary
+		textField.selectedLineColor = UIColor.secondary
+	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		guard let textFieldReturnAction = textFieldReturnAction else {

@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		tabBarController.tabBar.isTranslucent = false
 		tabBarController.tabBar.tintColor = UIColor.tabBarTint
 		tabBarController.tabBar.barTintColor = UIColor.tabBarBackground
+		tabBarController.tabBar.layer.borderColor = UIColor.tabBarBackground.cgColor
 		if #available(iOS 10.0, *) {
 			tabBarController.tabBar.unselectedItemTintColor = UIColor.tabBarUnselectedTint
 		} else {

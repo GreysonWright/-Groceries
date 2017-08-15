@@ -20,27 +20,40 @@ class AccountViewController: BaseViewController {
 		title = "Account"
 		tabBarItem.image = UIImage.account
 		
-		let nameField = AccountField()
-		nameField.placeHolder = "Name"
-		
-		let emailField = AccountField()
-		emailField.placeHolder = "Email"
-		
-		let passwordField = AccountField()
-		passwordField.placeHolder = "Password"
-		
-		let accountFields = [nameField, emailField, passwordField]
-		
-		let fieldSection = TableViewSection(with: nil, rowData: accountFields)
-		fieldSection.collapsed = false
+		addSectionsToTableView()
+	}
+	
+	func addSectionsToTableView() {
+		let fieldPlaceHolders = ["NAME", "EMAIL", "PASSWORD"]
+		let accountFields = buildAccountFields(with: fieldPlaceHolders)
+		let fieldSection = buildFixedTableViewSection(with: accountFields)
 		
 		let saveButton = AccountField()
 		saveButton.text = "Save"
-		
-		let buttonSection = TableViewSection(with: nil, rowData: [saveButton])
-		buttonSection.collapsed = false
+		let buttonSection = buildFixedTableViewSection(with: [saveButton])
 		
 		sections = [fieldSection, buttonSection]
+	}
+	
+	func buildAccountFields(with placeHolders: [String]) -> [AccountField] {
+		var accountFields: [AccountField] = []
+		placeHolders.forEach { (placeHolder: String) in
+			let field = buildAccountField(with: placeHolder)
+			accountFields.append(field)
+		}
+		return accountFields
+	}
+	
+	func buildAccountField(with placeHolder: String) -> AccountField {
+		let accountField = AccountField()
+		accountField.placeHolder = placeHolder
+		return accountField
+	}
+	
+	func buildFixedTableViewSection(with data: [Any]) -> TableViewSection {
+		let section = TableViewSection(with: nil, rowData: data)
+		section.collapsed = false
+		return section
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -57,7 +70,11 @@ class AccountViewController: BaseViewController {
 // MARK: - UITableView
 extension AccountViewController {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 50
+		if indexPath.section < sections.count - 1 {
+			return 50
+		}
+		
+		return 70
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
