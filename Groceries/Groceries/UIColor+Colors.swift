@@ -38,7 +38,7 @@ extension UIColor {
 	}
 	
 	open class var tabBarBackground: UIColor {
-		return secondary
+		return accent2
 	}
 	
 	open class var tabBarTint: UIColor {
@@ -46,7 +46,7 @@ extension UIColor {
 	}
 	
 	open class var tabBarUnselectedTint: UIColor {
-		return accent3
+		return UIColor(red: 215 / 255, green: 215 / 255, blue: 215 / 255, alpha: 1)
 	}
 	
 	open class var navBarForeground: UIColor {

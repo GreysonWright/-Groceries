@@ -10,6 +10,7 @@ import UIKit
 
 class BaseCollectionViewCellData {
 	var image: UIImage?
+	var imageColor: UIColor?
 	var title: String?
 	var data: Any?
 }

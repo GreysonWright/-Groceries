@@ -14,10 +14,13 @@ class BaseCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 	
 	func setContent(data: BaseCollectionViewCellData) {
+		if (data.image != nil) {
+			itemImageView.backgroundColor = UIColor.clear
+		}
+		itemImageView.tintColor = data.imageColor
 		itemImageView.image = data.image
 		titleLabel.text = data.title
 	}

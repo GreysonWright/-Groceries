@@ -128,7 +128,8 @@ extension HomeViewController {
 	
 	fileprivate func buildCellData(from list: ItemList) -> BaseCollectionViewCellData {
 		let cellData = BaseCollectionViewCellData()
-		cellData.image = nil
+		cellData.imageColor = UIColor.primary
+		cellData.image = #imageLiteral(resourceName: "List").withRenderingMode(.alwaysTemplate)
 		cellData.title = list.title
 		cellData.data = list
 		return cellData
